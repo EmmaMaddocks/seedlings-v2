@@ -2,7 +2,10 @@ import {
     Input, InputGroup, Stack, InputRightElement, Box, Button, Heading, Text, Container, Flex
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom'
-  import { useState} from 'react'
+  import { useState } from 'react'
+
+
+
 
 const LogIn = () => {
 
@@ -12,10 +15,12 @@ const LogIn = () => {
 
 
 
+
 return (
     <>
+
 <Box size='50%'>
-<Heading textStyle='h1' size='3xl'  mx='100px' textAlign='center'>Welcome Back!</Heading>
+<Heading textStyle='h1' size='3xl'  mx='100px' textAlign='cent'>Welcome Back!</Heading>
 </Box>
 
 <Stack spacing={3}>
@@ -37,7 +42,10 @@ return (
         </Button>
       </InputRightElement>
     </InputGroup>
-<Button colorScheme='orange' size='lg'>Log In</Button>
+    <Box>
+<Button colorScheme='orange' size='lg' >Log In</Button>
+
+</Box>
 </Stack>
 <Flex flexDirection='column'>
 <Text fontSize='lg'>Not got an account?</Text> 
@@ -49,3 +57,4 @@ return (
 }
 
 export default LogIn
+

@@ -11,6 +11,8 @@ export function Wave() {
       background:
         `url(${wave}) top no-repeat`,
         position: 'absolute',
+        top: 0,
+        left:0,
         zIndex: 0,
         
     }
