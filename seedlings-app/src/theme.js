@@ -43,6 +43,12 @@ const theme = extendTheme({
         fonts: {
             heading: `'Love Ya Like A Sister', cursive`,
             body: `'Montserrat', sans-serif`
+        },
+
+        textStyles: {
+            h1: {
+                letterSpacing: '5pt'
+            }
         }
       
 
