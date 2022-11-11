@@ -19,20 +19,20 @@ return (
 </Box>
 
 <Stack spacing={3}>
-<Input placeholder='Parents Email Address' size='lg'     color='brand.2'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.2'/>
+<Input placeholder='Parents Email Address' size='lg'     color='white'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.lightgreen'/>
      
      <InputGroup size='md'>
       <Input
-      size='lg' color='brand.2'
+      size='lg' color='white'
         pr='4.5rem'
         type={show ? 'text' : 'password'}
         placeholder='Enter password'
-        focusBorderColor='brand.2'
+        focusBorderColor='brand.lightgreen'
         _placeholder={{ color: 'inherit' }}
       />
       <InputRightElement width='4.5rem'>
-        <Button bg='brand.2' h='2rem' size='sm' onClick={handleClick}>
+        <Button colorScheme='orange' h='2rem' size='sm' onClick={handleClick}>
           {show ? 'Hide' : 'Show'}
         </Button>
       </InputRightElement>

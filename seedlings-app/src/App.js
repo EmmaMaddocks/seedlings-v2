@@ -9,13 +9,17 @@ import '@fontsource/montserrat';
 import LandingPage from './components/LandingPage'
 import LogIn from './components/LogIn.jsx';
 import SignUp from './components/SignUp.jsx';
+import { Wave } from './components/Wave.jsx';
 
 
 function App() {
   return (
     <BrowserRouter>
     <ChakraProvider theme={theme}>
-      <Flex bg="brand.4" minW='100%' minH='100vh' color='white' display='flex' alignItems='center' justifyContent='center' flexDirection='column' gap={6}>
+    <Wave zIndex={2}/>
+      <Box bg='brand.lightbrown' minW='100%' minH='100vh' zIndex={1}></Box>
+
+      <Flex pos='absolute' pt='200px' top={0} left={0} right={0} zIndex={1} minH='100vh' color='white' display='flex' alignItems='center' justifyContent='center' flexDirection='column' gap={6}>
 
 
 <Routes>
@@ -23,18 +27,10 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
-{/* <Box size='50%'>
-<Heading textStyle='h1' size='3xl'>Howdy, Gardner!</Heading>
-</Box>
-
-<Button colorScheme='orange' size='lg'>Log In</Button>
-
-<Flex flexDirection='column'>
-<Text fontSize='lg'>Not got an account?</Text> 
-<Button colorScheme='orange' variant='link' size='lg'>Sign Up</Button>
-</Flex> */}
+    
 
 </Flex>
+
     </ChakraProvider>
     </BrowserRouter>
   );

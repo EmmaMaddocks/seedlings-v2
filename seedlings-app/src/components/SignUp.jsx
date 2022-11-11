@@ -18,16 +18,16 @@ return (
 </Box>
 
 <Stack spacing={3}>
-<Input placeholder='First Name' size='lg' color='brand.2'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.2'/>
-  <Input placeholder='Last Name' size='lg'     color='brand.2'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.2'/>
-      <Input placeholder='Parents Email Address' size='lg'     color='brand.2'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.2'/>
+<Input placeholder='First Name' size='md' color='brand.darkgreen'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.darkgreen'/>
+  <Input placeholder='Last Name' size='md'     color='brand.darkgreen'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.darkgreen'/>
+      <Input placeholder='Parents Email Address' size='md'     color='brand.darkgreen'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.darkgreen'/>
      
      <InputGroup size='md'>
       <Input
-      size='lg' color='brand.2'
+      size='md' color='brand.2'
         pr='4.5rem'
         type={show ? 'text' : 'password'}
         placeholder='Enter password'
@@ -35,24 +35,26 @@ return (
         _placeholder={{ color: 'inherit' }}
       />
       <InputRightElement width='4.5rem'>
-        <Button bg='brand.2' h='2rem' size='sm' onClick={handleClick}>
+        <Button colorScheme='orange' h='2rem' size='sm' onClick={handleClick}>
           {show ? 'Hide' : 'Show'}
         </Button>
       </InputRightElement>
     </InputGroup>
 
-    <FormLabel htmlFor='isRequired'>I have asked my parents permission to use this app</FormLabel>
-  <Switch colorScheme='teal' id='isRequired' isRequired />
-    <Button color='brand.2'>Sign Up</Button>
+    <FormLabel htmlFor='isRequired' fontSize='xs'>I have asked my parents permission to use this app</FormLabel>
+  <Switch colorScheme='orange' id='isRequired' isRequired />
+    <Button colorScheme='orange'>Sign Up</Button>
 
 </Stack>
 
 
 
-<Flex flexDirection='column'>
-<Text fontSize='lg'>Already got an account?</Text> 
-<Button colorScheme='orange' variant='link' size='lg' onClick={() => navigate("/login")}>Log in</Button>
-</Flex>
+
+{/* <Flex flexDirection='column'>
+<Text fontSize='sm'>Already got an account?
+<Button colorScheme='orange' variant='link' size='sm' onClick={() => navigate("/login")}>Log in</Button>
+</Text>
+</Flex> */}
 </>
 )
 }

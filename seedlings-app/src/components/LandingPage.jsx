@@ -10,6 +10,7 @@ const LandingPage = () => {
 return (
 
     <>
+    
 <Box size='50%'>
 <Heading textStyle='h1' size='3xl'>Howdy, Gardner!</Heading>
 </Box>

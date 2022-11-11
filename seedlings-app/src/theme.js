@@ -5,12 +5,12 @@ import {
 const theme = extendTheme({
     colors: {
         brand: {
-          1: '#DAD768',
-          2: '#6D8A0C',
-          3: '#FA9327',
-          4: '#FCBD63',
-          5: '#D4BF88',
-          6: '#F36F09'
+          'lightgreen': '#DAD768',
+          'darkgreen': '#6D8A0C',
+          'orange': '#FA9327',
+          'paleorange': '#FCBD63',
+          'lightbrown': '#D4BF88',
+          'redorange': '#F36F09'
         }
       },
 
