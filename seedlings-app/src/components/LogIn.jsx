@@ -15,7 +15,7 @@ const LogIn = () => {
 return (
     <>
 <Box size='50%'>
-<Heading textStyle='h1' size='3xl'>Welcome Back!</Heading>
+<Heading textStyle='h1' size='3xl'  mx='100px' textAlign='center'>Welcome Back!</Heading>
 </Box>
 
 <Stack spacing={3}>
