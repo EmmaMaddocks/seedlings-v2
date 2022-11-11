@@ -10,10 +10,9 @@ const LandingPage = () => {
 return (
 
     <>
-    
-<Box size='50%'>
-<Heading textStyle='h1' size='3xl'>Howdy, Gardner!</Heading>
-</Box>
+
+<Heading textStyle='h1' size='3xl' mx='30px' textAlign='center' >Howdy, Gardner!</Heading>
+
 
 <Button colorScheme='orange' size='lg' onClick={() => navigate("/login")}>Log In</Button>
 

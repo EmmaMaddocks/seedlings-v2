@@ -18,12 +18,12 @@ return (
 </Box>
 
 <Stack spacing={3}>
-<Input placeholder='First Name' size='md' color='brand.darkgreen'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.darkgreen'/>
-  <Input placeholder='Last Name' size='md'     color='brand.darkgreen'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.darkgreen'/>
-      <Input placeholder='Parents Email Address' size='md'     color='brand.darkgreen'
-    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.darkgreen'/>
+<Input placeholder='First Name' size='md' color='white'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.lightgreen'/>
+  <Input placeholder='Last Name' size='md'     color='white'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.lightgreen'/>
+      <Input placeholder='Parents Email Address' size='md'     color='white'
+    _placeholder={{ color: 'inherit' }} focusBorderColor='brand.lightgreen'/>
      
      <InputGroup size='md'>
       <Input
@@ -31,7 +31,7 @@ return (
         pr='4.5rem'
         type={show ? 'text' : 'password'}
         placeholder='Enter password'
-        focusBorderColor='brand.2'
+        focusBorderColor='brand.lightgreen'
         _placeholder={{ color: 'inherit' }}
       />
       <InputRightElement width='4.5rem'>
