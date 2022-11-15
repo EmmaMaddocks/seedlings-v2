@@ -9,9 +9,14 @@ import {
   List,
   ListItem,
   ListIcon,
+  Container
 } from '@chakra-ui/react';
 import { FaCheck, FaLongArrowAltRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import Trophy from './trophy';
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+
 
 function Profile() {
     const navigate = useNavigate();
@@ -23,9 +28,17 @@ function Profile() {
       justifyContent="center"
       gap={6}
     >
-      <Box p="4" bg="green.400">
-        Streak
-      </Box>
+
+      <Container size='2xs'>
+        <Canvas zIndex={1} flat linear >
+          <Suspense fallback={null}>
+            <Trophy />
+          </Suspense>
+        </Canvas>
+      </Container>
+      <Text>You've watered your garden for 4 days in a row!</Text>
+
+
       <Heading textStyle="h1">Welcome Thomas!</Heading>
 
       <Heading textStyle="h2">To do today:</Heading>
@@ -42,6 +55,7 @@ function Profile() {
       </List>
 
       <Heading textStyle="h2">Nearing Harvest:</Heading>
+
       <List spacing={3}>
         <ListItem>
           Carrots
@@ -60,6 +74,7 @@ function Profile() {
       >
         Visit Allotment
       </Button>
+      
     </Flex>
   );
 }
