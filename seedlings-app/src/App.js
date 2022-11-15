@@ -23,7 +23,7 @@ function App() {
   return (
 
     <BrowserRouter>
-        <Container height='100vh' width='100vw' bg='#ECDDC8'>
+        <Container height='100vh' width='100vw' bg='#FBF2E3'>
   <ChakraProvider theme={theme}>
       <Routes>
           <Route path="/" element={<LandingPage />} />

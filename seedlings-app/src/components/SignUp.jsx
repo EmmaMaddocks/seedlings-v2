@@ -35,70 +35,102 @@ const SignUp = () => {
           </Heading>
         </Box>
 
-        <Stack spacing={3}>
+        <Stack spacing={3} width="350px">
           <Input
             placeholder="First Name"
-            size="md"
+            size="lg"
             color="brand.darkgreen"
             _placeholder={{ color: 'inherit' }}
             focusBorderColor="brand.lightgreen"
+            bgColor="white"
+            borderColor="white"
+            borderRadius="10"
           />
           <Input
             placeholder="Last Name"
-            size="md"
+            size="lg"
             color="brand.darkgreen"
             _placeholder={{ color: 'inherit' }}
             focusBorderColor="brand.lightgreen"
+            bgColor="white"
+            borderColor="white"
+            borderRadius="10"
           />
           <Input
             placeholder="Parents Email Address"
-            size="md"
+            size="lg"
             color="brand.darkgreen"
             _placeholder={{ color: 'inherit' }}
             focusBorderColor="brand.lightgreen"
+            bgColor="white"
+            borderColor="white"
+            borderRadius="10"
           />
 
           <InputGroup size="md">
             <Input
-              size="md"
+              size="lg"
               pr="4.5rem"
               type={show ? 'text' : 'password'}
               placeholder="Enter password"
-              borderColor='brand.darkgreen'
+              border="white"
+              borderRadius="10"
               focusBorderColor="brand.lightgreen"
               color="brand.darkgreen"
               _placeholder={{ color: 'inherit' }}
+              bgColor="white"
             />
             <InputRightElement width="4.5rem">
               <Button
-                colorScheme="orange"
-                h="2rem"
+                color="white"
+                bgColor="#ED965C"
+                h="2.5rem"
                 size="sm"
                 onClick={handleClick}
+                borderRadius="10"
               >
                 {show ? 'Hide' : 'Show'}
               </Button>
             </InputRightElement>
           </InputGroup>
 
-          <Flex direction="row" gap={2}>
+          <Flex
+            direction="row"
+            gap={2}
+            alignContent="space-between"
+            justifyContent="center"
+          >
             <FormLabel
               htmlFor="isRequired"
               fontSize="xs"
               color="brand.darkgreen"
             >
               I have my parents permission to use this app
-              <Switch colorScheme="orange" id="isRequired" isRequired />
             </FormLabel>
+            <Switch colorScheme="orange" id="isRequired" isRequired />
           </Flex>
-          <Button colorScheme="orange">Sign Up</Button>
-        </Stack>
 
-        <Flex flexDirection='column'>
-<Text fontSize='sm'>Already got an account?
-<Button colorScheme='orange' variant='link' size='sm' onClick={() => navigate("/login")}>Log in</Button>
-</Text>
-</Flex>
+          <Button color="white" bgColor="#ED965C" borderRadius={20}>
+            Sign Up
+          </Button>
+
+          <Flex
+            direction="row"
+            gap={2}
+            alignContent="space-between"
+            justifyContent="center"
+          >
+            <Text fontSize="sm">Already got an account?</Text>
+            <Button
+              colorScheme="orange"
+              variant="link"
+              size="sm"
+              onClick={() => navigate('/login')}
+            >
+              Log in
+            </Button>
+          </Flex>
+        </Stack>
       </Flex>
     </>
   );

@@ -7,7 +7,7 @@ const theme = extendTheme({
         brand: {
           'lightgreen': '#DAD768',
           'darkgreen': '#6D8A0C',
-          'orange': '#FA9327',
+          'orange': '#ED965C',
           'paleorange': '#FCBD63',
           'lightbrown': '#D4BF88',
           'redorange': '#F36F09'
