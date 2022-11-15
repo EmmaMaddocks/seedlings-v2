@@ -25,17 +25,18 @@ function Nav() {
 
   return (
     <>
-      <Button ref={btnRef} color='brand.darkgreen' bgColor='transparent' onClick={onOpen} margin={5} >
+      <Button position='absolute' right='0' ref={btnRef} color='brand.darkgreen' bgColor='transparent' onClick={onOpen} margin={5} >
         <Icon as={FaBars} w={10} h={10}/>
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement="right"
+        placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
+
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent >
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
 
@@ -58,10 +59,10 @@ function Nav() {
 
 
           <DrawerFooter>
-            <Button  as={NavLink} to="/login" variant="outline" mr={3} onClick={onClose}>
+            <Button  as={NavLink} to="/login"  mr={3} onClick={onClose} bgColor='brand.paleorange'>
               Log In
             </Button>
-            <Button as={NavLink} to="/signup" onClick={onClose}>Sign up</Button>
+            <Button as={NavLink} to="/signup" onClick={onClose} bgColor='brand.paleorange'>Sign up</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
