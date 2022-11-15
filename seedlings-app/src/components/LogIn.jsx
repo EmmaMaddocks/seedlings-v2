@@ -24,7 +24,7 @@ return (
 
 <Box size='50%'>
 
-<Heading textStyle='h1' size='3xl'  mx='100px' textAlign='cent'>Welcome Back!</Heading>
+<Heading textStyle='h1' size='3xl'  mx='100px'>Welcome Back!</Heading>
 </Box>
 
 <VStack spacing={3} align='center'>
