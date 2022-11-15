@@ -47,8 +47,13 @@ const theme = extendTheme({
 
         textStyles: {
             h1: {
-                letterSpacing: '5pt'
+                letterSpacing: '5pt',
+                color: '#6D8A0C'
+            },
+            input: {
+              color: '#6D8A0C' 
             }
+            
         }
       
 

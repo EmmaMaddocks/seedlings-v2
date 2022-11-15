@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, {Suspense}  from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
@@ -11,29 +10,30 @@ import '@fontsource/montserrat';
 import LandingPage from './components/LandingPage'
 import LogIn from './components/LogIn.jsx';
 import SignUp from './components/SignUp.jsx';
+import { CSSTransition } from 'react-transition-group'
+
+
+
+
 
 
 function App() {
 
+
   return (
+
     <BrowserRouter>
-    <ChakraProvider theme={theme}>
- 
-      <Box bg='brand.lightbrown' minW='100%' minH='100vh' zIndex={1}></Box>
-
-      <Flex pos='absolute' pt='200px' top={0} left={0} right={0} zIndex={1} minH='100vh' color='white' display='flex' alignItems='center' justifyContent='center' flexDirection='column' gap={6}>
-
-
+        <Container height='100vh' width='100vw' bg='#ECDDC8'>
+  <ChakraProvider theme={theme}>
       <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
-    
-
-</Flex>
-
     </ChakraProvider>
+  </Container>
+
+
     </BrowserRouter>
   );
 }
