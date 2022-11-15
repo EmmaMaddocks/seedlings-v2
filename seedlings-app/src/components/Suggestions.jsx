@@ -43,8 +43,8 @@ import {
 
           {/* need to list out card for each suggested plant */}
 
-          <Card maxW='sm'>
-  <CardBody>
+          <Card maxW='sm' bgColor='brand.paleorange'>
+  <CardBody  >
     <Image
       src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
       alt='vegetable'
@@ -59,7 +59,7 @@ import {
   </CardBody>
   <CardFooter>
     <ButtonGroup spacing='2'>
-      <Button variant='solid' colorScheme='blue'>
+      <Button variant='solid' bgColor='white'>
         Add to my allotment
       </Button>
 

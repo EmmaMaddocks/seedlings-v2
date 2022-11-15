@@ -12,6 +12,7 @@ import {
   Text,
   Stack,
   DrawerFooter,
+  Icon
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
@@ -24,8 +25,8 @@ function Nav() {
 
   return (
     <>
-      <Button ref={btnRef} colorScheme="teal" onClick={onOpen} >
-        <FaBars/>
+      <Button ref={btnRef} color='brand.darkgreen' bgColor='transparent' onClick={onOpen} margin={5} >
+        <Icon as={FaBars} w={10} h={10}/>
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -45,6 +46,9 @@ function Nav() {
             </Link></p>
             <p><Link as={NavLink} to="/allotment" onClick={onClose}>
               My Allotment
+            </Link></p>
+            <p><Link as={NavLink} to="/growingconditions" onClick={onClose} >
+              Choose Items
             </Link></p>
             <p><Link as={NavLink} to="/soiltesting" onClick={onClose} >
               Soil Testing

@@ -56,7 +56,7 @@ function Profile() {
       <Button
         colorScheme="orange"
         size="lg"
-        onClick={() => navigate('/login')}
+        onClick={() => navigate('/allotment')}
       >
         Visit Allotment
       </Button>

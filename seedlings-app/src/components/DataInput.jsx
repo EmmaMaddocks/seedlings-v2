@@ -39,20 +39,20 @@ import {
           <Stack spacing={3} width="350px">
 
             <Text>Where would you like to grow?</Text>
-          <Select  variant='filled'>
+          <Select  variant='filled' bgColor='white'>
           <option value='Indoor'>Indoors</option>
   <option value='Outdoor'>Outdoors</option>
   </Select>
 
   <Text>Is there area sunny or shady?</Text>
-          <Select  variant='filled'>
+          <Select  variant='filled' bgColor='white'>
           <option value='Sunny'>Sunny</option>
   <option value='Shady'>Shady</option>
   <option value='Both'>Both</option>
   </Select>
 
   <Text>What type of soil do you have?</Text>
-  <Select  variant='filled'>
+  <Select  variant='filled' bgColor='white'>
           <option value='Sunny'>I'm not sure</option>
   <option value='Sandy'>Sandy</option>
   <option value='Clay'>Clay</option>
@@ -63,12 +63,12 @@ import {
   </Select>
 
   <Text>Lastly, would you prefer to grow fruit or vegetables?</Text>
-          <Select  variant='filled' >
+          <Select  variant='filled' bgColor='white' >
           <option value='Fruit'>Fruit</option>
   <option value='Vegetables'>Vegetables</option>
   <option value='Both'>Both</option>
   </Select>
-  <Button color="white" bgColor="#ED965C" borderRadius={20}>
+  <Button color="white" bgColor="#ED965C" borderRadius={20} onClick={() => navigate("/suggestions")} >
            Lets Grow!
           </Button>
 
