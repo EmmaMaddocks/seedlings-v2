@@ -17,7 +17,7 @@ function Profile() {
     const navigate = useNavigate();
   return (
     <Flex
-      height="100vh"
+      height="70vh"
       direction="column"
       alignItems="center"
       justifyContent="center"

@@ -12,7 +12,10 @@ import {
   Text,
   Stack,
   DrawerFooter,
-  Icon
+  Icon,
+  Flex,
+  Heading,
+  Spacer
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
@@ -25,9 +28,13 @@ function Nav() {
 
   return (
     <>
-      <Button position='absolute' right='0' ref={btnRef} color='brand.darkgreen' bgColor='transparent' onClick={onOpen} margin={5} >
+    <Flex padding={10}>
+        <Heading>Saplings</Heading>
+    <Spacer />
+      <Button ref={btnRef} color='brand.darkgreen' bgColor='transparent' onClick={onOpen}  >
         <Icon as={FaBars} w={10} h={10}/>
       </Button>
+      </Flex>
       <Drawer
         isOpen={isOpen}
         placement="left"
