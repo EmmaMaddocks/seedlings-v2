@@ -57,7 +57,7 @@ function Nav() {
             <Button  as={NavLink} to="/login" variant="outline" mr={3} onClick={onClose}>
               Log In
             </Button>
-            <Button colorScheme="blue">Sign up</Button>
+            <Button as={NavLink} to="/signup" onClick={onClose}>Sign up</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

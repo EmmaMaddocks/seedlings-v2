@@ -13,6 +13,7 @@ import DataInput from  './components/DataInput.jsx';
 import Suggestions from  './components/Suggestions.jsx';
 import Nav from  './components/Nav.jsx';
 import { CSSTransition } from 'react-transition-group'
+import Profile from './components/Profile.jsx';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/growingconditions" element={<DataInput />} />
           <Route path="/suggestions" element={<Suggestions />} />
         </Routes>
