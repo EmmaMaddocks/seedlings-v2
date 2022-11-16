@@ -24,7 +24,7 @@ const {
 } = crop;
 
     return (
-    <Card maxW='sm' bgColor='brand.paleorange'>
+    <Card maxW='sm' maxH='m' bgColor='brand.paleorange'>
     <CardBody  >
       <Image
         src={picture}
@@ -41,7 +41,7 @@ const {
     <CardFooter>
       <ButtonGroup spacing='2'>
         <Button variant='solid' bgColor='white'>
-          Add to my allotment
+          Add to my seeds
         </Button>
   
       </ButtonGroup>

@@ -11,9 +11,8 @@ import {
   ListIcon,
   Card,
   CardBody,
-  Stack,
-  CardFooter,
-  Image,
+  CircularProgress,
+  CircularProgressLabel,
   CardHeader,
   Container,
 } from '@chakra-ui/react';
@@ -106,10 +105,21 @@ function Profile() {
   </Card>
   <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
-    <Text textStyle='cardHeader'>Nearing Harvest</Text>
+    <Text textStyle='cardHeader'>Coming up</Text>
     </CardHeader>
-    <CardBody>
+    <CardBody paddingTop={0}>
+        <Flex direction='row' alignItems='center' justifyContent='space-between'>
       <Text>Tomatoes</Text>
+      <CircularProgress value={40} color='brand.orange'>
+  <CircularProgressLabel>40%</CircularProgressLabel>
+</CircularProgress>
+</Flex>
+<Flex direction='row' alignItems='center' justifyContent='space-between' >
+      <Text>Peas</Text>
+      <CircularProgress value={30} color='brand.orange'>
+  <CircularProgressLabel>30%</CircularProgressLabel>
+</CircularProgress>
+</Flex>
     </CardBody>
   </Card>
   <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
