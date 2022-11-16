@@ -55,11 +55,17 @@ function Nav() {
             <p><Link as={NavLink} to="/allotment" onClick={onClose}>
               My Allotment
             </Link></p>
+            <p><Link as={NavLink} to="/seeds" onClick={onClose}>
+              My Seeds
+            </Link></p>
             <p><Link as={NavLink} to="/growingconditions" onClick={onClose} >
               Choose Items
             </Link></p>
             <p><Link as={NavLink} to="/soiltesting" onClick={onClose} >
               Soil Testing
+            </Link></p>
+            <p><Link as={NavLink} to="/carrot" onClick={onClose} >
+              Carrot
             </Link></p>
             </Stack>
           </DrawerBody>

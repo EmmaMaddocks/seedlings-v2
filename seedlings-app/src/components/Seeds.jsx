@@ -9,9 +9,9 @@ import {
   import { useState, useEffect } from 'react';
  import Loading from './Loading'
  import * as api from "../utils/api";
-import CropCard from './CropCard';
+import SeedCard from './SeedCard';
   
-  const Suggestions = () => {
+  const Seeds = () => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
@@ -49,14 +49,14 @@ import CropCard from './CropCard';
         >
           <Box size="60vw">
             <Heading textStyle="h1" size="3xl" >
-              Here's what we suggest..
+              Your saved seeds
             </Heading>
           </Box>
 
           <Stack gap={3}>
 
         {crops.map((crop) => {
-          return <CropCard key={crop.crop_id} crop={crop} />;
+          return <SeedCard key={crop.crop_id} crop={crop} />;
         })}
       </Stack>
 
@@ -68,5 +68,5 @@ import CropCard from './CropCard';
     );
   };
   
-  export default Suggestions;
+  export default Seeds;
   

@@ -41,7 +41,7 @@ const {
     <CardFooter>
       <ButtonGroup spacing='2'>
         <Button variant='solid' bgColor='white'>
-          Plant Seeds
+          Add to my allotment
         </Button>
   
       </ButtonGroup>

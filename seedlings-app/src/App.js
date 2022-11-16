@@ -14,7 +14,10 @@ import Suggestions from  './components/Suggestions.jsx';
 import Nav from  './components/Nav.jsx';
 import { CSSTransition } from 'react-transition-group'
 import Profile from './components/Profile.jsx';
-
+import Seeds from './components/Seeds.jsx';
+import Allotment from './components/Allotment.jsx';
+import CropInfo from './components/CropInfo.jsx'
+import HarvestedCrop from './components/HarvestedCrop.jsx';
 
 
 
@@ -37,6 +40,10 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/growingconditions" element={<DataInput />} />
           <Route path="/suggestions" element={<Suggestions />} />
+          <Route path="/allotment" element={<Allotment />} />
+          <Route path="/seeds" element={<Seeds />} />
+          <Route path="/carrot" element={<CropInfo />} />
+          <Route path="/harvestsuccess" element={<HarvestedCrop />} />
         </Routes>
     </ChakraProvider>
   </Container>

@@ -32,3 +32,14 @@ export const getProfileData = () => {
       return data;
     })
 };
+
+
+export const getPlantedCrop = () => {
+    let path = `allotment/carrots`
+    return api
+    .get(path)
+    .then(({ data }) => {
+        console.log(data)
+      return data;
+    })
+};
