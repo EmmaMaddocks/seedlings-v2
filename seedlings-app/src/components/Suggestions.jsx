@@ -1,27 +1,41 @@
 import {
     Box,
-    Button,
     Heading,
-    Text,
-    FormLabel,
-    Switch,
-    Stack,
-    Input,
     Flex,
-    Card,
-    Image,
-    CardBody,
-    Divider,
-    CardFooter,
-    ButtonGroup
+    Container,
+    Stack
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
-  import { useState } from 'react';
+  import { useState, useEffect } from 'react';
+ import Loading from './Loading'
+ import * as api from "../utils/api";
+import SeedCard from './SeedCard';
   
   const Suggestions = () => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
+
+    const [crops, setCrops] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null)
+  
+  
+    useEffect(() => {
+      setIsLoading(true);
+      api
+        .getCrops()
+        .then((data) => {
+          setCrops(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setIsLoading(false);
+        });
+    }, []);
+  
+    if (isLoading) return <Loading />;
   
     return (
       <>
@@ -38,35 +52,17 @@ import {
               Here's what we suggest..
             </Heading>
           </Box>
-  
-  
+
+          <Stack gap={3}>
+
+        {crops.map((crop) => {
+          return <SeedCard key={crop.crop_id} crop={crop} />;
+        })}
+      </Stack>
 
           {/* need to list out card for each suggested plant */}
 
-          <Card maxW='sm' bgColor='brand.paleorange'>
-  <CardBody  >
-    <Image
-      src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-      alt='vegetable'
-      borderRadius='lg'
-    />
-    <Stack mt='6' spacing='3'>
-      <Heading size='md'>Tomatoes</Heading>
-      <Text>
- Tomatoes description
-      </Text>
-    </Stack>
-  </CardBody>
-  <CardFooter>
-    <ButtonGroup spacing='2'>
-      <Button variant='solid' bgColor='white'>
-        Add to my allotment
-      </Button>
-
-    </ButtonGroup>
-  </CardFooter>
-</Card>
-
+         
         </Flex>
       </>
     );

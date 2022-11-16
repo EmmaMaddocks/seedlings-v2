@@ -58,7 +58,6 @@ import {
   <option value='Clay'>Clay</option>
   <option value='Loam'>Loam</option>
   <option value='Silt'>Silt</option>
-  <option value='Loam'>Loam</option>
   <option value='Compost'>Potting Compost</option>
   </Select>
 

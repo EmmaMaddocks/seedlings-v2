@@ -16,10 +16,46 @@ import { useNavigate } from 'react-router-dom';
 import Trophy from './trophy';
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
+import * as api from "../utils/api";
+import { useState, useEffect } from 'react';
+import Loading from './Loading'
+
 
 
 function Profile() {
     const navigate = useNavigate();
+
+
+
+    const [user, setUser] = useState('null');
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null)
+  
+  
+    useEffect(() => {
+      setIsLoading(true);
+      api
+        .getProfileData()
+        .then((data) => {
+            console.log(data)
+          setUser(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setIsLoading(false);
+        });
+    }, []);
+  
+    if (isLoading) return <Loading />;
+
+    const {
+        name,
+        seeds,
+        allotment
+    } = user[0]
+
+
   return (
     <Flex
       height="70vh"
@@ -39,7 +75,7 @@ function Profile() {
       <Text>You've watered your garden for 4 days in a row!</Text>
 
 
-      <Heading textStyle="h1">Welcome Thomas!</Heading>
+      <Heading textStyle="h1">Welcome {name}</Heading>
 
       <Heading textStyle="h2">To do today:</Heading>
 
