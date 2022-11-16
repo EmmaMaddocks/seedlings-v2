@@ -70,9 +70,9 @@ function Profile() {
 
 <Heading as='h1' size='2xl'> Welcome, {name}! </Heading> 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
-<Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='750px' alignItems='center' justifyContent='center'> 
+<Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='60vh' maxH='800px' alignItems='center' justifyContent='center'> 
       <SimpleGrid spacing={4}  columns={2}>
-  <Card size='lg' bgColor='brand.lightgreen' width='220px' height='220px'>
+  <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
       <Text textStyle='cardHeader'>Allotment</Text>
     </CardHeader>
@@ -80,7 +80,7 @@ function Profile() {
       <Text>7 crops</Text>
     </CardBody>
   </Card>
-  <Card size='lg' bgColor='brand.paleorange' width='220px' height='220px'>
+  <Card size='lg' bgColor='brand.paleorange'width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>Seeds</Text>
     </CardHeader>
@@ -88,7 +88,7 @@ function Profile() {
       <Text>5 varietys to plant</Text>
     </CardBody>
   </Card>
-  <Card size='lg' bgColor='brand.orange' width='220px' height='220px'>
+  <Card size='lg' bgColor='brand.orange' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>Harvests</Text>
     </CardHeader>
@@ -96,7 +96,7 @@ function Profile() {
       <Text>3 succesful harvests</Text>
     </CardBody>
   </Card>
-  <Card size='lg' bgColor='brand.lightbrown' width='220px' height='220px'>
+  <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>Weather</Text>
     </CardHeader>
@@ -104,7 +104,7 @@ function Profile() {
       <Text>26 degrees</Text>
     </CardBody>
   </Card>
-  <Card size='lg' bgColor='brand.lightbrown' width='220px' height='220px'>
+  <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>Nearing Harvest</Text>
     </CardHeader>
@@ -112,7 +112,7 @@ function Profile() {
       <Text>Tomatoes</Text>
     </CardBody>
   </Card>
-  <Card size='lg' bgColor='brand.lightgreen' width='220px' height='220px'>
+  <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>To do today:</Text>
     </CardHeader>
