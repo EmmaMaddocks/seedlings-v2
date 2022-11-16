@@ -9,6 +9,12 @@ import {
   List,
   ListItem,
   ListIcon,
+  Card,
+  CardBody,
+  Stack,
+  CardFooter,
+  Image,
+  CardHeader,
   Container,
 } from '@chakra-ui/react';
 import { FaCheck, FaLongArrowAltRight } from 'react-icons/fa';
@@ -48,74 +54,79 @@ function Profile() {
 
   return (
     <Flex
-      height="70vh"
       direction="column"
       alignItems="center"
       justifyContent="center"
       gap={6}
+      paddingTop='50px'
     >
-      {/* <Container size='2xs'>
+      <Container size='2xs'>
         <Canvas zIndex={1} flat linear >
           <Suspense fallback={null}>
             <Trophy />
           </Suspense>
         </Canvas>
-      </Container> */}
+      </Container>
 
-      <Heading textStyle="h1" size="2xl" >Welcome, {name}!</Heading>
-
-      <SimpleGrid columns={2} spacing={5}>
-
-      <Flex gap={3} direction='column' bg='white' height='200px' width='200px' borderRadius='25pt' justifyContent='center' alignItems='center'>
-  <Heading textStyle="h2" size="lg">Today's Weather</Heading>
-    <Text></Text>
-  </Flex>
-
-
-      <Flex gap={3} direction='column' bg='white' height='200px' width='200px' borderRadius='25pt' justifyContent='center' alignItems='center'>
-      <Heading textStyle="h2" size="lg">To do today:</Heading>
-      <List spacing={3}>
-        <ListItem>
-          Water Carrots
-          <ListIcon as={FaCheck} color="green.500" />
-        </ListItem>
-        <ListItem>
-          Water Peas
-          <ListIcon as={FaCheck} color="green.500" />
-        </ListItem>
-      </List>
-  </Flex>
-
-      <Flex gap={3} direction='column' bg='white' height='200px' width='200px' borderRadius='25pt' justifyContent='center' alignItems='center'>
-      <Heading textStyle="h2" size="lg">Nearing Harvest:</Heading>
-      <List spacing={3}>
-        <ListItem>
-          Carrots
-          <ListIcon as={FaLongArrowAltRight} color="green.500" />
-        </ListItem>
-        <ListItem>
-          Peas
-          <ListIcon as={FaLongArrowAltRight} color="green.500" />
-        </ListItem>
-      </List>
-  </Flex>
-
-  <Flex gap={3} direction='column' bg='white' height='200px' width='200px' borderRadius='25pt' justifyContent='center' alignItems='center'>
-    <Heading textStyle="h2" size="lg">Allotment</Heading>
-    <Text>7 crops</Text>
-  </Flex>
-  <Flex gap={3} direction='column' bg='white' height='200px' width='200px' borderRadius='25pt' justifyContent='center' alignItems='center'>
-  <Heading textStyle="h2" size="lg">Seeds</Heading>
-    <Text>7 varieties</Text>
-  </Flex>
-
-  <Flex gap={3} direction='column' bg='white' height='200px' width='200px' borderRadius='25pt' justifyContent='center' alignItems='center'>
-    <Heading textStyle="h2" size="lg">Past Harvests</Heading>
-    <Text>7 successful harvests</Text>
-  </Flex>
-
-
+<Heading as='h1' size='2xl'> Welcome, {name}! </Heading> 
+<Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
+<Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='750px' alignItems='center' justifyContent='center'> 
+      <SimpleGrid spacing={4}  columns={2}>
+  <Card size='lg' bgColor='brand.lightgreen' width='220px' height='220px'>
+    <CardHeader>
+      <Text textStyle='cardHeader'>Allotment</Text>
+    </CardHeader>
+    <CardBody>
+      <Text>7 crops</Text>
+    </CardBody>
+  </Card>
+  <Card size='lg' bgColor='brand.paleorange' width='220px' height='220px'>
+    <CardHeader>
+    <Text textStyle='cardHeader'>Seeds</Text>
+    </CardHeader>
+    <CardBody>
+      <Text>5 varietys to plant</Text>
+    </CardBody>
+  </Card>
+  <Card size='lg' bgColor='brand.orange' width='220px' height='220px'>
+    <CardHeader>
+    <Text textStyle='cardHeader'>Harvests</Text>
+    </CardHeader>
+    <CardBody>
+      <Text>3 succesful harvests</Text>
+    </CardBody>
+  </Card>
+  <Card size='lg' bgColor='brand.lightbrown' width='220px' height='220px'>
+    <CardHeader>
+    <Text textStyle='cardHeader'>Weather</Text>
+    </CardHeader>
+    <CardBody>
+      <Text>26 degrees</Text>
+    </CardBody>
+  </Card>
+  <Card size='lg' bgColor='brand.lightbrown' width='220px' height='220px'>
+    <CardHeader>
+    <Text textStyle='cardHeader'>Nearing Harvest</Text>
+    </CardHeader>
+    <CardBody>
+      <Text>Tomatoes</Text>
+    </CardBody>
+  </Card>
+  <Card size='lg' bgColor='brand.lightgreen' width='220px' height='220px'>
+    <CardHeader>
+    <Text textStyle='cardHeader'>To do today:</Text>
+    </CardHeader>
+    <CardBody>
+      <Text>Water Carrots</Text>
+    </CardBody>
+  </Card>
 </SimpleGrid>
+</Flex>
+
+
+
+
+
 
 
     </Flex>

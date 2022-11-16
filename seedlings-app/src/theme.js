@@ -42,13 +42,13 @@ const theme = extendTheme({
       
         fonts: {
             heading: `'Love Ya Like A Sister', cursive`,
-            body: `'Montserrat', sans-serif`
+            body: `'Montserrat', sans-serif`,
         },
 
         textStyles: {
             h1: {
                 letterSpacing: '1pt',
-                color: '#6D8A0C',
+                color: '#ED965C',
                 textAlign: 'center'
             },
             input: {
@@ -56,9 +56,20 @@ const theme = extendTheme({
             },
 
             h2: {
-              size: 'lg',
+              fontSize: 'xl',
               color: '#6D8A0C',
-              textAlign: 'center'
+              textAlign: 'center',
+              font: `'Montserrat', sans-serif`,
+              fontWeight: 'bold',
+
+            },
+            cardHeader: {
+              fontSize: 'xl',
+              color: 'white',
+              textAlign: 'center',
+              font: `'Montserrat', sans-serif`,
+              fontWeight: 'bold',
+
             }
         }
       

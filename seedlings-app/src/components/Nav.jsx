@@ -29,7 +29,7 @@ function Nav() {
   return (
     <>
     <Flex padding={10}>
-        <Heading>Seedlings</Heading>
+        <Heading color='brand.darkgreen'>Seedlings</Heading>
     <Spacer />
       <Button ref={btnRef} color='brand.darkgreen' bgColor='transparent' onClick={onOpen}  >
         <Icon as={FaBars} w={10} h={10}/>
