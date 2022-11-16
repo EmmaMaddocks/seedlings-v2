@@ -14,51 +14,30 @@ import VegPatch from './vegPatch';
 import { Canvas } from '@react-three/fiber';
 import styled from 'styled-components';
 import React, { Suspense } from 'react';
+import LandingPageContent from './LandingPageContent';
 
 import { FadeIn } from './FadeIn.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MovingVeg } from './MovingVeg.jsx';
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <Container height="50vh" width="100vw" top="0">
-        <Canvas zIndex={1} flat linear>
+
+      <Box height='100vh' width='100vw' >
+      <LandingPageContent position='absolute' zIndex={1}/>
+
+        <Canvas position='absolute' zIndex={10} flat linear >
           <Suspense fallback={null}>
-            <VegPatch />
+            {/* <VegPatch /> */}
+
+            <MovingVeg/>
           </Suspense>
         </Canvas>
-      </Container>
-
-      <Flex
-        flexDirection="column"
-        gap={4}
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Heading textStyle="h1" size="3xl" mx="30px" textAlign="center">
-          Howdy, Gardner!
-        </Heading>
-
-        <Button
-          colorScheme="orange"
-          size="lg"
-          onClick={() => navigate('/login')}
-        >
-          Log In
-        </Button>
-
-        <Text fontSize="lg">Not got an account?</Text>
-        <Button
-          colorScheme="orange"
-          variant="link"
-          size="lg"
-          onClick={() => navigate('/signup')}
-        >
-          Sign Up
-        </Button>
-      </Flex>
+      </Box>
+  
     </>
   );
 };

@@ -2,7 +2,7 @@ import useSpline from "@splinetool/r3f-spline";
 import { OrthographicCamera } from "@react-three/drei";
 import React, { useRef, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
-import { useDrag } from "react-use-gesture";
+import { useDrag } from "@use-gesture/react";
 
 
 export function MovingVeg({ ...props }) {
@@ -66,15 +66,13 @@ export function MovingVeg({ ...props }) {
     },
     { pointerEvents: true }
   );
-//[-177.15, 83.81, 122.92] strawberryPosition
-//position={[-94.32, 69.04, 99.78]} broccoli
+
 
   const { nodes, materials } = useSpline('https://prod.spline.design/GY2uNRfAEVUqCApr/scene.splinecode')
   return (
     <>
-      <color attach="background" args={['#5e6063']} />
       <group {...props} dispose={null}>
-        <group name="strawberry" ref={strawberryRef} position={strawberryPosition} scale={[0.11, 0.11, 0.14]}{...strawberryBind()}>
+        <group name="strawberry" ref={strawberryRef} position={strawberryPosition} {...strawberryBind()}>
           <group name="rop and leaves" position={[0.69, 149.22, -0.09]}>
             <mesh
               name="leave"

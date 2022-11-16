@@ -29,7 +29,7 @@ function App() {
   return (
 
     <BrowserRouter>
-        <Container minHeight='100vh' width='100vw' bg='#FBF2E3'>
+        <Container minH='100vh' minW='100vw' bg='#FBF2E3'>
           
   <ChakraProvider theme={theme}>
     <Nav/>
