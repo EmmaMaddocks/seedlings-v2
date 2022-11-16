@@ -11,6 +11,7 @@ import {
   import { useState, useEffect } from 'react';
  import Loading from './Loading'
  import * as api from "../utils/api";
+ import GifCreator from './GifCreator';
 
   
   const Seeds = () => {
@@ -59,7 +60,7 @@ import {
 
           <Stack gap={3}>
 
-<Button>Download Gif</Button>
+<GifCreator/>
       </Stack>
 
         

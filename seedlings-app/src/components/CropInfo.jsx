@@ -58,7 +58,7 @@ const Seeds = () => {
           <Text>67 Days until Harvest</Text>
 
           <Button>Upload Picture</Button>
-          <Button>Harvest</Button>
+          <Button onClick={() => navigate('/harvestsuccess')}>Harvest</Button>
         </Stack>
       </Flex>
     </>
