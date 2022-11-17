@@ -30,7 +30,7 @@ const { username } = user
 const handleClick = (event) => {
   event.preventDefault();
   try {
-  api.deleteFromAllotment(user.user.username, username)
+  api.deleteFromAllotment(user.user.username, name)
 } catch(error) {
   console.log(error)
 }
