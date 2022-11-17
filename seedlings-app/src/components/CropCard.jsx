@@ -23,6 +23,26 @@ const {
     picture
 } = crop;
 
+
+// const handleClick = (event) => {
+//   event.preventDefault();
+
+//   const newSeed = {
+//     author: loggedInUser,
+//     body: inputValue,
+//     votes: 0,
+//     created_at: "22/11/11",
+//   };
+//   try {
+//   api.postComment(inputValue, loggedInUser, article_id)
+// } catch(error) {
+//   console.log(error)
+//   setError(true);
+// }
+// };
+
+
+
     return (
     <Card maxW='sm' maxH='m' bgColor='brand.paleorange'>
     <CardBody  >
@@ -40,7 +60,7 @@ const {
     </CardBody>
     <CardFooter>
       <ButtonGroup spacing='2'>
-        <Button variant='solid' bgColor='white'>
+        <Button variant='solid' bgColor='white' >
           Add to my seeds
         </Button>
   

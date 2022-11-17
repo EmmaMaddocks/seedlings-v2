@@ -36,7 +36,7 @@ const LogIn = () => {
 
         <VStack spacing={3} align="center">
           <Input
-            placeholder="Parents Email Address"
+            placeholder="Username"
             size="lg"
             border="white"
             borderRadius="10"

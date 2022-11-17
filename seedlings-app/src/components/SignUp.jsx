@@ -10,14 +10,25 @@ import {
   Flex,
   InputGroup,
   InputRightElement,
+  FormErrorMessage
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useForm } from "react-hook-form";
+
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  // const onSubmit = data => console.log(data);
+
+
+  function onSubmit(data) {
+console.log(data)
+  }
 
   return (
     <>
@@ -35,7 +46,7 @@ const SignUp = () => {
           </Heading>
         </Box>
 
-        <Stack spacing={3} width="350px">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             placeholder="First Name"
             size="lg"
@@ -45,9 +56,14 @@ const SignUp = () => {
             bgColor="white"
             borderColor="white"
             borderRadius="10"
+
+            {...register("firstName", { required: true })} 
+            aria-invalid={errors.firstName ? "true" : "false"} 
+
           />
+   {errors.firstName?.type === 'required' && <p role="alert">First name is required</p>}
           <Input
-            placeholder="Last Name"
+            placeholder="Username"
             size="lg"
             color="brand.darkgreen"
             _placeholder={{ color: 'inherit' }}
@@ -55,7 +71,13 @@ const SignUp = () => {
             bgColor="white"
             borderColor="white"
             borderRadius="10"
+
+
+            {...register("userName", { required: true })} 
+            aria-invalid={errors.firstName ? "true" : "false"} 
+
           />
+   {errors.userName?.type === 'required' && <p role="alert">Username is required</p>}
           <Input
             placeholder="Parents Email Address"
             size="lg"
@@ -65,8 +87,13 @@ const SignUp = () => {
             bgColor="white"
             borderColor="white"
             borderRadius="10"
-          />
 
+    
+            {...register("emailAddress", { required: true })} 
+            aria-invalid={errors.emailAddress ? "true" : "false"} 
+
+          />
+   {errors.emailAddress?.type === 'required' && <p role="alert">Email is required</p>}
           <InputGroup size="md">
             <Input
               size="lg"
@@ -79,7 +106,13 @@ const SignUp = () => {
               color="brand.darkgreen"
               _placeholder={{ color: 'inherit' }}
               bgColor="white"
+
+              {...register("password", { required: true })} 
+              aria-invalid={errors.emailAddress ? "true" : "false"} 
+  
             />
+     {errors.password?.type === 'required' && <p role="alert">Password is required</p>}
+          
             <InputRightElement width="4.5rem">
               <Button
                 color="white"
@@ -110,10 +143,10 @@ const SignUp = () => {
             <Switch colorScheme="orange" id="isRequired" isRequired />
           </Flex>
 
-          <Button color="white" bgColor="#ED965C" borderRadius={20}>
+          <Button color="white" bgColor="#ED965C" borderRadius={20} type='submit'>
             Sign Up
           </Button>
-
+</form>
           <Flex
             direction="row"
             gap={2}
@@ -130,7 +163,6 @@ const SignUp = () => {
               Log in
             </Button>
           </Flex>
-        </Stack>
       </Flex>
     </>
   );

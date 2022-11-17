@@ -60,4 +60,12 @@ export const getFilteredCrops = (outdoors, soiltype, sunlight) => {
 
 };
 
-// /crops?outdoors=true&&soilTypes=sand&&sunlight=full
+
+// export const postComment = () => {
+//   return axios.post(`${BASE_URL}/articles/${article_id}/comments`, {
+//     username: loggedInUser,
+//     body: commentBody
+//   }).then(({ data }) => {
+//     return data
+//   })
+// }
