@@ -12,7 +12,7 @@ export function MovingVeg({ ...props }) {
   const { size, viewport } = useThree();
   const aspect = size.width / viewport.width;
   
-  const [strawberryPosition, setStrawberryPosition] = useState([-177.15, 83.81, 122.92] );
+  const [strawberryPosition, setStrawberryPosition] = useState([-294.15, 35.81, 122.92] );
   const strawberryRef = useRef();
   const strawberryBind = useDrag(
     ({ offset: [x, y] }) => {
@@ -21,7 +21,7 @@ export function MovingVeg({ ...props }) {
     },
     { pointerEvents: true }
   );
-  const [brocolliPosition, setBroccoliPosition] = useState([-94.32, 69.04, 99.78] );
+  const [brocolliPosition, setBroccoliPosition] = useState([-167.32, 127.04, 99.78]);
   const broccoliRef = useRef();
   const broccoliBind = useDrag(
     ({ offset: [x, y] }) => {
@@ -30,7 +30,7 @@ export function MovingVeg({ ...props }) {
     },
     { pointerEvents: true }
   );
-  const [cornPosition, setCornPosition] = useState([204.2, 58.54, -40.72] );
+  const [cornPosition, setCornPosition] = useState([291.2, 110.54, -80.72] );
   const cornRef = useRef();
   const cornBind = useDrag(
     ({ offset: [x, y] }) => {
@@ -39,7 +39,7 @@ export function MovingVeg({ ...props }) {
     },
     { pointerEvents: true }
   );
-  const [carrotPosition, setCarrotPosition] = useState([128.14, 57.06, 11.29]);
+  const [carrotPosition, setCarrotPosition] = useState([232.14, -79.94, 11.29]);
   const carrotRef = useRef();
   const carrotBind = useDrag(
     ({ offset: [x, y] }) => {
@@ -48,7 +48,7 @@ export function MovingVeg({ ...props }) {
     },
     { pointerEvents: true }
   );
-  const [tomatoPosition, setTomatoPosition] = useState([-21.42, 59.26, 95.48]);
+  const [tomatoPosition, setTomatoPosition] = useState([-99.7, -76.15, 95.48]);
   const tomatoRef = useRef();
   const tomatoBind = useDrag(
     ({ offset: [x, y] }) => {
@@ -57,7 +57,7 @@ export function MovingVeg({ ...props }) {
     },
     { pointerEvents: true }
   );
-  const [onionPosition, setOnionPosition] = useState([67.83, 54.32, -8.66]);
+  const [onionPosition, setOnionPosition] = useState([82.83, -22.68, -8.66]);
   const onionRef = useRef();
   const onionBind = useDrag(
     ({ offset: [x, y] }) => {
@@ -72,7 +72,7 @@ export function MovingVeg({ ...props }) {
   return (
     <>
       <group {...props} dispose={null}>
-        <group name="strawberry" ref={strawberryRef} position={strawberryPosition} {...strawberryBind()}>
+        <group name="strawberry" ref={strawberryRef} position={strawberryPosition}  scale={[0.22, 0.22, 0.28]}{...strawberryBind()}>
           <group name="rop and leaves" position={[0.69, 149.22, -0.09]}>
             <mesh
               name="leave"
@@ -934,7 +934,7 @@ export function MovingVeg({ ...props }) {
             />
           </group>
         </group>
-        <group name="corn" ref={cornRef}position={cornPosition} rotation={[-Math.PI, 0, -2.62]} scale={[-0.18, 0.2, 0.05]} {...cornBind()}>
+        <group name="corn" ref={cornRef}position={cornPosition} rotation={[-Math.PI, 0, -2.62]} scale={[-0.36, 0.4, 0.10]} {...cornBind()}>
           <group name="leaves" position={[-2.25, -30.24, 22.22]} rotation={[0, 0.87, 0]}>
             <mesh
               name="leave6"
@@ -3368,7 +3368,7 @@ export function MovingVeg({ ...props }) {
             />
           </group>
         </group>
-        <group name="broccoli"  ref={broccoliRef} position={brocolliPosition}  scale={[0.15, 0.13, 0.21]}{...broccoliBind()}>
+        <group name="broccoli"  ref={broccoliRef} position={brocolliPosition}  scale={[0.30, 0.26, 0.42]}{...broccoliBind()}>
           <group name="head" position={[-2.33, 10.09, 10.25]}>
             <mesh
               name="Subdiv 9"
@@ -3520,7 +3520,7 @@ export function MovingVeg({ ...props }) {
             position={[-4.94, -150.82, 10.66]}
           />
         </group>
-        <group name="tomato" ref={tomatoRef} position={tomatoPosition} scale={[0.12, 0.08, 0.12]}{...tomatoBind()}>
+        <group name="tomato" ref={tomatoRef} position={tomatoPosition} scale={[0.22, 0.18, 0.24]}{...tomatoBind()}>
           <mesh
             name="tomato1"
             geometry={nodes.tomato1.geometry}
@@ -3583,7 +3583,7 @@ export function MovingVeg({ ...props }) {
             />
           </group>
         </group>
-        <group name="oinion" ref={onionRef} position={onionPosition} rotation={[0.19, -0.1, -0.48]} scale={[0.14, 0.11, 0.17]}{...onionBind()}>
+        <group name="oinion" ref={onionRef} position={onionPosition} rotation={[0.19, -0.1, -0.48]} scale={[0.28, 0.22, 0.34]}{...onionBind()}>
           <group name="leaves1" position={[-0.79, 109.34, 9.76]}>
             <mesh
               name="leave16"
@@ -3634,7 +3634,7 @@ export function MovingVeg({ ...props }) {
             position={[0, -79.28, 0]}
           />
         </group>
-        <group name="carrot" ref={carrotRef}position={carrotPosition} rotation={[0, 0, 0.44]} scale={[0.28, 0.16, 0.19]}{...carrotBind()}>
+        <group name="carrot" ref={carrotRef}position={carrotPosition} rotation={[0, 0, 0.44]} scale={[0.56, 0.32, 0.38]}{...carrotBind()}>
           <mesh
             name="leave20"
             geometry={nodes.leave20.geometry}
