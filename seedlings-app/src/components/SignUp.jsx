@@ -15,6 +15,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
+import * as api from '../utils/api'
 
 
 const SignUp = () => {
@@ -23,11 +24,23 @@ const SignUp = () => {
   const handleClick = () => setShow(!show);
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  // const onSubmit = data => console.log(data);
 
 
   function onSubmit(data) {
-console.log(data)
+
+const { firstName, userName, parentsEmail, password} = data
+
+const newUser = {
+  name: firstName,
+  username: userName,
+  parentsEmail: parentsEmail,
+  password: password
+}
+try {
+  api.postUser(firstName, userName, parentsEmail, password)
+} catch(error) {
+  console.log(error)
+}
   }
 
   return (
@@ -62,6 +75,8 @@ console.log(data)
 
           />
    {errors.firstName?.type === 'required' && <p role="alert">First name is required</p>}
+          
+          
           <Input
             placeholder="Username"
             size="lg"
@@ -74,10 +89,12 @@ console.log(data)
 
 
             {...register("userName", { required: true })} 
-            aria-invalid={errors.firstName ? "true" : "false"} 
+            aria-invalid={errors.userName ? "true" : "false"} 
 
           />
    {errors.userName?.type === 'required' && <p role="alert">Username is required</p>}
+       
+       
           <Input
             placeholder="Parents Email Address"
             size="lg"
@@ -89,11 +106,14 @@ console.log(data)
             borderRadius="10"
 
     
-            {...register("emailAddress", { required: true })} 
-            aria-invalid={errors.emailAddress ? "true" : "false"} 
+            {...register("parentsEmail", { required: true })} 
+            aria-invalid={errors.parentsEmail ? "true" : "false"} 
 
           />
-   {errors.emailAddress?.type === 'required' && <p role="alert">Email is required</p>}
+   {errors.parentsEmail?.type === 'required' && <p role="alert">Email is required</p>}
+          
+          
+          
           <InputGroup size="md">
             <Input
               size="lg"
@@ -108,7 +128,7 @@ console.log(data)
               bgColor="white"
 
               {...register("password", { required: true })} 
-              aria-invalid={errors.emailAddress ? "true" : "false"} 
+              aria-invalid={errors.password ? "true" : "false"} 
   
             />
      {errors.password?.type === 'required' && <p role="alert">Password is required</p>}

@@ -28,6 +28,7 @@ function App() {
   const [sunlight, setSunlight] = useState(null);
   const [soiltype, setSoiltype] = useState(null);
   const [outdoors, setLocation] = useState(false);
+  const [user, setUser] = useState(null);
 
   return (
 
@@ -38,9 +39,9 @@ function App() {
     <Nav/>
       <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/login" element={<LogIn user={user} setUser={setUser} />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/growingconditions" element={<DataInput crops={crops} setCrops={setCrops} sunlight={sunlight} setSunlight={setSunlight} soiltype={soiltype} setSoiltype={setSoiltype} outdoors={outdoors} setLocation={setLocation} />} />
           <Route path="/suggestions" element={<Suggestions crops={crops}/>} />
           <Route path="/allotment" element={<Allotment />} />

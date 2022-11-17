@@ -28,17 +28,20 @@ import {
     const handleSunlight = (event) => {
       event.preventDefault()
       setSunlight(event.target.value)
+      console.log(event.target.value)
     }
   
   
   const handleSoilType = (event) => {
       event.preventDefault()
       setSoiltype(event.target.value)
+      console.log(event.target.value)
     }
 
     const handleLocation = (event) => {
       event.preventDefault()
       let value = event.target.value
+      console.log(event.target.value)
       if (value === 'true') {
         setLocation(true)
     } else if (value === 'false') {
@@ -76,20 +79,20 @@ import {
           <Stack spacing={3} width="350px">
           <form >
             <Text>Where would you like to grow?</Text>
-          <Select  variant='filled' bgColor='white' onChange={handleLocation}>
+          <Select  placeholder='Select location'  variant='filled' bgColor='white' onChange={handleLocation}>
           <option value='false'>Indoors</option>
   <option value='true'>Outdoors</option>
   </Select>
 
   <Text>Is there area sunny or shady?</Text>
-          <Select  variant='filled' bgColor='white' onChange={handleSunlight}>
+          <Select placeholder='Select sun'  variant='filled' bgColor='white' onChange={handleSunlight}>
           <option value='full'>Sunny</option>
   <option value='partial+shade'>Shady</option>
   <option value='null'>Both</option>
   </Select>
 
   <Text>Lastly, what type of soil do you have?</Text>
-  <Select  variant='filled' bgColor='white' onChange={handleSoilType}>
+  <Select placeholder='Select soil' variant='filled' bgColor='white' onChange={handleSoilType}>
           <option value='null'>I'm not sure</option>
   <option value='sand'>Sandy</option>
   <option value='clay'>Clay</option>

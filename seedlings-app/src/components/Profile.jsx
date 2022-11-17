@@ -25,20 +25,20 @@ import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
 import Loading from './Loading';
 
-function Profile() {
+function Profile({user}) {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState('null');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const { name, seeds, allotment, username } = user;
+
   useEffect(() => {
     setIsLoading(true);
+    console.log(user.user.username)
     api
-      .getProfileData()
+      .getProfileData(user.user.username)
       .then(data => {
-        console.log(data);
-        setUser(data);
         setIsLoading(false);
       })
       .catch(error => {
@@ -47,9 +47,7 @@ function Profile() {
       });
   }, []);
 
-  if (isLoading) return <Loading />;
-
-  const { name, seeds, allotment } = user[0];
+// console.log(user)
 
   return (
     <Flex
@@ -67,7 +65,7 @@ function Profile() {
         </Canvas>
       </Container>
 
-<Heading as='h1' size='2xl'> Welcome, {name}! </Heading> 
+<Heading as='h1' size='2xl'> Welcome, {user.user.name}! </Heading> 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
 <Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='60vh' maxH='800px' alignItems='center' justifyContent='center'> 
       <SimpleGrid spacing={4}  columns={2}>
@@ -76,7 +74,7 @@ function Profile() {
       <Text textStyle='cardHeader'>Allotment</Text>
     </CardHeader>
     <CardBody>
-      <Text>7 crops</Text>
+      <Text>{user.user.allotment.length} crops</Text>
     </CardBody>
   </Card>
   <Card size='lg' bgColor='brand.paleorange'width='40vw' height='40vw' maxH='200px'>
@@ -84,7 +82,7 @@ function Profile() {
     <Text textStyle='cardHeader'>Seeds</Text>
     </CardHeader>
     <CardBody>
-      <Text>5 varietys to plant</Text>
+      <Text>{user.user.seeds.length}  varietys to plant</Text>
     </CardBody>
   </Card>
   <Card size='lg' bgColor='brand.orange' width='40vw' height='40vw' maxH='200px'>

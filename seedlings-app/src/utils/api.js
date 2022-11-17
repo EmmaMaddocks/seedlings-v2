@@ -15,22 +15,27 @@ export const getCrops = () => {
 };
 
 
-// export const getUsers = () => {
-//     let path = `/users`
-//     return api
-//     .get(path)
-//     .then(({ data }) => {
-//       return data;
-//     })
-// };
+export const validateLogIn = (userName,  password) => {
+  return axios.post(`${BASE_URL}/users/login`, {
+    username: userName,
+    password: password,
+  }).then(({ data }) => {
+    return data
+  }).catch(({response}) => {
+    return (response.data.message)
+  }) 
+}
 
-export const getProfileData = () => {
-    let path = `users/TotallyNotACat`
+export const getProfileData = (username) => {
+    let path = `users/${username}`
     return api
     .get(path)
     .then(({ data }) => {
-        console.log(data)
+      console.log(data)
+
       return data;
+    }).catch((error) => {
+      console.log(error.response)
     })
 };
 
@@ -57,15 +62,17 @@ export const getFilteredCrops = (outdoors, soiltype, sunlight) => {
     console.log(path)
     return data;
   })
-
 };
 
+export const postUser = (firstName, userName, parentsEmail, password) => {
+  return axios.post(`${BASE_URL}/users/signup`, {
+    name: firstName,
+    username: userName,
+    parentsEmail: parentsEmail,
+    password: password,
+  }).then(({ data }) => {
+    console.log(data)
+    return data
 
-// export const postComment = () => {
-//   return axios.post(`${BASE_URL}/articles/${article_id}/comments`, {
-//     username: loggedInUser,
-//     body: commentBody
-//   }).then(({ data }) => {
-//     return data
-//   })
-// }
+  })
+}
