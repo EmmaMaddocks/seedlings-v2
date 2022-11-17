@@ -44,7 +44,7 @@ function App() {
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/growingconditions" element={<DataInput crops={crops} setCrops={setCrops} sunlight={sunlight} setSunlight={setSunlight} soiltype={soiltype} setSoiltype={setSoiltype} outdoors={outdoors} setLocation={setLocation} />} />
           <Route path="/suggestions" element={<Suggestions crops={crops} user={user} />} />
-          <Route path="/allotment" element={<Allotment />} />
+          <Route path="/allotment" element={<Allotment user={user} />} />
           <Route path="/seeds" element={<Seeds user={user} />} />
           <Route path="/carrot" element={<CropInfo />} />
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />

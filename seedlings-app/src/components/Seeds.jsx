@@ -56,7 +56,7 @@ import SeedCard from './SeedCard';
           <Stack gap={3}>
 
         {user.user.seeds.map((seed) => {
-          return <SeedCard key={seed.seed_id} seed={seed} />;
+          return <SeedCard key={seed.seed_id} seed={seed} user={user} />;
         })}
       </Stack>         
         </Flex>

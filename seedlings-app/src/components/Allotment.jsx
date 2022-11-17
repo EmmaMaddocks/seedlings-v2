@@ -1,72 +1,68 @@
 import {
-    Box,
-    Heading,
-    Flex,
-    Container,
-    Stack
-  } from '@chakra-ui/react';
-  import { useNavigate } from 'react-router-dom';
-  import { useState, useEffect } from 'react';
- import Loading from './Loading'
- import * as api from "../utils/api";
-import SeedCard from './SeedCard';
-  
-  const Seeds = () => {
-    const navigate = useNavigate();
-    const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
+  Box,
+  Heading,
+  Flex,
+  Container,
+  Stack
+} from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Loading from './Loading'
+import * as api from "../utils/api";
+import AllotmentCard from './AllotmentCard';
 
-    const [crops, setCrops] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null)
-  
-  
-    useEffect(() => {
-      setIsLoading(true);
-      api
-        .getCrops()
-        .then((data) => {
-          setCrops(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setError(error);
-          setIsLoading(false);
-        });
-    }, []);
-  
-    if (isLoading) return <Loading />;
-  
-    return (
-      <>
-        <Flex
-          minHeight="100vh"
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          gap={6}
-        >
-          <Box size="60vw">
-            <Heading textStyle="h1" size="3xl" >
-              Your allotment
-            </Heading>
-          </Box>
+const Allotment = ({user}) => {
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
 
-          <Stack gap={3}>
+  const [allotment, setAllotment] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null)
 
-        {crops.map((crop) => {
-          return <SeedCard key={crop.crop_id} crop={crop} />;
-        })}
-      </Stack>
+  // const { name, seeds, allotment, username } = user;
 
-          {/* need to list out card for each suggested plant */}
+  useEffect(() => {
+    setIsLoading(true);
+    api
+      .getProfileData(user.user.username)
+      .then(data => {
+        setIsLoading(false);
+        setAllotment(data[0].allotment)
+      })
+      .catch(error => {
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
 
-         
-        </Flex>
-      </>
-    );
-  };
-  
-  export default Seeds;
-  
+
+
+  return (
+    <>
+      <Flex
+        minHeight="100vh"
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        gap={6}
+      >
+        <Box size="60vw">
+          <Heading textStyle="h1" size="3xl" >
+            Your allotment
+          </Heading>
+        </Box>
+
+        <Stack gap={3}>
+
+      {allotment.map((crop) => {
+        return <AllotmentCard crop={crop} user={user} />;
+      })}
+    </Stack>         
+      </Flex>
+    </>
+  );
+};
+
+export default Allotment;

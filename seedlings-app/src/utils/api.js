@@ -86,3 +86,25 @@ export const postSeed = (username, name) => {
 
   })
 }
+
+export const postAllotment = (username, name) => {
+  return axios.post(`${BASE_URL}/users/${username}/allotment`, {
+    name: name,
+  }).then(({ data }) => {
+    console.log(data)
+    return data
+
+  })
+}
+
+
+
+
+export const deleteFromAllotment = (username, name) => {
+  return axios.delete(`${BASE_URL}/users/${username}/allotment/${name}`, {
+  }).then(({ data }) => {
+    console.log(data)
+    return data
+
+  })
+}

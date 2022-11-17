@@ -16,7 +16,7 @@ import {
 
 
 
-const CropCard = ({ crop, user }) => {
+const AllotmentCard = ({ crop, user }) => {
 
 const {
     description,
@@ -30,7 +30,7 @@ const { username } = user
 const handleClick = (event) => {
   event.preventDefault();
   try {
-  api.postSeed(user.user.username, name)
+  api.deleteFromAllotment(user.user.username, username)
 } catch(error) {
   console.log(error)
 }
@@ -56,7 +56,7 @@ const handleClick = (event) => {
     <CardFooter>
       <ButtonGroup spacing='2'>
         <Button variant='solid' bgColor='white' onClick={handleClick} >
-          Add to my seeds
+          Remove from allotment
         </Button>
   
       </ButtonGroup>
@@ -65,4 +65,4 @@ const handleClick = (event) => {
 )  
 }
 
-export default CropCard
+export default AllotmentCard
