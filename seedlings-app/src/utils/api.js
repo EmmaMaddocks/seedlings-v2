@@ -14,6 +14,7 @@ export const getCrops = () => {
     })
 };
 
+
 // export const getUsers = () => {
 //     let path = `/users`
 //     return api
@@ -44,13 +45,19 @@ export const getPlantedCrop = () => {
     })
 };
 
+
 export const getFilteredCrops = (outdoors, soiltype, sunlight) => {
-  let path = `/api/crops?outdoors=${outdoors}&&soilTypes=${soiltype}&&sunlight=${sunlight}`
+  let path = `/crops`
+  if (outdoors) path += `?outdoors=${outdoors}`;
+  if (soiltype) path += `&&soilTypes=${soiltype}`;
+  if (sunlight) path += `&&sunlight=${sunlight}`;
   return api
   .get(path)
   .then(({ data }) => {
-      console.log(data)
+    console.log(path)
     return data;
   })
+
 };
 
+// /crops?outdoors=true&&soilTypes=sand&&sunlight=full

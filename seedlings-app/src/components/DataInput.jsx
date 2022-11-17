@@ -9,17 +9,54 @@ import {
     Input,
     Flex,
     Select,
+    FormControl,
     InputGroup,
     InputRightElement,
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
   import { useState } from 'react';
+  import * as api from '../utils/api';
   
-  const DataInput = () => {
+  const DataInput = (props) => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
+   
+
+    const { crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
+
   
+    const handleSunlight = (event) => {
+      event.preventDefault()
+      setSunlight(event.target.value)
+    }
+  
+  
+  const handleSoilType = (event) => {
+      event.preventDefault()
+      setSoiltype(event.target.value)
+    }
+
+    const handleLocation = (event) => {
+      event.preventDefault()
+      let value = event.target.value
+      if (value === 'true') {
+        setLocation(true)
+    } else if (value === 'false') {
+      setLocation(false)
+    }
+    }
+  
+
+    const handleClick = (event) => {
+      event.preventDefault()
+      api.getFilteredCrops(outdoors, soiltype, sunlight)
+      .then((data)=>{
+        console.log(event)
+          setCrops(data);
+          navigate('/suggestions')
+      })
+    }
+
     return (
       <>
         <Flex
@@ -37,40 +74,41 @@ import {
           </Box>
   
           <Stack spacing={3} width="350px">
-
+          <form >
             <Text>Where would you like to grow?</Text>
-          <Select  variant='filled' bgColor='white'>
-          <option value='Indoor'>Indoors</option>
-  <option value='Outdoor'>Outdoors</option>
+          <Select  variant='filled' bgColor='white' onChange={handleLocation}>
+          <option value='false'>Indoors</option>
+  <option value='true'>Outdoors</option>
   </Select>
 
   <Text>Is there area sunny or shady?</Text>
-          <Select  variant='filled' bgColor='white'>
-          <option value='Sunny'>Sunny</option>
-  <option value='Shady'>Shady</option>
-  <option value='Both'>Both</option>
+          <Select  variant='filled' bgColor='white' onChange={handleSunlight}>
+          <option value='full'>Sunny</option>
+  <option value='partial+shade'>Shady</option>
+  <option value='null'>Both</option>
   </Select>
 
-  <Text>What type of soil do you have?</Text>
-  <Select  variant='filled' bgColor='white'>
-          <option value='Sunny'>I'm not sure</option>
-  <option value='Sandy'>Sandy</option>
-  <option value='Clay'>Clay</option>
-  <option value='Loam'>Loam</option>
-  <option value='Silt'>Silt</option>
-  <option value='Compost'>Potting Compost</option>
+  <Text>Lastly, what type of soil do you have?</Text>
+  <Select  variant='filled' bgColor='white' onChange={handleSoilType}>
+          <option value='null'>I'm not sure</option>
+  <option value='sand'>Sandy</option>
+  <option value='clay'>Clay</option>
+  <option value='loam'>Loam</option>
+  <option value='chalk'>Chalk</option>
   </Select>
 
-  <Text>Lastly, would you prefer to grow fruit or vegetables?</Text>
+  {/* <Text>Lastly, would you prefer to grow fruit or vegetables?</Text>
           <Select  variant='filled' bgColor='white' >
           <option value='Fruit'>Fruit</option>
   <option value='Vegetables'>Vegetables</option>
   <option value='Both'>Both</option>
-  </Select>
-  <Button color="white" bgColor="#ED965C" borderRadius={20} onClick={() => navigate("/suggestions")} >
+  </Select> */}
+  <Button color="white" bgColor="#ED965C" borderRadius={20} onClick={handleClick} >
            Lets Grow!
           </Button>
 
+ 
+          </form>
           </Stack>
         </Flex>
       </>

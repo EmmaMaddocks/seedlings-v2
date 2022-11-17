@@ -11,31 +11,18 @@ import {
  import * as api from "../utils/api";
 import CropCard from './CropCard';
   
-  const Suggestions = () => {
+  const Suggestions = (props) => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
 
-    const [crops, setCrops] = useState([]);
+
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
   
-  
-    useEffect(() => {
-      setIsLoading(true);
-      api
-        .getCrops()
-        .then((data) => {
-          setCrops(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setError(error);
-          setIsLoading(false);
-        });
-    }, []);
-  
-    if (isLoading) return <Loading />;
+    const { crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
+
+
   
     return (
       <>

@@ -58,11 +58,7 @@ import SeedCard from './SeedCard';
         {crops.map((crop) => {
           return <SeedCard key={crop.crop_id} crop={crop} />;
         })}
-      </Stack>
-
-          {/* need to list out card for each suggested plant */}
-
-         
+      </Stack>         
         </Flex>
       </>
     );

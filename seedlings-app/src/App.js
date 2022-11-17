@@ -1,4 +1,4 @@
-import React, {Suspense}  from 'react';
+import React, {Suspense, useState}  from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
@@ -24,7 +24,10 @@ import HarvestedCrop from './components/HarvestedCrop.jsx';
 
 
 function App() {
-
+  const [crops, setCrops] = useState();
+  const [sunlight, setSunlight] = useState(null);
+  const [soiltype, setSoiltype] = useState(null);
+  const [outdoors, setLocation] = useState(false);
 
   return (
 
@@ -38,8 +41,8 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/growingconditions" element={<DataInput />} />
-          <Route path="/suggestions" element={<Suggestions />} />
+          <Route path="/growingconditions" element={<DataInput crops={crops} setCrops={setCrops} sunlight={sunlight} setSunlight={setSunlight} soiltype={soiltype} setSoiltype={setSoiltype} outdoors={outdoors} setLocation={setLocation} />} />
+          <Route path="/suggestions" element={<Suggestions crops={crops}/>} />
           <Route path="/allotment" element={<Allotment />} />
           <Route path="/seeds" element={<Seeds />} />
           <Route path="/carrot" element={<CropInfo />} />
