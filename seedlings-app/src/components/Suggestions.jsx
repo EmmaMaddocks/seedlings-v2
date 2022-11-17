@@ -20,7 +20,7 @@ import CropCard from './CropCard';
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
   
-    const { crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
+    const { user, crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
 
 
   
@@ -43,7 +43,7 @@ import CropCard from './CropCard';
           <Stack gap={3}>
 
         {crops.map((crop) => {
-          return <CropCard key={crop.crop_id} crop={crop} />;
+          return <CropCard key={crop.crop_id} crop={crop} user={user} />;
         })}
       </Stack>
 

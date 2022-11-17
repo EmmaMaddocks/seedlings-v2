@@ -46,7 +46,7 @@ console.log(response)
 
       if (response === 'Invalid password') {
     setError(response)
-      } else if (response === 'Username does not exist') {
+      } else if (response === 'Username does not exist.') {
         setError(response)
       } else {
         setUser(response)

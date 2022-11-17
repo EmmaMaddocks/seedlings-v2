@@ -11,11 +11,12 @@ import {
     ButtonGroup,
     Container
   } from '@chakra-ui/react';
+  import * as api from '../utils/api'
 
 
 
 
-const CropCard = ({ crop }) => {
+const CropCard = ({ crop, user }) => {
 
 const {
     description,
@@ -23,23 +24,18 @@ const {
     picture
 } = crop;
 
+const { username } = user 
 
-// const handleClick = (event) => {
-//   event.preventDefault();
 
-//   const newSeed = {
-//     author: loggedInUser,
-//     body: inputValue,
-//     votes: 0,
-//     created_at: "22/11/11",
-//   };
-//   try {
-//   api.postComment(inputValue, loggedInUser, article_id)
-// } catch(error) {
-//   console.log(error)
-//   setError(true);
-// }
-// };
+const handleClick = (event) => {
+  event.preventDefault();
+  try {
+  api.postSeed(user.user.username, name)
+} catch(error) {
+  console.log(error)
+  console.log(user.user.username)
+}
+};
 
 
 
@@ -60,7 +56,7 @@ const {
     </CardBody>
     <CardFooter>
       <ButtonGroup spacing='2'>
-        <Button variant='solid' bgColor='white' >
+        <Button variant='solid' bgColor='white' onClick={handleClick} >
           Add to my seeds
         </Button>
   

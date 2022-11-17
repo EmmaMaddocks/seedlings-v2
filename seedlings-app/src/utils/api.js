@@ -76,3 +76,13 @@ export const postUser = (firstName, userName, parentsEmail, password) => {
 
   })
 }
+
+export const postSeed = (username, name) => {
+  return axios.post(`${BASE_URL}/users/${username}/seeds`, {
+    name: name,
+  }).then(({ data }) => {
+    console.log(data)
+    return data
+
+  })
+}
