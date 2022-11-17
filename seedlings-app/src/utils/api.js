@@ -43,3 +43,14 @@ export const getPlantedCrop = () => {
       return data;
     })
 };
+
+export const getFilteredCrops = (outdoors, soiltype, sunlight) => {
+  let path = `/api/crops?outdoors=${outdoors}&&soilTypes=${soiltype}&&sunlight=${sunlight}`
+  return api
+  .get(path)
+  .then(({ data }) => {
+      console.log(data)
+    return data;
+  })
+};
+
