@@ -35,7 +35,6 @@ function Profile({user}) {
 
   useEffect(() => {
     setIsLoading(true);
-    console.log(user.user.username)
     api
       .getProfileData(user.user.username)
       .then(data => {
@@ -47,7 +46,6 @@ function Profile({user}) {
       });
   }, []);
 
-// console.log(user)
 
   return (
     <Flex

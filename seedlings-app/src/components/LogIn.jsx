@@ -42,8 +42,6 @@ const {user, setUser } = props
 
     api.validateLogIn(userName, password)
     .then((response) => {
-console.log(response)
-
       if (response === 'Invalid password') {
     setError(response)
       } else if (response === 'Username does not exist.') {

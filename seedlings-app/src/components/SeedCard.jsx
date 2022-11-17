@@ -15,13 +15,13 @@ import {
 
 
 
-const CropCard = ({ crop }) => {
+const SeedCard = ({ seed }) => {
 
 const {
     description,
     name,
     picture
-} = crop;
+} = seed;
 
     return (
     <Card maxW='sm' bgColor='brand.paleorange'>
@@ -50,4 +50,4 @@ const {
 )  
 }
 
-export default CropCard
+export default SeedCard

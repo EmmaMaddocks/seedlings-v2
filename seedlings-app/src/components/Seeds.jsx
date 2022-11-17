@@ -11,7 +11,7 @@ import {
  import * as api from "../utils/api";
 import SeedCard from './SeedCard';
   
-  const Seeds = () => {
+  const Seeds = ({user}) => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
@@ -20,23 +20,23 @@ import SeedCard from './SeedCard';
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
   
+    const { name, seeds, allotment, username } = user;
   
-    useEffect(() => {
-      setIsLoading(true);
-      api
-        .getCrops()
-        .then((data) => {
-          setCrops(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setError(error);
-          setIsLoading(false);
-        });
-    }, []);
-  
-    if (isLoading) return <Loading />;
-  
+    // useEffect(() => {
+    //   setIsLoading(true);
+    //   api
+    //     .getProfileData(user.user.username)
+    //     .then(data => {
+    //       setIsLoading(false);
+    //     })
+    //     .catch(error => {
+    //       setError(error);
+    //       setIsLoading(false);
+    //     });
+    // }, []);
+
+
+
     return (
       <>
         <Flex
@@ -55,8 +55,8 @@ import SeedCard from './SeedCard';
 
           <Stack gap={3}>
 
-        {crops.map((crop) => {
-          return <SeedCard key={crop.crop_id} crop={crop} />;
+        {user.user.seeds.map((seed) => {
+          return <SeedCard key={seed.seed_id} seed={seed} />;
         })}
       </Stack>         
         </Flex>
