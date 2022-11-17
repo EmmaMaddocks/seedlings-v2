@@ -36,7 +36,7 @@ function App() {
         <Container minH='100vh' minW='100vw' bg='#FBF2E3'>
           
   <ChakraProvider theme={theme}>
-    <Nav/>
+    <Nav user={user} setUser={setUser} />
       <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogIn user={user} setUser={setUser} />} />

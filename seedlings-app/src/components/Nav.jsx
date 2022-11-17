@@ -22,9 +22,21 @@ import { FaBars } from 'react-icons/fa';
 import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
-function Nav() {
+function Nav({user, setUser}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const navigate = useNavigate();
+
+  const handleLogOut = (event) => {
+        setUser(null);
+        navigate('/login')
+ }
+
+
+
+
+
+
 
   return (
     <>
@@ -72,10 +84,15 @@ function Nav() {
 
 
           <DrawerFooter>
-            <Button  as={NavLink} to="/login"  mr={3} onClick={onClose} bgColor='brand.paleorange'>
-              Log In
-            </Button>
+            { user ? <Button mr={3} onClick={handleLogOut} bgColor='brand.paleorange'>
+              Log Out
+            </Button> :
+                        <Button  as={NavLink} to="/login"  mr={3} onClick={onClose} bgColor='brand.paleorange'>
+                        Log In
+                      </Button>}
+
             <Button as={NavLink} to="/signup" onClick={onClose} bgColor='brand.paleorange'>Sign up</Button>
+          
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
