@@ -23,7 +23,8 @@ const SignUp = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm();
+
 
 
   function onSubmit(data) {
@@ -106,11 +107,12 @@ try {
             borderRadius="10"
 
     
-            {...register("parentsEmail", { required: true })} 
+            {...register("parentsEmail", { required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ }) } 
             aria-invalid={errors.parentsEmail ? "true" : "false"} 
 
           />
    {errors.parentsEmail?.type === 'required' && <p role="alert">Email is required</p>}
+   {errors.parentsEmail?.type === 'pattern' && <p role="alert">Email address doesn't look right, please try again..</p>}
           
           
           
@@ -163,7 +165,7 @@ try {
             <Switch colorScheme="orange" id="isRequired" isRequired />
           </Flex>
 
-          <Button color="white" bgColor="#ED965C" borderRadius={20} type='submit'>
+          <Button color="white" bgColor="#ED965C" borderRadius={20} isLoading={isSubmitting} type='submit'>
             Sign Up
           </Button>
 </form>
