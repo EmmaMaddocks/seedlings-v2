@@ -64,7 +64,7 @@ const theme = extendTheme({
 
             },
             cardHeader: {
-              fontSize: 'xl',
+              fontSize: 'lg',
               color: 'white',
               textAlign: 'center',
               font: `'Montserrat', sans-serif`,

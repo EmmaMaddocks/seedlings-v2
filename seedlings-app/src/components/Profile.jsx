@@ -65,7 +65,8 @@ function Profile({user}) {
 
 <Heading as='h1' size='2xl'> Welcome, {user.user.name}! </Heading> 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
-<Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='60vh' maxH='800px' alignItems='center' justifyContent='center'> 
+
+<Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='65vh' maxH='800px' alignItems='center' justifyContent='center'> 
       <SimpleGrid spacing={4}  columns={2}>
   <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader paddingBottom='0px'>
@@ -103,31 +104,30 @@ function Profile({user}) {
       <Text textStyle='h5'>degrees celcius</Text>
     </CardBody>
   </Card>
+
+
+
   <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
-    <CardHeader>
+    {/* <CardHeader>
     <Text textStyle='cardHeader'>Coming up</Text>
-    </CardHeader>
-    <CardBody paddingTop={0}>
-        <Flex direction='row' alignItems='center' justifyContent='space-between'>
-      <Text>Tomatoes</Text>
+    </CardHeader> */}
+    <CardBody paddingTop={0} display='flex'  direction='column' alignItems='center' justifyContent='center'>
+    {/* <Flex direction='column' alignItems='center' justifyContent='center'> */}
+      <Text  textStyle='h5'>Tomatoes</Text>
       <CircularProgress value={40} color='brand.orange'>
   <CircularProgressLabel>40%</CircularProgressLabel>
 </CircularProgress>
-</Flex>
-<Flex direction='row' alignItems='center' justifyContent='space-between' >
-      <Text>Peas</Text>
-      <CircularProgress value={30} color='brand.orange'>
-  <CircularProgressLabel>30%</CircularProgressLabel>
-</CircularProgress>
-</Flex>
+{/* </Flex> */}
     </CardBody>
   </Card>
+
+
   <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>To do today:</Text>
     </CardHeader>
-    <CardBody >
-      <Text>Water Carrots</Text>
+    <CardBody padding='0px'>
+      <Text  textStyle='h5'>Water Carrots</Text>
     </CardBody>
   </Card>
 </SimpleGrid>

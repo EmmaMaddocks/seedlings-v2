@@ -21,7 +21,7 @@ import { useState, useEffect } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
 
-const CropInfo = ({user}) => {
+const CropInfo = ({user, individualCrop}) => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [show, setShow] = useState(false);
@@ -46,23 +46,15 @@ const CropInfo = ({user}) => {
 
   if (isLoading) return <Loading />;
 
-  let datePlantedTimeStamp = user.user.allotment[0].planted;
-
-
-
+  let datePlantedTimeStamp = user.user.allotment[0].dayAdded;
 
 
   const newDatePlanted = new Date(datePlantedTimeStamp);
   const newDatePlantedDate = newDatePlanted.toLocaleDateString('en-GB')
 
-
   let dateWateredTimeStamp = user.user.allotment[0].lastWatered
   const newDateWatered = new Date(dateWateredTimeStamp);
   const newDateWateredDate = newDateWatered.toLocaleDateString('en-GB')
-
-
-
-
 
 const todaysDate = new Date()
 const todaysDate2 = todaysDate - datePlantedTimeStamp
@@ -75,20 +67,19 @@ const daysTillHarvest = user.user.allotment[0].minHarvest - daysOld
 const daysTillHarvestRounded = daysTillHarvest.toFixed()
 
 
-
   return (
     <>
       <Flex
-        minHeight="100vh"
+        minHeight="80vh"
         direction="column"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
         gap={6}
       >
-        <Box >
-  <Image   borderRadius='full' src={user.user.allotment[0].picture} alt={user.user.allotment[0].name} />
-</Box>
+  
+  <Image boxSize='300px' objectFit='cover' borderRadius='5' src={user.user.allotment[0].picture} alt={user.user.allotment[0].name} />
+
         <Box size="60vw">
           <Heading textStyle="h1" size="3xl">
           {user.user.allotment[0].name}

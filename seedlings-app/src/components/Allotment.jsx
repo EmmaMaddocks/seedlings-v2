@@ -11,7 +11,7 @@ import Loading from './Loading'
 import * as api from "../utils/api";
 import AllotmentCard from './AllotmentCard';
 
-const Allotment = ({user}) => {
+const Allotment = ({user, setIndividualCrop, individualCrop}) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -29,6 +29,7 @@ const Allotment = ({user}) => {
       .then(data => {
         setIsLoading(false);
         setAllotment(data[0].allotment)
+        console.log(data[0].allotment)
       })
       .catch(error => {
         setError(error);
@@ -57,7 +58,7 @@ const Allotment = ({user}) => {
         <Stack gap={3}>
 
       {allotment.map((crop) => {
-        return <AllotmentCard crop={crop} user={user} />;
+        return <AllotmentCard crop={crop} user={user} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop} />;
       })}
     </Stack>         
       </Flex>

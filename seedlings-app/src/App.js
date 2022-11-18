@@ -29,7 +29,7 @@ function App() {
   const [soiltype, setSoiltype] = useState(null);
   const [outdoors, setLocation] = useState(false);
   const [user, setUser] = useState(null);
-
+  const [individualCrop, setIndividualCrop] = useState(null);
 
   return (
 
@@ -45,9 +45,9 @@ function App() {
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/growingconditions" element={<DataInput crops={crops} setCrops={setCrops} sunlight={sunlight} setSunlight={setSunlight} soiltype={soiltype} setSoiltype={setSoiltype} outdoors={outdoors} setLocation={setLocation} />} />
           <Route path="/suggestions" element={<Suggestions crops={crops} user={user} />} />
-          <Route path="/allotment" element={<Allotment user={user} />} />
+          <Route path="/allotment" element={<Allotment user={user} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop}   />} />
           <Route path="/seeds" element={<Seeds user={user} />} />
-          <Route path="/crop" element={<CropInfo  user={user}/>} />
+          <Route path="/crop" element={<CropInfo individualCrop={individualCrop}  user={user}/>} />
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />
         </Routes>
     </ChakraProvider>

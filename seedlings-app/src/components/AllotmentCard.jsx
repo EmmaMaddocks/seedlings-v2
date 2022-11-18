@@ -17,7 +17,7 @@ import {
 
 
 
-const AllotmentCard = ({ crop, user }) => {
+const AllotmentCard = ({ crop, user, setIndividualCrop, individualCrop }) => {
 
   const navigate = useNavigate();
 
@@ -25,22 +25,28 @@ const {
     description,
     name,
     picture,
-    planted
+    planted,
+    datePlanted,
+    lastWatered
 } = crop;
 
 const { username } = user 
 
 
 const handleClick = (event) => {
+
   event.preventDefault();
   try {
-  api.deleteFromAllotment(user.user.username, planted)
+    console.log(datePlanted)
+  api.deleteFromAllotment(user.user.username, datePlanted)
+
 } catch(error) {
   console.log(error)
 }
 };
 
 const handleViewProduct = (event) => {
+  setIndividualCrop(crop.datePlanted)
   navigate('/crop')
 };
 
