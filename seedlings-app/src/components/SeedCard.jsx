@@ -24,16 +24,25 @@ const {
     picture
 } = seed;
 
-const handleClick = (event) => {
+const handlePlant = (event) => {
   event.preventDefault();
-  console.log(user.user.username)
   try {
   api.postAllotment(user.user.username, name)
 } catch(error) {
   console.log(error)
-  console.log(user.user.username)
+
 }
 };
+
+const handleDelete = (event) => {
+  event.preventDefault();
+  try {
+  api.deleteFromSeeds(user.user.username, name)
+} catch(error) {
+  console.log(error)
+}
+};
+
 
 
 
@@ -54,8 +63,11 @@ const handleClick = (event) => {
     </CardBody>
     <CardFooter>
       <ButtonGroup spacing='2'>
-        <Button variant='solid' bgColor='white' onClick={handleClick}>
+        <Button variant='solid' bgColor='white' onClick={handlePlant}>
           Plant Seeds
+        </Button>
+        <Button variant='solid' bgColor='white' onClick={handleDelete}>
+          Delete Seeds 
         </Button>
   
       </ButtonGroup>

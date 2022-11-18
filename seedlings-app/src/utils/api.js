@@ -40,15 +40,6 @@ export const getProfileData = (username) => {
 };
 
 
-export const getPlantedCrop = () => {
-    let path = `allotment/carrots`
-    return api
-    .get(path)
-    .then(({ data }) => {
-        console.log(data)
-      return data;
-    })
-};
 
 
 export const getFilteredCrops = (outdoors, soiltype, sunlight) => {
@@ -98,10 +89,17 @@ export const postAllotment = (username, name) => {
 }
 
 
-
-
 export const deleteFromAllotment = (username, name) => {
   return axios.delete(`${BASE_URL}/users/${username}/allotment/${name}`, {
+  }).then(({ data }) => {
+    console.log(data)
+    return data
+
+  })
+}
+
+export const deleteFromSeeds = (username, name) => {
+  return axios.delete(`${BASE_URL}/users/${username}/seeds/${name}`, {
   }).then(({ data }) => {
     console.log(data)
     return data

@@ -30,6 +30,7 @@ function App() {
   const [outdoors, setLocation] = useState(false);
   const [user, setUser] = useState(null);
 
+
   return (
 
     <BrowserRouter>
@@ -46,7 +47,7 @@ function App() {
           <Route path="/suggestions" element={<Suggestions crops={crops} user={user} />} />
           <Route path="/allotment" element={<Allotment user={user} />} />
           <Route path="/seeds" element={<Seeds user={user} />} />
-          <Route path="/carrot" element={<CropInfo />} />
+          <Route path="/crop" element={<CropInfo  user={user}/>} />
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />
         </Routes>
     </ChakraProvider>

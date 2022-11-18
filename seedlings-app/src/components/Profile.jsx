@@ -55,13 +55,13 @@ function Profile({user}) {
       gap={6}
       paddingTop='50px'
     >
-      <Container size='2xs'>
+      {/* <Container size='2xs'>
         <Canvas zIndex={1} flat linear >
           <Suspense fallback={null}>
             <Trophy />
           </Suspense>
         </Canvas>
-      </Container>
+      </Container> */}
 
 <Heading as='h1' size='2xl'> Welcome, {user.user.name}! </Heading> 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 

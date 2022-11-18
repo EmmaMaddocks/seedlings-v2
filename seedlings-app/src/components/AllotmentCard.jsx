@@ -12,11 +12,14 @@ import {
     Container
   } from '@chakra-ui/react';
   import * as api from '../utils/api'
+  import { useNavigate } from 'react-router-dom';
 
 
 
 
 const AllotmentCard = ({ crop, user }) => {
+
+  const navigate = useNavigate();
 
 const {
     description,
@@ -35,6 +38,11 @@ const handleClick = (event) => {
   console.log(error)
 }
 };
+
+const handleViewProduct = (event) => {
+  navigate('/crop')
+};
+
 
 
 
@@ -57,6 +65,9 @@ const handleClick = (event) => {
       <ButtonGroup spacing='2'>
         <Button variant='solid' bgColor='white' onClick={handleClick} >
           Remove from allotment
+        </Button>
+        <Button variant='solid' bgColor='white' onClick={handleViewProduct} >
+           View Info 
         </Button>
   
       </ButtonGroup>
