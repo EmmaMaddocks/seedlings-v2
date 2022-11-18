@@ -108,7 +108,7 @@ const handleNotReady = (event) => {
           <Button>Upload Picture</Button>
 
 
-          { daysTillHarvestRounded <= 0 ? <Button onClick={() => navigate('/harvestsuccess')}>Harvest</Button>  : <Button onClick={onOpen}>Harvest</Button>  }
+          { daysTillHarvestRounded <= 0 ? <Button bgColor='brand.paleorange' onClick={() => navigate('/harvestsuccess')}>Harvest</Button>  : <Button bgColor='brand.paleorange' onClick={onOpen}>Harvest</Button>  }
 
           <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

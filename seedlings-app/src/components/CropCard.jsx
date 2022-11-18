@@ -39,7 +39,8 @@ const handleClick = (event) => {
 
 
     return (
-    <Card maxW='sm' maxH='m' bgColor='brand.paleorange'>
+
+    <Card w='300px' h='m' bgColor='brand.paleorange' pos='relative'>
     <CardBody  >
       <Image
         src={picture}
@@ -62,6 +63,7 @@ const handleClick = (event) => {
       </ButtonGroup>
     </CardFooter>
   </Card>
+
 )  
 }
 
