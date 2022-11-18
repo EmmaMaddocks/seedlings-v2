@@ -45,7 +45,7 @@ const CropInfo = ({user}) => {
 
   if (isLoading) return <Loading />;
 
-  let datePlantedTimeStamp = user.user.allotment[0].datePlanted;
+  let datePlantedTimeStamp = user.user.allotment[0].planted;
 
 
 

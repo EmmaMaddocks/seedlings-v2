@@ -21,7 +21,8 @@ const SeedCard = ({ seed, user }) => {
 const {
     description,
     name,
-    picture
+    picture,
+    dayAdded
 } = seed;
 
 const handlePlant = (event) => {
@@ -37,7 +38,7 @@ const handlePlant = (event) => {
 const handleDelete = (event) => {
   event.preventDefault();
   try {
-  api.deleteFromSeeds(user.user.username, name)
+  api.deleteFromSeeds(user.user.username, dayAdded)
 } catch(error) {
   console.log(error)
 }

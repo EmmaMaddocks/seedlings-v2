@@ -32,7 +32,6 @@ export const getProfileData = (username) => {
     .get(path)
     .then(({ data }) => {
       console.log(data)
-
       return data;
     }).catch((error) => {
       console.log(error.response)
@@ -89,8 +88,8 @@ export const postAllotment = (username, name) => {
 }
 
 
-export const deleteFromAllotment = (username, name) => {
-  return axios.delete(`${BASE_URL}/users/${username}/allotment/${name}`, {
+export const deleteFromAllotment = (username, datePlanted) => {
+  return axios.delete(`${BASE_URL}/users/${username}/allotment/${datePlanted}`, {
   }).then(({ data }) => {
     console.log(data)
     return data
@@ -98,8 +97,8 @@ export const deleteFromAllotment = (username, name) => {
   })
 }
 
-export const deleteFromSeeds = (username, name) => {
-  return axios.delete(`${BASE_URL}/users/${username}/seeds/${name}`, {
+export const deleteFromSeeds = (username, dayAdded) => {
+  return axios.delete(`${BASE_URL}/users/${username}/seeds/${dayAdded}`, {
   }).then(({ data }) => {
     console.log(data)
     return data

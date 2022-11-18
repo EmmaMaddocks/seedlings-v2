@@ -24,7 +24,8 @@ const AllotmentCard = ({ crop, user }) => {
 const {
     description,
     name,
-    picture
+    picture,
+    planted
 } = crop;
 
 const { username } = user 
@@ -33,7 +34,7 @@ const { username } = user
 const handleClick = (event) => {
   event.preventDefault();
   try {
-  api.deleteFromAllotment(user.user.username, name)
+  api.deleteFromAllotment(user.user.username, planted)
 } catch(error) {
   console.log(error)
 }
