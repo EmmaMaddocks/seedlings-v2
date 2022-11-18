@@ -49,7 +49,8 @@ const theme = extendTheme({
             h1: {
                 letterSpacing: '1pt',
                 color: '#ED965C',
-                textAlign: 'center'
+                textAlign: 'center',
+                margin: '40px'
             },
             input: {
               color: '#6D8A0C' 
@@ -61,6 +62,7 @@ const theme = extendTheme({
               textAlign: 'center',
               font: `'Montserrat', sans-serif`,
               fontWeight: 'bold',
+              marginTop: '40pt'
 
             },
             cardHeader: {
@@ -98,6 +100,16 @@ const theme = extendTheme({
               font: `'Montserrat', sans-serif`,
               fontWeight: 'bold',
   
+
+            },
+            p: {
+              fontSize: 'md',
+              textAlign: 'justify',
+              font: `'Montserrat', sans-serif`,
+              marginLeft: '40px',
+              marginRight: '40px',
+              marginTop: '30px',
+              marginBottom: '20px'
 
             },
         }
