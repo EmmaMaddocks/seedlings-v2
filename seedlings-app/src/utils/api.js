@@ -88,8 +88,8 @@ export const postAllotment = (username, name) => {
 }
 
 
-export const deleteFromAllotment = (username, datePlanted) => {
-  return axios.delete(`${BASE_URL}/users/${username}/allotment/${datePlanted}`, {
+export const deleteFromAllotment = (username, planted) => {
+  return axios.delete(`${BASE_URL}/users/${username}/allotment/${planted}`, {
   }).then(({ data }) => {
     console.log(data)
     return data

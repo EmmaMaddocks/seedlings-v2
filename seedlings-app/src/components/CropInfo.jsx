@@ -13,7 +13,8 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  useDisclosure
+  useDisclosure,
+  Image
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -73,10 +74,7 @@ const weeksOld = daysOld / 7
 const daysTillHarvest = user.user.allotment[0].minHarvest - daysOld 
 const daysTillHarvestRounded = daysTillHarvest.toFixed()
 
-const handleNotReady = (event) => {
 
-
-};
 
   return (
     <>
@@ -88,6 +86,9 @@ const handleNotReady = (event) => {
         flexDirection="column"
         gap={6}
       >
+        <Box >
+  <Image   borderRadius='full' src={user.user.allotment[0].picture} alt={user.user.allotment[0].name} />
+</Box>
         <Box size="60vw">
           <Heading textStyle="h1" size="3xl">
           {user.user.allotment[0].name}

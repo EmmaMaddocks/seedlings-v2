@@ -19,21 +19,23 @@ import SeedCard from './SeedCard';
     const [crops, setCrops] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
+    const [seeds, setSeeds] = useState([]);
   
-    const { name, seeds, allotment, username } = user;
+
   
-    // useEffect(() => {
-    //   setIsLoading(true);
-    //   api
-    //     .getProfileData(user.user.username)
-    //     .then(data => {
-    //       setIsLoading(false);
-    //     })
-    //     .catch(error => {
-    //       setError(error);
-    //       setIsLoading(false);
-    //     });
-    // }, []);
+    useEffect(() => {
+      setIsLoading(true);
+      api
+        .getProfileData(user.user.username)
+        .then(data => {
+          setIsLoading(false);
+          setSeeds(data[0].seeds)
+        })
+        .catch(error => {
+          setError(error);
+          setIsLoading(false);
+        });
+    }, []);
 
 
 

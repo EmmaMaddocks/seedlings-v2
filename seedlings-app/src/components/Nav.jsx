@@ -76,9 +76,6 @@ function Nav({user, setUser}) {
             <p><Link as={NavLink} to="/soiltesting" onClick={onClose} >
               Soil Testing
             </Link></p>
-            <p><Link as={NavLink} to="/carrot" onClick={onClose} >
-              Carrot
-            </Link></p>
             </Stack>
           </DrawerBody>
 
