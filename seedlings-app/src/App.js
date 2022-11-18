@@ -18,7 +18,7 @@ import Seeds from './components/Seeds.jsx';
 import Allotment from './components/Allotment.jsx';
 import CropInfo from './components/CropInfo.jsx'
 import HarvestedCrop from './components/HarvestedCrop.jsx';
-
+import SoilTesting from './components/SoilTesting.jsx'
 
 
 
@@ -49,6 +49,7 @@ function App() {
           <Route path="/seeds" element={<Seeds user={user} />} />
           <Route path="/crop" element={<CropInfo individualCrop={individualCrop}  user={user}/>} />
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />
+          <Route path="/soiltesting" element={<SoilTesting/>}/>
         </Routes>
     </ChakraProvider>
   </Container>
