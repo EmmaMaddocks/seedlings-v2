@@ -32,28 +32,41 @@ import TinderCard from "react-tinder-card"
   
     const { user, crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
 
-    const swiped = (direction, nameToDelete) => {
-      console.log("removing: " + nameToDelete);
-    };
+ 
     const outOfframe = (name) => {
       console.log(name + " left the screen!");
     };
   
 
+    const swiped = (direction, crop) => {
+      if (direction === 'right') {
+        try {
+          api.postSeed(user.user.username, crop.name)
+        } catch(error) {
+          console.log(error)
+        }
+      }
+ 
+    };
+    
+
 
     return (<>
     
       <Heading textStyle='h1' paddingBottom='40px'>Choose your seeds</Heading>
-      <Text textStyle='h3' paddingBottom='40px'>Swipe left to skip, swipe right to add to your collection</Text>
-      <Flex maxW='100vw' justifyContent='center'>
-  
+      <Text textStyle='h3' paddingBottom='40px'>Based on your answers, we recommend the following seeds.</Text>
+      <Text textStyle='h3' paddingBottom='40px'>
+      Swipe left to skip, swipe right to add to your collection</Text>
+    
+      <Flex maxW='100vw' justifyContent='center' pos='relative'>
+
           {crops.map((crop) => (
             <TinderCard
             pos='absolute'
               className="swipe"
               key={crop.name}
               preventSwipe={["up", "down"]}
-              onSwipe={(dir) => swiped(dir, crop.name)}
+              onSwipe={(dir) => swiped(dir, crop)}
               onCardLeftScreen={() => outOfframe(crop.name)}
 
             >

@@ -81,7 +81,25 @@ const theme = extendTheme({
               marginRight: '40px'
 
 
-            }
+            },
+            h4: {
+              fontSize: '7xl',
+              color: 'white',
+              textAlign: 'center',
+              font: `'Montserrat', sans-serif`,
+              fontWeight: 'bold',
+  
+
+            },
+            h5: {
+              fontSize: 'lg',
+              color: 'white',
+              textAlign: 'center',
+              font: `'Montserrat', sans-serif`,
+              fontWeight: 'bold',
+  
+
+            },
         }
   })
 
