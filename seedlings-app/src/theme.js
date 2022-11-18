@@ -70,10 +70,19 @@ const theme = extendTheme({
               font: `'Montserrat', sans-serif`,
               fontWeight: 'bold',
 
+            },
+            h3: {
+              fontSize: 'lg',
+              color: '#6D8A0C',
+              textAlign: 'center',
+              font: `'Montserrat', sans-serif`,
+              fontWeight: 'bold',
+              marginLeft: '40px',
+              marginRight: '40px'
+
+
             }
         }
-      
-
   })
 
 

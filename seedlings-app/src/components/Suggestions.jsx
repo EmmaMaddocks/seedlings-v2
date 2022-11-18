@@ -41,9 +41,12 @@ import TinderCard from "react-tinder-card"
   
 
 
-    return (
-      <Flex maxW='100vw' justifyContent='center' paddingRight='50vw'>
-
+    return (<>
+    
+      <Heading textStyle='h1' paddingBottom='40px'>Choose your seeds</Heading>
+      <Text textStyle='h3' paddingBottom='40px'>Swipe left to skip, swipe right to add to your collection</Text>
+      <Flex maxW='100vw' justifyContent='center'>
+  
           {crops.map((crop) => (
             <TinderCard
             pos='absolute'
@@ -52,11 +55,10 @@ import TinderCard from "react-tinder-card"
               preventSwipe={["up", "down"]}
               onSwipe={(dir) => swiped(dir, crop.name)}
               onCardLeftScreen={() => outOfframe(crop.name)}
-              left='0'
-              top='0'
+
             >
       
-      <Card w='300px' h='550px' bgColor='brand.paleorange' pos='fixed' >
+      <Card w='350px' h='550px' bgColor='brand.paleorange' pos='absolute' left='50%' transform='translateX(-50%)'>
 
     <CardBody  >
       <Image
@@ -64,8 +66,9 @@ import TinderCard from "react-tinder-card"
         alt={crop.name}
         borderRadius='lg'
       />
-      <Stack mt='6' spacing='3'>
+      <Stack mt='6' spacing='2'>
         <Heading size='md'>{crop.name}</Heading>
+        <Text as='h2'>Grow Time: {crop.growTime}</Text>
         <Text>
   {crop.description}
         </Text>
@@ -76,6 +79,7 @@ import TinderCard from "react-tinder-card"
           ))}
 
       </Flex>
+      </>
     );
   }
 
