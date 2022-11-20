@@ -21,8 +21,8 @@ const[soils, setSoils] = useState([{name:"Chalky Soil", url:"https://images.imme
 
 
 return(<>
-<Flex direction='column' alignItems='center' justiftContent='center'>
-            <Heading textStyle='h1' mb={4}>
+<Flex direction='column' alignItems='center' justiftContent='center' pb='40px'>
+            <Heading textStyle='h1' m={5} >
              What is soil and why is it important?
             </Heading>
             {/* <AspectRatio maxW='560px' ratio={1}> */}
@@ -34,7 +34,7 @@ return(<>
             <Text  textStyle='p' mt={4} mb={4}>
             The soil is the top part of the Earth where plants grow. This loose material is made of a combination of eroded rocks and organic matter (decaying plants and animals). The type of rocks and living organisms combined with the conditions in the area determine the type of soil you will find. The soil has different layers. If you were to dig down and cut out a cross section, you would see the layers, or horizons (humus, top soil, subsoil, and parent material).
             </Text>
-            <Heading textStyle='h2' mb={4}>
+            <Heading textStyle='h2' mt={6} mb={4}>
              What type of soil do you have?
             </Heading>
             <Text textStyle='p' mb={4}>
