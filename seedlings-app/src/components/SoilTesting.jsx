@@ -21,27 +21,28 @@ const[soils, setSoils] = useState([{name:"Chalky Soil", url:"https://images.imme
 
 
 return(<>
-            <Heading size="2xl" mb={4} color="gray.700">
+<Flex direction='column' alignItems='center' justiftContent='center'>
+            <Heading textStyle='h1' mb={4}>
              What is soil and why is it important?
             </Heading>
-            <AspectRatio maxW='560px' ratio={1}>
+            {/* <AspectRatio maxW='560px' ratio={1}> */}
   <iframe
     src='https://www.youtube.com/embed/og9A_Apr534'
     allowFullScreen
   />
-</AspectRatio>
-            <Text fontSize="xl" color="gray.500">
+{/* </AspectRatio> */}
+            <Text  textStyle='p' mt={4} mb={4}>
             The soil is the top part of the Earth where plants grow. This loose material is made of a combination of eroded rocks and organic matter (decaying plants and animals). The type of rocks and living organisms combined with the conditions in the area determine the type of soil you will find. The soil has different layers. If you were to dig down and cut out a cross section, you would see the layers, or horizons (humus, top soil, subsoil, and parent material).
             </Text>
-            <Heading size="2xl" mb={4} color="gray.700">
+            <Heading textStyle='h2' mb={4}>
              What type of soil do you have?
             </Heading>
-            <Text my={2} fontSize="sm" color="gray.500">
+            <Text textStyle='p' mb={4}>
               There are 4 main types and we can do a simple test to work it out.
             </Text>
-
+            <Stack gap={3}>
      {soils.map((soil) => (
- <Card w='350px' h='550px' bgColor='brand.palegrey' left='50%' transform='translateX(-50%)'>
+ <Card w='350px' bgColor='brand.lightgreen'>
 
 <CardBody  >
  <Image
@@ -59,7 +60,9 @@ return(<>
 </CardBody>
 </Card>
      ))}
+     </Stack>
      <ScrollToTop/>
+     </Flex>
 </>)}
 
 export default SoilTesting

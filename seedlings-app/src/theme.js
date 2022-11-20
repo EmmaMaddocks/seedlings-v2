@@ -100,6 +100,14 @@ const theme = extendTheme({
   
 
             },
+            p: {
+              fontSize: 'sm',
+              textAlign: 'center',
+              marginLeft: '50px',
+              marginRight: '50px',
+
+              font: `'Montserrat', sans-serif`,
+            }
         }
   })
 
