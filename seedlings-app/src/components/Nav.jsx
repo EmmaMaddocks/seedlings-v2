@@ -35,6 +35,7 @@ function Nav() {
 
   const handleLogOut = (event) => {
         setUser(null);
+        localStorage.clear()
         navigate('/login')
  }
 

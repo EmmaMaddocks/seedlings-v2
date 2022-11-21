@@ -1,14 +1,8 @@
 import {
   SimpleGrid,
-  Box,
   Flex,
-  Spacer,
   Text,
   Heading,
-  Button,
-  List,
-  ListItem,
-  ListIcon,
   Card,
   CardBody,
   CircularProgress,
@@ -16,39 +10,18 @@ import {
   CardHeader,
   Container,
 } from '@chakra-ui/react';
-import { FaCheck, FaLongArrowAltRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Trophy from './trophy';
 import React, { Suspense, useContext } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
-import Loading from './Loading';
 import { UserContext } from '../context/UserContext';
 
 function Profile() {
 
-  const {user, setUser} = useContext(UserContext)
+  const {user} = useContext(UserContext)
 
-  const navigate = useNavigate();
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const { name, seeds, allotment, username } = user;
-
-  useEffect(() => {
-    setIsLoading(true);
-    api
-      .getProfileData(user.user.username)
-      .then(data => {
-        setIsLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setIsLoading(false);
-      });
-  }, []);
 
 
   return (

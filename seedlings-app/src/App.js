@@ -1,4 +1,4 @@
-import React, {Suspense, useMemo, useState}  from 'react';
+import React, {Suspense, useMemo, useState, useEffect}  from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
@@ -37,6 +37,14 @@ function App() {
   const [user, setUser] = useState();
 
   const userValue = useMemo(() => ({user, setUser}), [user, setUser])
+
+    useEffect(() => {
+const loggedInUser = JSON.parse(localStorage.getItem(user))
+if (loggedInUser) {
+  setUser(loggedInUser)
+}
+}, []);
+
 
   return (
 

@@ -37,10 +37,10 @@ const LogIn = () => {
     const { userName, password } = data;
   
 
-    const user = {
-      username: userName,
-      password: password,
-    };
+    // const user = {
+    //   username: userName,
+    //   password: password,
+    // };
 
     api.validateLogIn(userName, password)
     .then((response) => {
@@ -51,6 +51,7 @@ const LogIn = () => {
         setError(response)
       } else {
         setUser(response)
+        localStorage.setItem('user', JSON.stringify((response)))
         navigate('/profile')
       }
 

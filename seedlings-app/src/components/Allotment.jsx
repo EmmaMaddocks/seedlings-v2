@@ -14,7 +14,7 @@ import { UserContext } from '../context/UserContext';
 
 const Allotment = ({setIndividualCrop, individualCrop}) => {
   const {user, setUser} = useContext(UserContext)
-  
+
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -26,9 +26,6 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
 
   
 
-
-  // const { name, seeds, allotment, username } = user;
-
   useEffect(() => {
     setIsLoading(true);
     api
@@ -36,7 +33,6 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
       .then(data => {
         setIsLoading(false);
         setAllotment(data[0].allotment)
-        console.log(data[0].allotment)
       })
       .catch(error => {
         setError(error);
