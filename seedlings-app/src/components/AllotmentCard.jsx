@@ -39,21 +39,20 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop }) => {
   };
 
   return (
-    <Card maxW="sm" maxH="m" bgColor="brand.paleorange">
+    <Card bgColor="brand.paleorange" width='300px' align="center">
       <CardBody>
         <Image src={picture} alt={name} borderRadius="lg" />
         <Stack mt="6" spacing="3">
-          <Heading size="md">{name}</Heading>
-          <Text>{description}</Text>
+          <Heading textStyle="h2" color='white'>{name}</Heading>
         </Stack>
       </CardBody>
       <CardFooter>
         <ButtonGroup spacing="2">
-          <Button variant="solid" bgColor="white" onClick={handleClick}>
-            Remove from allotment
-          </Button>
-          <Button variant="solid" bgColor="white" onClick={handleViewProduct}>
+        <Button variant="solid" bgColor="white" onClick={handleViewProduct}>
             View Info
+          </Button>
+          <Button variant="solid" bgColor="white" onClick={handleClick}>
+            Remove
           </Button>
         </ButtonGroup>
       </CardFooter>

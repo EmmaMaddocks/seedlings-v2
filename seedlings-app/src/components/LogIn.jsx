@@ -77,8 +77,9 @@ const LogIn = () => {
           </Heading>
         </Box>
 
-        <VStack spacing={3} align="center">
-          <form onSubmit={handleSubmit(onSubmit)}>
+
+          <form onSubmit={handleSubmit(onSubmit)} gap={4}>
+          <VStack spacing={4} align="center" width='300px'>
             <Input
               placeholder="Username"
               size="lg"
@@ -131,6 +132,7 @@ const LogIn = () => {
             <Button colorScheme="orange" size="lg" type="submit">
               Log In
             </Button>
+            </VStack>
           </form>
 
           { error ? <Text>{error}</Text> : null }
@@ -144,7 +146,7 @@ const LogIn = () => {
           >
             Sign Up
           </Button>
-        </VStack>
+
       </Flex>
     </>
   );
