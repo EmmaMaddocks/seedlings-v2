@@ -12,11 +12,12 @@ import {
     Container
   } from '@chakra-ui/react';
   import * as api from '../utils/api'
+  import { UserContext } from '../context/UserContext';
+  import { useContext } from 'react';
 
 
 
-
-const CropCard = ({ crop, user }) => {
+const CropCard = ({ crop }) => {
 
 const {
     description,
@@ -24,7 +25,7 @@ const {
     picture
 } = crop;
 
-const { username } = user 
+const {user} = useContext(UserContext)
 
 
 const handleClick = (event) => {

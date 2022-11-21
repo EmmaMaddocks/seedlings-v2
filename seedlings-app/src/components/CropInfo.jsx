@@ -17,11 +17,13 @@ import {
   Image
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
+import { UserContext } from '../context/UserContext';
 
-const CropInfo = ({user, individualCrop}) => {
+
+const CropInfo = ({individualCrop}) => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [show, setShow] = useState(false);
@@ -30,6 +32,12 @@ const CropInfo = ({user, individualCrop}) => {
   const [crop, setCrop] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null)
+
+  const {user} = useContext(UserContext)
+
+
+
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -86,13 +94,13 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
           </Heading>
         </Box>
 
-        <Stack gap={3}>
+        <Stack gap={3} align='center'>
         { daysOld < 7 ? 
-          <Text>Your {user.user.allotment[0].name} is {daysOldRounded} days old! </Text> :
-          <Text>Your {user.user.allotment[0].name} is {weeksOld} weeks old! </Text> }
+          <Text>Your {user.user.allotment[0].name} are {daysOldRounded} days old! </Text> :
+          <Text>Your {user.user.allotment[0].name} are {weeksOld} weeks old! </Text> }
 
 
-          <Text>There are {daysTillHarvestRounded} days until it's ready to harvest</Text>
+          <Text>There are {daysTillHarvestRounded} days until they're ready to harvest</Text>
 
           <Text>Last Watered {newDateWateredDate} </Text>
     
