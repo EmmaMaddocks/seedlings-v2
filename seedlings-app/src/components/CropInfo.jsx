@@ -23,36 +23,25 @@ import * as api from '../utils/api';
 import { useUserContext } from '../context/UserContext';
 
 
-const CropInfo = ({individualCrop}) => {
+const CropInfo = () => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
-  const [crop, setCrop] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null)
+
 
   const {user, setUser } = useUserContext()
 
 
+console.log(user.user.allotment[0].dayAdded)
 
 
 
-  useEffect(() => {
-    setIsLoading(true);
-    api
-      .getProfileData(user.user.username)
-      .then(data => {
-        setIsLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setIsLoading(false);
-      });
-  }, []);
 
-  if (isLoading) return <Loading />;
+  // if (isLoading) return <Loading />;
 
   let datePlantedTimeStamp = user.user.allotment[0].dayAdded;
 
@@ -90,7 +79,7 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
 
         <Box size="60vw">
           <Heading textStyle="h1" size="3xl">
-          {user.user.allotment[0].name}
+          {user.user.allotment.name}
           </Heading>
         </Box>
 

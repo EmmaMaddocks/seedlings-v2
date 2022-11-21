@@ -38,15 +38,15 @@ function App() {
 
   // const userValue = useMemo(() => ({user, setUser}), [user, setUser])
 
-    useEffect(() => {
-       function fetchUser () {
-const loggedInUser = JSON.parse(localStorage.getItem('user'))
+//     useEffect(() => {
+//        function fetchUser () {
+// const loggedInUser = JSON.parse(localStorage.getItem('user'))
 
-  setUser(loggedInUser)
-}
+//   setUser(loggedInUser)
+// }
 
-fetchUser();
-}, []);
+// fetchUser();
+// }, []);
 
 console.log(user)
 
