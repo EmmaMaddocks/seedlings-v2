@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 
 
 const CropInfo = ({individualCrop}) => {
@@ -33,7 +33,7 @@ const CropInfo = ({individualCrop}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null)
 
-  const {user} = useContext(UserContext)
+  const {user, setUser } = useUserContext()
 
 
 

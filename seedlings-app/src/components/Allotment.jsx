@@ -10,11 +10,10 @@ import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading'
 import * as api from "../utils/api";
 import AllotmentCard from './AllotmentCard';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 
 const Allotment = ({setIndividualCrop, individualCrop}) => {
-  const {user, setUser} = useContext(UserContext)
-
+ const {user, setUser } = useUserContext()
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);

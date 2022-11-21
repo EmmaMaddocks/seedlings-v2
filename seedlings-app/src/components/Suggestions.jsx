@@ -18,8 +18,10 @@ import {
  import * as api from "../utils/api";
 import CropCard from './CropCard';
 import TinderCard from "react-tinder-card"
+import { useUserContext } from '../context/UserContext';
   
   const Suggestions = (props) => {
+    const {user, setUser } = useUserContext()
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
@@ -30,7 +32,7 @@ import TinderCard from "react-tinder-card"
 
     const [error, setError] = useState(null)
   
-    const { user, crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
+    const { crops, setCrops, sunlight, setSunlight, soiltype, setSoiltype, outdoors, setLocation  } = props
 
  
     const outOfframe = (name) => {
@@ -41,6 +43,7 @@ import TinderCard from "react-tinder-card"
     const swiped = (direction, crop) => {
       if (direction === 'right') {
         try {
+          console.log(user)
           api.postSeed(user.user.username, crop.name)
         } catch(error) {
           console.log(error)

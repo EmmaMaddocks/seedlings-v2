@@ -10,10 +10,10 @@ import {
  import Loading from './Loading'
  import * as api from "../utils/api";
 import SeedCard from './SeedCard';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
   
   const Seeds = () => {
-    const {user, setUser} = useContext(UserContext)
+    const {user, setUser } = useUserContext()
 
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
@@ -32,7 +32,7 @@ import { UserContext } from '../context/UserContext';
         .getProfileData(user.user.username)
         .then(data => {
           setIsLoading(false);
-          setSeeds(data[0].seeds)
+          setSeeds(data.seeds)
         })
         .catch(error => {
           setError(error);

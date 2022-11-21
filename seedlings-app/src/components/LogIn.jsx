@@ -15,7 +15,7 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as api from '../utils/api';
 import { setQuaternionFromProperEuler } from 'three/src/math/MathUtils';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const LogIn = () => {
   const handleClick = () => setShow(!show);
   const [error, setError] = useState(null); 
 
-  const {user, setUser} = useContext(UserContext)
+  const {user, setUser } = useUserContext()
 
 
   const {
@@ -50,7 +50,7 @@ const LogIn = () => {
       } else if (response === 'Username does not exist.') {
         setError(response)
       } else {
-        setUser(response)
+
         localStorage.setItem('user', JSON.stringify((response)))
         navigate('/profile')
       }

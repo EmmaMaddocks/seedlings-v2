@@ -19,7 +19,7 @@ import Allotment from './components/Allotment.jsx';
 import CropInfo from './components/CropInfo.jsx'
 import HarvestedCrop from './components/HarvestedCrop.jsx';
 import SoilTesting from './components/SoilTesting.jsx'
-import { UserContext } from './context/UserContext.js';                              
+import { UserContext, UserProvider } from './context/UserContext.js';                              
 
 
 
@@ -34,20 +34,21 @@ function App() {
 
 
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
-  const userValue = useMemo(() => ({user, setUser}), [user, setUser])
+  // const userValue = useMemo(() => ({user, setUser}), [user, setUser])
 
     useEffect(() => {
+       function fetchUser () {
 const loggedInUser = JSON.parse(localStorage.getItem('user'))
-console.log(loggedInUser)
 
-if (loggedInUser) {
-  console.log(loggedInUser)
   setUser(loggedInUser)
 }
+
+fetchUser();
 }, []);
 
+console.log(user)
 
   return (
 
@@ -55,8 +56,8 @@ if (loggedInUser) {
         <Container minH='100vh' minW='100vw' bg='#FBF2E3'>
           
   <ChakraProvider theme={theme}>
-  <UserContext.Provider value={userValue}>
-    <Nav user={user} setUser={setUser} />
+  <UserProvider>
+    <Nav />
       <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogIn />} />
@@ -70,7 +71,7 @@ if (loggedInUser) {
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />
           <Route path="/soiltesting" element={<SoilTesting/>}/>
         </Routes>
-        </UserContext.Provider>
+        </UserProvider>
     </ChakraProvider>
 
   </Container>

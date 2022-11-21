@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import * as api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 import { useContext } from 'react';
 
 const AllotmentCard = ({ crop, setIndividualCrop, individualCrop }) => {
@@ -22,7 +22,7 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop }) => {
   const { description, name, picture, planted, datePlanted, lastWatered } =
     crop;
 
-    const {user, setUser} = useContext(UserContext)
+    const {user, setUser } = useUserContext()
 
   const handleClick = event => {
     event.preventDefault();

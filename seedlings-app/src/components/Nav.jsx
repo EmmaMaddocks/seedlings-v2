@@ -21,12 +21,12 @@ import { useNavigate } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import React, { useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 
 
 function Nav() {
 
-  const {user, setUser} = useContext(UserContext)
+  const {user, setUser } = useUserContext()
 
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -34,7 +34,6 @@ function Nav() {
   const navigate = useNavigate();
 
   const handleLogOut = (event) => {
-        setUser(null);
         localStorage.clear()
         navigate('/login')
  }

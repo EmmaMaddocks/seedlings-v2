@@ -16,14 +16,14 @@ import React, { Suspense, useContext } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
-import { UserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext';
 import Weather from './Weather';
 import getIpAddress from '../utils/IpAddress';
 import axios from 'axios';
 
 function Profile() {
 
-  const {user} = useContext(UserContext)
+  const {user, setUser } = useUserContext()
 
 console.log(user)
 
