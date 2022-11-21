@@ -29,6 +29,7 @@ const handlePlant = (event) => {
   event.preventDefault();
   try {
   api.postAllotment(user.user.username, name)
+
 } catch(error) {
   console.log(error)
 

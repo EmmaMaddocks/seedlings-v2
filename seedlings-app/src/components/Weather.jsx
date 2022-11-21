@@ -35,7 +35,7 @@ const CityComponent = (props) => {
   
   return (
     <div className='cityComponent'>
-      <img src="https://img.icons8.com/fluency/96/000000/smiling-sun.png" className='weatherLogo' />
+      <img src="https://img.icons8.com/fluency/96/000000/smiling-sun.png" className='weatherLogo' width='70px' height='auto'/>
       <span className='chooseCityLabel'>Find Weather of your city</span>
       <form className='searchBox' onSubmit={fetchWeather}>
         <input placeholder='City' onChange={(event) => updateCity(event.target.value)} />

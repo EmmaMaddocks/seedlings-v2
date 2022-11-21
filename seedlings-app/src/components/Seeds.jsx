@@ -40,6 +40,7 @@ import { UserContext } from '../context/UserContext';
         });
     }, []);
 
+    
 
 
     return (
@@ -51,6 +52,7 @@ import { UserContext } from '../context/UserContext';
           justifyContent="center"
           flexDirection="column"
           gap={6}
+          
         >
           <Box size="60vw">
             <Heading textStyle="h1" size="3xl" >

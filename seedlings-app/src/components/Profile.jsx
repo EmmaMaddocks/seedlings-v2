@@ -18,18 +18,18 @@ import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
 import Weather from './Weather';
+import getIpAddress from '../utils/IpAddress';
+import axios from 'axios';
+
 function Profile() {
 
   const {user} = useContext(UserContext)
 
-
+console.log(user)
 
   return (
-    <Flex
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      gap={6}
+    <Container
+    centerContent
       paddingTop='50px'
     >
       {/* <Container size='2xs'>
@@ -40,10 +40,10 @@ function Profile() {
         </Canvas>
       </Container> */}
 
-<Heading as='h1' size='2xl'> Welcome, {user.user.name}! </Heading> 
+<Heading textStyle='h1' size='2xl'> Welcome, {user.user.name}! </Heading> 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
 
-<Flex position='absolute' bottom='0' bgColor='white' borderRadius='25pt' width='100vw' height='65vh' maxH='800px' alignItems='center' justifyContent='center'> 
+<Flex borderRadius='25pt' width='100vw' height='65vh' maxH='800px' alignItems='center' justifyContent='center'> 
       <SimpleGrid spacing={4}  columns={2}>
   <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader paddingBottom='0px'>
@@ -115,7 +115,7 @@ function Profile() {
 
 
 
-    </Flex>
+    </Container>
   );
 }
 

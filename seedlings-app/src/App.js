@@ -39,8 +39,11 @@ function App() {
   const userValue = useMemo(() => ({user, setUser}), [user, setUser])
 
     useEffect(() => {
-const loggedInUser = JSON.parse(localStorage.getItem(user))
+const loggedInUser = JSON.parse(localStorage.getItem('user'))
+console.log(loggedInUser)
+
 if (loggedInUser) {
+  console.log(loggedInUser)
   setUser(loggedInUser)
 }
 }, []);
