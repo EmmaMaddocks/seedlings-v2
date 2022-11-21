@@ -19,13 +19,17 @@ import {
 import { FaCheck, FaLongArrowAltRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Trophy from './trophy';
-import React, { Suspense } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
 import Loading from './Loading';
+import { UserContext } from '../context/UserContext';
 
-function Profile({user}) {
+function Profile() {
+
+  const {user, setUser} = useContext(UserContext)
+
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);

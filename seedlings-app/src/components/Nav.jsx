@@ -19,10 +19,16 @@ import {
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
-function Nav({user, setUser}) {
+
+function Nav() {
+
+  const {user, setUser} = useContext(UserContext)
+
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const navigate = useNavigate();

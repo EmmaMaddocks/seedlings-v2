@@ -11,18 +11,20 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as api from '../utils/api';
 import { setQuaternionFromProperEuler } from 'three/src/math/MathUtils';
+import { UserContext } from '../context/UserContext';
 
-const LogIn = (props) => {
+const LogIn = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const [error, setError] = useState(null); 
 
-const {user, setUser } = props
+  const {user, setUser} = useContext(UserContext)
+
 
   const {
     register,
@@ -42,6 +44,7 @@ const {user, setUser } = props
 
     api.validateLogIn(userName, password)
     .then((response) => {
+      console.log(response)
       if (response === 'Invalid password') {
     setError(response)
       } else if (response === 'Username does not exist.') {

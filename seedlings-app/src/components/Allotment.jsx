@@ -6,12 +6,16 @@ import {
   Stack
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading'
 import * as api from "../utils/api";
 import AllotmentCard from './AllotmentCard';
+import { UserContext } from '../context/UserContext';
 
-const Allotment = ({user, setIndividualCrop, individualCrop}) => {
+const Allotment = ({setIndividualCrop, individualCrop}) => {
+  const {user, setUser} = useContext(UserContext)
+  
+
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -19,6 +23,9 @@ const Allotment = ({user, setIndividualCrop, individualCrop}) => {
   const [allotment, setAllotment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null)
+
+  
+
 
   // const { name, seeds, allotment, username } = user;
 

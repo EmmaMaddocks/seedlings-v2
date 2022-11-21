@@ -6,12 +6,15 @@ import {
     Stack
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
-  import { useState, useEffect } from 'react';
+  import { useState, useEffect, useContext } from 'react';
  import Loading from './Loading'
  import * as api from "../utils/api";
 import SeedCard from './SeedCard';
+import { UserContext } from '../context/UserContext';
   
-  const Seeds = ({user}) => {
+  const Seeds = () => {
+    const {user, setUser} = useContext(UserContext)
+
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);

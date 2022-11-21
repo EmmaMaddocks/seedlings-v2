@@ -1,4 +1,4 @@
-import React, {Suspense, useState}  from 'react';
+import React, {Suspense, useMemo, useState}  from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
@@ -19,6 +19,7 @@ import Allotment from './components/Allotment.jsx';
 import CropInfo from './components/CropInfo.jsx'
 import HarvestedCrop from './components/HarvestedCrop.jsx';
 import SoilTesting from './components/SoilTesting.jsx'
+import { UserContext } from './context/UserContext.js';                              
 
 
 
@@ -28,8 +29,14 @@ function App() {
   const [sunlight, setSunlight] = useState(null);
   const [soiltype, setSoiltype] = useState(null);
   const [outdoors, setLocation] = useState(false);
-  const [user, setUser] = useState(null);
+
   const [individualCrop, setIndividualCrop] = useState(null);
+
+
+
+  const [user, setUser] = useState();
+
+  const userValue = useMemo(() => ({user, setUser}), [user, setUser])
 
   return (
 
@@ -37,21 +44,24 @@ function App() {
         <Container minH='100vh' minW='100vw' bg='#FBF2E3'>
           
   <ChakraProvider theme={theme}>
+  <UserContext.Provider value={userValue}>
     <Nav user={user} setUser={setUser} />
       <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LogIn user={user} setUser={setUser} />} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/growingconditions" element={<DataInput crops={crops} setCrops={setCrops} sunlight={sunlight} setSunlight={setSunlight} soiltype={soiltype} setSoiltype={setSoiltype} outdoors={outdoors} setLocation={setLocation} />} />
-          <Route path="/suggestions" element={<Suggestions crops={crops} user={user} />} />
-          <Route path="/allotment" element={<Allotment user={user} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop}   />} />
-          <Route path="/seeds" element={<Seeds user={user} />} />
-          <Route path="/crop" element={<CropInfo individualCrop={individualCrop}  user={user}/>} />
+          <Route path="/suggestions" element={<Suggestions crops={crops}/>} />
+          <Route path="/allotment" element={<Allotment setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop}   />} />
+          <Route path="/seeds" element={<Seeds/>} />
+          <Route path="/crop" element={<CropInfo individualCrop={individualCrop}  />} />
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />
           <Route path="/soiltesting" element={<SoilTesting/>}/>
         </Routes>
+        </UserContext.Provider>
     </ChakraProvider>
+
   </Container>
 
 

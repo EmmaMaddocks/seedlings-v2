@@ -31,7 +31,6 @@ export const getProfileData = (username) => {
     return api
     .get(path)
     .then(({ data }) => {
-      console.log(data[0].allotment)
       return data;
     }).catch((error) => {
       console.log(error.response)
