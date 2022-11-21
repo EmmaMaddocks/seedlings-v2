@@ -49,7 +49,7 @@ const handleDelete = (event) => {
 
 
     return (
-    <Card maxW='sm' bgColor='brand.paleorange'>
+    <Card  width='300px' bgColor='brand.paleorange'>
     <CardBody  >
       <Image
         src={picture}
