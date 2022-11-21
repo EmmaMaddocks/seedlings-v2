@@ -24,6 +24,7 @@ import { Canvas } from '@react-three/fiber';
 import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
 import Loading from './Loading';
+import Weather from './Weather';
 
 function Profile({user}) {
   const navigate = useNavigate();
@@ -97,11 +98,9 @@ function Profile({user}) {
   </Card>
   <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
     <CardHeader paddingBottom='0px'>
-    <Text textStyle='cardHeader'>Weather</Text>
+    <Weather textStyle='cardHeader'/>
     </CardHeader>
     <CardBody padding='0px'>
-    <Text textStyle='h4'>15</Text>
-      <Text textStyle='h5'>degrees celcius</Text>
     </CardBody>
   </Card>
 
