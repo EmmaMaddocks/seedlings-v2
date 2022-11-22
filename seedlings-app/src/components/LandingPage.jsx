@@ -28,15 +28,18 @@ const LandingPage = () => {
 
 
       <Box height='100vh' width='100vw' >
-      <LandingPageContent position='absolute' zIndex={1}/>
-
-        <Canvas position='absolute' zIndex={10} flat linear >
+<Box height='100vh' width='100vw' zIndex={1} position='absolute'>
+        <Canvas flat linear >
           <Suspense fallback={null}>
             <VegPatch />
 
             {/* <MovingVeg/> */}
           </Suspense>
         </Canvas>
+        </Box>
+        <Box zIndex={99} position='absolute'>
+        <LandingPageContent />
+        </Box>
       </Box>
   
     </>

@@ -6,12 +6,18 @@ import { useFrame } from "@react-three/fiber";
 
 export default function VegPatch({ ...props }) {
   
-  const vegRef = useRef();
+  const vegRef = useRef()
+
+  useFrame(({ clock}) => {
+    const elapsedTime = clock.getElapsedTime();  
+    vegRef.current.rotation.y = elapsedTime / 10;
+  });
+  
 
   const { nodes, materials } = useSpline('https://prod.spline.design/4iTxW86PfX5mI2uR/scene.splinecode')
   return (
     <>
-      <color attach="background"  />
+
       <group {...props} dispose={null}>
         <directionalLight
           name="Directional Light"
@@ -29,7 +35,7 @@ export default function VegPatch({ ...props }) {
           rotation={[0, 0, -Math.PI]}
           scale={[-1, 0.2, 1]}
         />
-        <group name="House" position={[21.92, 6.95, -15.05]} scale={0.23}>
+        <group name="House" position={[21.92, 6.95, -15.05]} scale={0.7} ref={vegRef}>
           <group name="fencecarrots" position={[691.99, -612.2, 23.63]} scale={1.42}>
             <mesh
               name="Cube 8"
@@ -1211,7 +1217,7 @@ export default function VegPatch({ ...props }) {
 					enableRotate={true}
 					zoomSpeed={0.6}
 					panSpeed={0.5}
-					rotateSpeed={0.4}
+					rotateSpeed={0.1}
 				/>
         </group>
       </>
