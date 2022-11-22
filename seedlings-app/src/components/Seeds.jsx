@@ -23,6 +23,7 @@ import { useUserContext } from '../context/UserContext';
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
     const [seeds, setSeeds] = useState([]);
+    const [deleteSeed, setDeleteSeed] = useState(false)
   
 
   
@@ -32,13 +33,14 @@ import { useUserContext } from '../context/UserContext';
         .getProfileData(user.user.username)
         .then(data => {
           setIsLoading(false);
-          setSeeds(data.seeds)
+          setSeeds(data[0].seeds)
+          setDeleteSeed(false)
         })
         .catch(error => {
           setError(error);
           setIsLoading(false);
         });
-    }, []);
+    }, [deleteSeed]);
 
     
 
@@ -62,8 +64,8 @@ import { useUserContext } from '../context/UserContext';
 
           <Stack gap={3}>
 
-        {user.user.seeds.map((seed) => {
-          return <SeedCard key={seed.seed_id} seed={seed} user={user} />;
+        {seeds.map((seed) => {
+          return <SeedCard key={seed.seed_id} seed={seed} user={user} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
         })}
       </Stack>         
         </Flex>

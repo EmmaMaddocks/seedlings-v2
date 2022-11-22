@@ -16,7 +16,7 @@ import {
 
 
 
-const SeedCard = ({ seed, user }) => {
+const SeedCard = ({ seed, user, setDeleteSeed, deleteSeed}) => {
 
 const {
     description,
@@ -24,6 +24,7 @@ const {
     picture,
     dayAdded
 } = seed;
+
 
 const handlePlant = (event) => {
   event.preventDefault();
@@ -39,6 +40,7 @@ const handlePlant = (event) => {
 const handleDelete = (event) => {
   event.preventDefault();
   try {
+    setDeleteSeed(true)
   api.deleteFromSeeds(user.user.username, dayAdded)
 } catch(error) {
   console.log(error)
