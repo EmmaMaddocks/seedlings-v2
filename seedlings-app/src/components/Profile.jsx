@@ -54,7 +54,7 @@ return (
     paddingTop='50px'
   >
 
-<Heading textStyle='h1' size='2xl'> Welcome, {user[0].name}! </Heading> 
+{/* <Heading textStyle='h1' size='2xl'> Welcome, {user[0].name}! </Heading>  */}
 
 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 

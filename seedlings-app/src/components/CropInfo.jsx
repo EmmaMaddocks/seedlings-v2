@@ -31,13 +31,11 @@ const CropInfo = ({individualCrop}) => {
   const handleClick = () => setShow(!show);
 
 
+
   const [isLoading, setIsLoading] = useState(true);
 const [veggie, setVeggie ] = useState('')
 
-const { userName } = useUserContext();
-
-
-    // const [crops, setCrops] = useState([]);
+const { userName, data, setData, crop, setCrop } = useUserContext();
 
     const [error, setError] = useState(null)
   
@@ -45,7 +43,7 @@ const { userName } = useUserContext();
     useEffect(() => {
       setIsLoading(true);                                                                                            
       api
-        .getCropbyDatePlanted(userName, individualCrop)
+        .getCropbyDatePlanted(userName, crop)
         .then(({veggie}) => {
           setVeggie(veggie);
           console.log(veggie)
@@ -57,7 +55,9 @@ const { userName } = useUserContext();
         });
     }, []);
   
-    if (isLoading) return <Loading />;
+    // if (isLoading) return <Loading />;
+
+    console.log(veggie)
 
   let datePlantedTimeStamp = veggie.dayAdded;
 

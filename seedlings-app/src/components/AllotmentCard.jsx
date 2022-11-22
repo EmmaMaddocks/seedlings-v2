@@ -23,7 +23,7 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard,
   const { description, name, picture, planted, datePlanted, lastWatered } =
     crop;
 
-    const { userName } = useUserContext();
+    const { userName, setCrop } = useUserContext();
 
   const handleClick = event => {
     event.preventDefault();
@@ -36,7 +36,7 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard,
   };
 
   const handleViewProduct = event => {
-    setIndividualCrop(datePlanted);
+    setCrop(datePlanted);
     console.log(datePlanted)
     navigate('/crop');
   };

@@ -25,16 +25,30 @@ function getLocalStorage(key, initialValue) {
 
 export function UserProvider({ children }) {
     const [userName, setUserName] = useState(() => getLocalStorage("user"));
-  
+  const [data, setData] = useState()
+  const [crop, setCrop] = useState()
     
     useEffect(() => {
       setLocalStorage("user", userName);
     }, [userName]);
+
+    useEffect(() => {
+      api
+        .getProfileData(userName)
+        .then(data => {
+          setData(data)
+          console.log(data)
+      
+        })
+        .catch(error => {
+   
+        });
+    }, []);
   
     return (
       <UserContext.Provider
         value={{
-         userName, setUserName
+         userName, setUserName, data, setData, crop, setCrop
         }}
       >
         {children}
