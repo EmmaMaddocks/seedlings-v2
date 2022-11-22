@@ -104,3 +104,15 @@ export const deleteFromSeeds = (username, dayAdded) => {
 
   })
 }
+
+
+export const getCropbyDatePlanted = (username, datePlanted) => {
+  let path = `users/${username}/allotment/${datePlanted}`
+  return api
+  .get(path)
+  .then(({ data }) => {
+    return data;
+  }).catch((error) => {
+    console.log(error.response)
+  })
+};

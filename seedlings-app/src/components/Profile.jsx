@@ -25,20 +25,31 @@ function Profile() {
 
   const {user, setUser } = useUserContext()
 
-console.log(user)
+  const [profile, setProfile] = useState()
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null)
+
+// useEffect(() => {
+//   setIsLoading(true);
+//   api
+//     .getProfileData(user.user.username)
+//     .then(data => {
+//       setIsLoading(false);
+//       console.log(data)
+//       setUser(data)
+//     })
+//     .catch(error => {
+//       setError(error);
+//       setIsLoading(false);
+//     });
+// }, [profile]);
+
 
   return (
     <Container
     centerContent
       paddingTop='50px'
     >
-      {/* <Container size='2xs'>
-        <Canvas zIndex={1} flat linear >
-          <Suspense fallback={null}>
-            <Trophy />
-          </Suspense>
-        </Canvas>
-      </Container> */}
 
 <Heading textStyle='h1' size='2xl'> Welcome, {user.user.name}! </Heading> 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 

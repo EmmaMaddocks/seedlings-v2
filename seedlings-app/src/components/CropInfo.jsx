@@ -20,10 +20,11 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext } from '../context/UserContext'
+;
 
 
-const CropInfo = () => {
+const CropInfo = ({individualCrop}) => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [show, setShow] = useState(false);
@@ -31,12 +32,37 @@ const CropInfo = () => {
 
 
   const [isLoading, setIsLoading] = useState(true);
-
+const [crop, setCrop ] = useState('')
 
   const {user, setUser } = useUserContext()
 
 
-console.log(user)
+
+
+
+    // const [crops, setCrops] = useState([]);
+
+    const [error, setError] = useState(null)
+  
+  
+    useEffect(() => {
+      setIsLoading(true);                                                                                            
+      api
+        .getCropbyDatePlanted(user.username, individualCrop)
+        .then((data) => {
+          setCrop(data);
+          console.log(data)
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setIsLoading(false);
+        });
+    }, []);
+  
+    if (isLoading) return <Loading />;
+  
+
 
 
 

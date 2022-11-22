@@ -37,21 +37,17 @@ const LogIn = () => {
     const { userName, password } = data;
   
 
-    // const user = {
-    //   username: userName,
-    //   password: password,
-    // };
 
     api.validateLogIn(userName, password)
     .then((response) => {
-      console.log(response)
       if (response === 'Invalid password') {
     setError(response)
       } else if (response === 'Username does not exist.') {
         setError(response)
       } else {
+        localStorage.setItem('user', JSON.stringify((response.user.username)))
 
-        localStorage.setItem('user', JSON.stringify((response)))
+        setUser(response.user.username)
         navigate('/profile')
       }
 

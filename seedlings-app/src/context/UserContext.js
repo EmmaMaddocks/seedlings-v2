@@ -1,4 +1,5 @@
 import {useEffect, useReducer, createContext, useContext, useMemo, useState } from "react";
+import * as api from "../utils/api";
 
 
 const UserContext = createContext(null);
@@ -25,7 +26,6 @@ function getLocalStorage(key, initialValue) {
   }
 
 
-
 export function UserProvider({ children }) {
     const [user, setUser] = useState(() => getLocalStorage("user", initialState));
   
@@ -33,7 +33,6 @@ export function UserProvider({ children }) {
       setLocalStorage("user", user);
     }, [user]);
   
-
     return (
       <UserContext.Provider
         value={{

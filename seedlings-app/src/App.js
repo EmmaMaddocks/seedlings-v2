@@ -20,7 +20,7 @@ import CropInfo from './components/CropInfo.jsx'
 import HarvestedCrop from './components/HarvestedCrop.jsx';
 import SoilTesting from './components/SoilTesting.jsx'
 import WhatShallWeGrow from './components/WhatShallWeGrow.jsx'
-import { UserContext, UserProvider } from './context/UserContext.js';                              
+import { UserProvider } from './context/UserContext.js';                              
 
 
 
@@ -31,7 +31,7 @@ function App() {
   const [soiltype, setSoiltype] = useState(null);
   const [outdoors, setLocation] = useState(false);
 
-  const [individualCrop, setIndividualCrop] = useState(null);
+  const [individualCrop, setIndividualCrop] = useState('');
 
 
 
@@ -57,7 +57,7 @@ console.log(user)
         <Container minH='100vh' minW='100vw' bg='#FBF2E3'>
           
   <ChakraProvider theme={theme}>
-  <UserProvider>
+  <UserProvider value={{user, setUser}}>
     <Nav />
       <Routes>
           <Route path="/" element={<LandingPage />} />

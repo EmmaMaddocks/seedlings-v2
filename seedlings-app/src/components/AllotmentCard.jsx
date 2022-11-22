@@ -35,12 +35,13 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard,
   };
 
   const handleViewProduct = event => {
-    setIndividualCrop(crop.datePlanted);
+    setIndividualCrop(datePlanted);
+    console.log(datePlanted)
     navigate('/crop');
   };
 
   return (
-    <Card bgColor="brand.paleorange" width='300px' align="center">
+    <Card bgColor="brand.paleorange" width='300px' align="center" key={datePlanted}>
       <CardBody>
         <Image src={picture} alt={name} borderRadius="lg" />
         <Stack mt="6" spacing="3">
