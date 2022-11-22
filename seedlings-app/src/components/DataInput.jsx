@@ -14,8 +14,10 @@ import {
     InputRightElement,
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
-  import { useState } from 'react';
+  import { useState, Suspense } from 'react';
   import * as api from '../utils/api';
+  import Carrot from './Carrot';
+  import { Canvas } from '@react-three/fiber';
   
   const DataInput = (props) => {
     const navigate = useNavigate();
@@ -62,16 +64,26 @@ import {
 
     return (
       <>
+      <Box height='500px'>
+  <Canvas position='absolute' zIndex={1} flat linear >
+    
+    <Suspense fallback={null}>
+      <Carrot/>
+    </Suspense>
+  </Canvas>
+  </Box>
         <Flex
-          height="100vh"
+
           direction="column"
           alignItems="center"
           justifyContent="center"
           flexDirection="column"
           gap={6}
         >
+
+
           <Box size="60vw">
-            <Heading textStyle="h1" size="3xl">
+            <Heading textStyle="h1" size="3xl" mt='-100px'>
               What shall we grow?
             </Heading>
           </Box>

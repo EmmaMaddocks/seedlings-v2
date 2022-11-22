@@ -36,7 +36,7 @@ const CropInfo = () => {
   const {user, setUser } = useUserContext()
 
 
-console.log(user.user.allotment[0].dayAdded)
+console.log(user)
 
 
 

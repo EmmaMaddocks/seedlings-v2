@@ -31,9 +31,9 @@ const LandingPage = () => {
 
         <Canvas position='absolute' zIndex={10} flat linear >
           <Suspense fallback={null}>
-            {/* <VegPatch /> */}
+            <VegPatch />
 
-            <MovingVeg/>
+            {/* <MovingVeg/> */}
           </Suspense>
         </Canvas>
       </Box>

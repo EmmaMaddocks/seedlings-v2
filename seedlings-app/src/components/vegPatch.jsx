@@ -11,7 +11,7 @@ export default function VegPatch({ ...props }) {
   const { nodes, materials } = useSpline('https://prod.spline.design/4iTxW86PfX5mI2uR/scene.splinecode')
   return (
     <>
-      <color attach="background" args={['#f6efe5']} />
+      <color attach="background"  />
       <group {...props} dispose={null}>
         <directionalLight
           name="Directional Light"

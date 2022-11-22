@@ -19,6 +19,7 @@ import Allotment from './components/Allotment.jsx';
 import CropInfo from './components/CropInfo.jsx'
 import HarvestedCrop from './components/HarvestedCrop.jsx';
 import SoilTesting from './components/SoilTesting.jsx'
+import WhatShallWeGrow from './components/WhatShallWeGrow.jsx'
 import { UserContext, UserProvider } from './context/UserContext.js';                              
 
 
