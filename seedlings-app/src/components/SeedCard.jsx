@@ -40,8 +40,9 @@ const handlePlant = (event) => {
 const handleDelete = (event) => {
   event.preventDefault();
   try {
+    
+    api.deleteFromSeeds(user.user.username, dayAdded)
     setDeleteSeed(true)
-  api.deleteFromSeeds(user.user.username, dayAdded)
 } catch(error) {
   console.log(error)
 }
