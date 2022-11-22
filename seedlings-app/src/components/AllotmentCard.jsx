@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import { useContext } from 'react';
 
-const AllotmentCard = ({ crop, setIndividualCrop, individualCrop }) => {
+const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard, DeleteCard }) => {
   const navigate = useNavigate();
 
   const { description, name, picture, planted, datePlanted, lastWatered } =
@@ -27,6 +27,7 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop }) => {
   const handleClick = event => {
     event.preventDefault();
     try {
+      setDeleteCard(true)
       api.deleteFromAllotment(user.user.username, datePlanted);
     } catch (error) {
       console.log(error);

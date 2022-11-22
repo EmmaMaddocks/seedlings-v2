@@ -14,6 +14,7 @@ import { useUserContext } from '../context/UserContext';
 
 const Allotment = ({setIndividualCrop, individualCrop}) => {
  const {user, setUser } = useUserContext()
+ const [deleteCard, setDeleteCard] = useState(false)
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -32,12 +33,13 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
       .then(data => {
         setIsLoading(false);
         setAllotment(data[0].allotment)
+        setDeleteCard(false)
       })
       .catch(error => {
         setError(error);
         setIsLoading(false);
       });
-  }, []);
+  }, [deleteCard]);
 
 
 
@@ -60,7 +62,7 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
         <Stack gap={3}>
 
       {allotment.map((crop) => {
-        return <AllotmentCard crop={crop} user={user} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop} />;
+        return <AllotmentCard crop={crop} user={user} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop} setDeleteCard={setDeleteCard} deleteCard={deleteCard} />;
       })}
     </Stack>         
       </Flex>
