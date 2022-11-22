@@ -95,6 +95,7 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
     
 
           <Button>Upload Picture</Button>
+          <Button bgColor='brand.paleorange' onClick={() => navigate('/allotment')}>Return to Allotment</Button>
 
 
           { daysTillHarvestRounded <= 0 ? <Button bgColor='brand.paleorange' onClick={() => navigate('/harvestsuccess')}>Harvest</Button>  : <Button bgColor='brand.paleorange' onClick={onOpen}>Harvest</Button>  }
