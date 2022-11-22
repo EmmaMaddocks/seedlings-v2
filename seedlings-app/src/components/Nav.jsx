@@ -21,13 +21,12 @@ import { useNavigate } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import React, { useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext, UserContext } from '../context/UserContext';
 
 
 function Nav() {
 
-  const {user, setUser } = useUserContext()
-
+  const { userName, setUserName } = useUserContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -35,6 +34,7 @@ function Nav() {
 
   const handleLogOut = (event) => {
         localStorage.clear()
+        setUserName(null)
         navigate('/login')
  }
 
@@ -87,7 +87,7 @@ function Nav() {
 
 
           <DrawerFooter>
-            { user ? <Button mr={3} onClick={handleLogOut} bgColor='brand.paleorange'>
+            { userName ? <Button mr={3} onClick={handleLogOut} bgColor='brand.paleorange'>
               Log Out
             </Button> :
                         <Button  as={NavLink} to="/login"  mr={3} onClick={onClose} bgColor='brand.paleorange'>

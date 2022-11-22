@@ -10,11 +10,13 @@ import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading'
 import * as api from "../utils/api";
 import AllotmentCard from './AllotmentCard';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext, UserContext } from '../context/UserContext';
+
 
 const Allotment = ({setIndividualCrop, individualCrop}) => {
- const {user, setUser } = useUserContext()
- const [deleteCard, setDeleteCard] = useState(false)
+  const { userName } = useUserContext();
+
+  const [deleteCard, setDeleteCard] = useState(false)
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -29,7 +31,7 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
   useEffect(() => {
     setIsLoading(true);
     api
-      .getProfileData(user.user.username)
+      .getProfileData(userName)
       .then(data => {
         setIsLoading(false);
         setAllotment(data[0].allotment)
@@ -62,7 +64,7 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
         <Stack gap={3}>
 
       {allotment.map((crop) => {
-        return <AllotmentCard crop={crop} user={user} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop} setDeleteCard={setDeleteCard} deleteCard={deleteCard} />;
+        return <AllotmentCard crop={crop} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop} setDeleteCard={setDeleteCard} deleteCard={deleteCard} />;
       })}
     </Stack>         
       </Flex>

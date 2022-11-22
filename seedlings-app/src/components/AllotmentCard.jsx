@@ -13,8 +13,9 @@ import {
 } from '@chakra-ui/react';
 import * as api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext, UserContext } from '../context/UserContext';
 import { useContext } from 'react';
+
 
 const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard, DeleteCard }) => {
   const navigate = useNavigate();
@@ -22,13 +23,13 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard,
   const { description, name, picture, planted, datePlanted, lastWatered } =
     crop;
 
-    const {user, setUser } = useUserContext()
+    const { userName } = useUserContext();
 
   const handleClick = event => {
     event.preventDefault();
     try {
+        api.deleteFromAllotment(userName, datePlanted);
       setDeleteCard(true)
-      api.deleteFromAllotment(user.user.username, datePlanted);
     } catch (error) {
       console.log(error);
     }

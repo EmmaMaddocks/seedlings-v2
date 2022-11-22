@@ -12,7 +12,7 @@ import {
     Container
   } from '@chakra-ui/react';
   import * as api from '../utils/api'
-  import { useUserContext } from '../context/UserContext';
+  import { useUserContext, UserContext } from '../context/UserContext';
   import { useContext } from 'react';
 
 
@@ -25,13 +25,12 @@ const {
     picture
 } = crop;
 
-const {user, setUser } = useUserContext()
-
+const { userName } = useUserContext();
 
 const handleClick = (event) => {
   event.preventDefault();
   try {
-  api.postSeed(user.user.username, name)
+  api.postSeed(userName, name)
 } catch(error) {
   console.log(error)
 }

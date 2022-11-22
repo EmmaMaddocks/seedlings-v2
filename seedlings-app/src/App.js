@@ -20,7 +20,7 @@ import CropInfo from './components/CropInfo.jsx'
 import HarvestedCrop from './components/HarvestedCrop.jsx';
 import SoilTesting from './components/SoilTesting.jsx'
 import WhatShallWeGrow from './components/WhatShallWeGrow.jsx'
-import { UserProvider } from './context/UserContext.js';                              
+import { useUserContext, UserContext, UserProvider } from './context/UserContext';
 
 
 
@@ -33,9 +33,16 @@ function App() {
 
   const [individualCrop, setIndividualCrop] = useState('');
 
+    // const [user, setUser] = useState(() => getLocalStorage("user"));
 
 
-  const [user, setUser] = useState(null);
+
+  // const value = useMemo(
+  //   () => ({ userName, setUserName }), 
+  //   [userName]
+  // );
+
+
 
   // const userValue = useMemo(() => ({user, setUser}), [user, setUser])
 
@@ -49,15 +56,13 @@ function App() {
 // fetchUser();
 // }, []);
 
-console.log(user)
-
   return (
 
     <BrowserRouter>
         <Container minH='100vh' minW='100vw' bg='#FBF2E3'>
           
   <ChakraProvider theme={theme}>
-  <UserProvider value={{user, setUser}}>
+  <UserProvider >
     <Nav />
       <Routes>
           <Route path="/" element={<LandingPage />} />

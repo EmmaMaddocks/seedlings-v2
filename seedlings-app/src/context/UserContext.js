@@ -4,9 +4,6 @@ import * as api from "../utils/api";
 
 const UserContext = createContext(null);
 
-let initialState = {
-    user: null
-  };
 
 
   function setLocalStorage(key, value) {
@@ -19,7 +16,7 @@ let initialState = {
 function getLocalStorage(key, initialValue) {
     try {
       const value = window.localStorage.getItem(key);
-      return value ? JSON.parse(value) : initialValue;
+      return JSON.parse(value) 
     } catch (e) {
       return initialValue;
     }
@@ -27,16 +24,17 @@ function getLocalStorage(key, initialValue) {
 
 
 export function UserProvider({ children }) {
-    const [user, setUser] = useState(() => getLocalStorage("user", initialState));
+    const [userName, setUserName] = useState(() => getLocalStorage("user"));
   
+    
     useEffect(() => {
-      setLocalStorage("user", user);
-    }, [user]);
+      setLocalStorage("user", userName);
+    }, [userName]);
   
     return (
       <UserContext.Provider
         value={{
-          user: user
+         userName, setUserName
         }}
       >
         {children}
@@ -45,5 +43,17 @@ export function UserProvider({ children }) {
   }
 
   export function useUserContext() {
+    console.log(useContext(UserContext))
     return useContext(UserContext);
+
  }
+
+// import { createContext, useState, useContext, useMemo } from 'react';
+// export const UserContext = createContext({
+//   userName: '',
+//   setUserName: () => {},
+// });
+
+//     const [user, setUser] = useState(() => getLocalStorage("user"));
+
+

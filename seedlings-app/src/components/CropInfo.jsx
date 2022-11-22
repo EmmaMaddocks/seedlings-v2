@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
-import { useUserContext } from '../context/UserContext'
+import { useUserContext, UserContext } from '../context/UserContext';
 ;
 
 
@@ -32,12 +32,9 @@ const CropInfo = ({individualCrop}) => {
 
 
   const [isLoading, setIsLoading] = useState(true);
-const [crop, setCrop ] = useState('')
+const [veggie, setVeggie ] = useState('')
 
-  const {user, setUser } = useUserContext()
-
-
-
+const { userName } = useUserContext();
 
 
     // const [crops, setCrops] = useState([]);
@@ -48,10 +45,10 @@ const [crop, setCrop ] = useState('')
     useEffect(() => {
       setIsLoading(true);                                                                                            
       api
-        .getCropbyDatePlanted(user.username, individualCrop)
-        .then((data) => {
-          setCrop(data);
-          console.log(data)
+        .getCropbyDatePlanted(userName, individualCrop)
+        .then(({veggie}) => {
+          setVeggie(veggie);
+          console.log(veggie)
           setIsLoading(false);
         })
         .catch((error) => {
@@ -61,21 +58,14 @@ const [crop, setCrop ] = useState('')
     }, []);
   
     if (isLoading) return <Loading />;
-  
 
-
-
-
-
-  // if (isLoading) return <Loading />;
-
-  let datePlantedTimeStamp = user.user.allotment[0].dayAdded;
+  let datePlantedTimeStamp = veggie.dayAdded;
 
 
   const newDatePlanted = new Date(datePlantedTimeStamp);
   const newDatePlantedDate = newDatePlanted.toLocaleDateString('en-GB')
 
-  let dateWateredTimeStamp = user.user.allotment[0].lastWatered
+  let dateWateredTimeStamp = veggie.lastWatered
   const newDateWatered = new Date(dateWateredTimeStamp);
   const newDateWateredDate = newDateWatered.toLocaleDateString('en-GB')
 
@@ -86,7 +76,7 @@ const daysOldRounded = daysOld.toFixed()
 
 const weeksOld = daysOld / 7
 
-const daysTillHarvest = user.user.allotment[0].minHarvest - daysOld 
+const daysTillHarvest = veggie.minHarvest - daysOld 
 const daysTillHarvestRounded = daysTillHarvest.toFixed()
 
 
@@ -101,18 +91,18 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
         gap={6}
       >
   
-  <Image boxSize='300px' objectFit='cover' borderRadius='5' src={user.user.allotment[0].picture} alt={user.user.allotment[0].name} />
+  <Image boxSize='300px' objectFit='cover' borderRadius='5' src={veggie.picture} alt={veggie.name} />
 
         <Box size="60vw">
           <Heading textStyle="h1" size="3xl">
-          {user.user.allotment.name}
+          {veggie.name}
           </Heading>
         </Box>
 
         <Stack gap={3} align='center'>
         { daysOld < 7 ? 
-          <Text>Your {user.user.allotment[0].name} are {daysOldRounded} days old! </Text> :
-          <Text>Your {user.user.allotment[0].name} are {weeksOld} weeks old! </Text> }
+          <Text>Your {veggie.name} are {daysOldRounded} days old! </Text> :
+          <Text>Your {veggie.name} are {weeksOld} weeks old! </Text> }
 
 
           <Text>There are {daysTillHarvestRounded} days until they're ready to harvest</Text>
@@ -132,7 +122,7 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
           <ModalHeader>Oops!</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text>Your {user.user.allotment[0].name} isn't quite ready to harvest yet! </Text>
+            <Text>Your {veggie.name} isn't quite ready to harvest yet! </Text>
           </ModalBody>
 
           <ModalFooter>

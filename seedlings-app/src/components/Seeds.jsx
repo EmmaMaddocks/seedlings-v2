@@ -10,11 +10,10 @@ import {
  import Loading from './Loading'
  import * as api from "../utils/api";
 import SeedCard from './SeedCard';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext, UserContext } from '../context/UserContext';
   
   const Seeds = () => {
-    const {user, setUser } = useUserContext()
-
+    const { userName } = useUserContext();
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
@@ -30,8 +29,9 @@ import { useUserContext } from '../context/UserContext';
     useEffect(() => {
       setIsLoading(true);
       api
-        .getProfileData(user.user.username)
+        .getProfileData(userName)
         .then(data => {
+          console.log(data)
           setIsLoading(false);
           setSeeds(data[0].seeds)
           setDeleteSeed(false)
@@ -65,7 +65,7 @@ import { useUserContext } from '../context/UserContext';
           <Stack gap={3}>
 
         {seeds.map((seed) => {
-          return <SeedCard key={seed.seed_id} seed={seed} user={user} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
+          return <SeedCard key={seed.seed_id} seed={seed} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
         })}
       </Stack>         
         </Flex>

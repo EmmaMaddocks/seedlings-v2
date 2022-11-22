@@ -13,16 +13,16 @@ import {
     Text
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
-  import { useState, useEffect } from 'react';
+  import { useState, useEffect, useContext } from 'react';
  import Loading from './Loading'
  import * as api from "../utils/api";
 import CropCard from './CropCard';
 import TinderCard from "react-tinder-card"
-import { useUserContext } from '../context/UserContext';
+import { useUserContext, UserContext } from '../context/UserContext';
   
   const Suggestions = (props) => {
-    const {user, setUser } = useUserContext()
-    const navigate = useNavigate();
+    const { userName } = useUserContext();
+        const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
 
@@ -41,11 +41,10 @@ import { useUserContext } from '../context/UserContext';
   
 
     const swiped = (direction, crop) => {
-      console.log("test")
       if (direction === 'right') {
         try {
-          console.log(user)
-          api.postSeed(user.user.username, crop.name)
+          console.log(userName)
+          api.postSeed(userName, crop.name)
         } catch(error) {
           console.log(error)
         }

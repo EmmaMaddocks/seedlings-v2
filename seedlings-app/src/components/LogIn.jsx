@@ -15,7 +15,7 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as api from '../utils/api';
 import { setQuaternionFromProperEuler } from 'three/src/math/MathUtils';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext, UserContext } from '../context/UserContext';
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -23,8 +23,10 @@ const LogIn = () => {
   const handleClick = () => setShow(!show);
   const [error, setError] = useState(null); 
 
-  const {user, setUser } = useUserContext()
 
+  const { userName, setUserName } = useUserContext();
+  
+  const changeHandler = event => setUserName(event.target.value);
 
   const {
     register,
@@ -35,8 +37,6 @@ const LogIn = () => {
 
   function onSubmit(data) {
     const { userName, password } = data;
-  
-
 
     api.validateLogIn(userName, password)
     .then((response) => {
@@ -45,9 +45,8 @@ const LogIn = () => {
       } else if (response === 'Username does not exist.') {
         setError(response)
       } else {
-        localStorage.setItem('user', JSON.stringify((response.user.username)))
-
-        setUser(response.user.username)
+        localStorage.setItem('user', JSON.stringify((userName)))
+        setUserName(userName)
         navigate('/profile')
       }
 
@@ -85,6 +84,10 @@ const LogIn = () => {
               color="brand.darkgreen"
               _placeholder={{ color: 'inherit' }}
               bgColor="white"
+
+              onChange={changeHandler}
+
+
               {...register('userName', { required: true })}
               aria-invalid={errors.userName ? 'true' : 'false'}
             />

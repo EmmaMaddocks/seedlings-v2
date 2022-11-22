@@ -12,11 +12,16 @@ import {
     Container
   } from '@chakra-ui/react';
   import * as api from '../utils/api'
+  import { useUserContext, UserContext } from '../context/UserContext';
+  import { useContext } from 'react';
 
 
 
 
-const SeedCard = ({ seed, user, setDeleteSeed, deleteSeed}) => {
+
+const SeedCard = ({ seed, setDeleteSeed, deleteSeed}) => {
+
+  const { userName } = useUserContext();
 
 const {
     description,
@@ -29,7 +34,7 @@ const {
 const handlePlant = (event) => {
   event.preventDefault();
   try {
-  api.postAllotment(user.user.username, name)
+  api.postAllotment(userName, name)
 
 } catch(error) {
   console.log(error)
@@ -41,7 +46,7 @@ const handleDelete = (event) => {
   event.preventDefault();
   try {
     
-    api.deleteFromSeeds(user.user.username, dayAdded)
+    api.deleteFromSeeds(userName, dayAdded)
     setDeleteSeed(true)
 } catch(error) {
   console.log(error)
