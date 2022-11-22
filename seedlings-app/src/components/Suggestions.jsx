@@ -41,6 +41,7 @@ import { useUserContext } from '../context/UserContext';
   
 
     const swiped = (direction, crop) => {
+      console.log("test")
       if (direction === 'right') {
         try {
           console.log(user)
@@ -64,6 +65,7 @@ import { useUserContext } from '../context/UserContext';
       <Flex maxW='100vw' justifyContent='center' pos='relative'>
 
           {crops.map((crop) => (
+           console.log("test"),
             <TinderCard
             pos='absolute'
               className="swipe"
@@ -92,8 +94,8 @@ import { useUserContext } from '../context/UserContext';
     </CardBody>
   </Card>
             </TinderCard>
+       
           ))}
-
       </Flex>
       </>
     );
