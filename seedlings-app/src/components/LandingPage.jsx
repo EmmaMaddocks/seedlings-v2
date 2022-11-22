@@ -26,6 +26,7 @@ const LandingPage = () => {
   return (
     <>
 
+
       <Box height='100vh' width='100vw' >
       <LandingPageContent position='absolute' zIndex={1}/>
 
