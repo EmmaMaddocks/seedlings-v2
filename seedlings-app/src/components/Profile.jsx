@@ -145,10 +145,13 @@ function Profile() {
             width="45vw"
             height="45vw"
             maxH="200px"
+
           >
     
-            <CardBody padding="0px">
-              <Text textStyle="h4">{data.allotment.length}</Text>
+            <CardBody padding="0px"             flexDirection='column'
+            alignContent='center'
+            justifyContent='center'>
+              <Text textStyle="h4" position='relative'>{data.allotment.length}</Text>
               <Text textStyle="h5">crops planted</Text>
             </CardBody>
           </Card>
@@ -174,7 +177,7 @@ function Profile() {
 
             <CardBody padding="0px">
               <Text textStyle="h4">{data.seeds.length}</Text>
-              <Text textStyle="h5">successful harvests</Text>
+              <Text textStyle="h5" pl='5px' pr='5px'>successful harvests</Text>
             </CardBody>
           </Card>
 

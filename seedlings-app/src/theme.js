@@ -98,8 +98,7 @@ const theme = extendTheme({
               textAlign: 'center',
               font: `'Montserrat', sans-serif`,
               fontWeight: 'bold',
-              
-  
+              margin: '0px'
 
             },
             p: {
