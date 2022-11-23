@@ -18,6 +18,8 @@ import {
   import * as api from '../utils/api';
   import Carrot from './Carrot';
   import { Canvas } from '@react-three/fiber';
+  import { ReactComponent as Hand } from '../images/handseed.svg';
+
   
   const DataInput = (props) => {
     const navigate = useNavigate();
@@ -64,14 +66,6 @@ import {
 
     return (
       <>
-      <Box height='500px'>
-  <Canvas position='absolute' zIndex={1} flat linear >
-    
-    <Suspense fallback={null}>
-      <Carrot/>
-    </Suspense>
-  </Canvas>
-  </Box>
         <Flex
 
           direction="column"
@@ -80,16 +74,17 @@ import {
           flexDirection="column"
           gap={6}
         >
-
+<Hand/>
 
           <Box size="60vw">
-            <Heading textStyle="h1" size="3xl" mt='-100px'>
+            <Heading textStyle="h1" size="3xl" >
               What shall we grow?
             </Heading>
           </Box>
   
-          <Stack spacing={3} width="350px">
+    
           <form >
+          <Stack spacing={2} width="350px">
             <Text>Where would you like to grow?</Text>
           <Select  placeholder='Select location'  variant='filled' bgColor='white' onChange={handleLocation}>
           <option value='false'>Indoors</option>
@@ -104,7 +99,7 @@ import {
   </Select>
 
   <Text>Lastly, what type of soil do you have?</Text>
-  <Select placeholder='Select soil' variant='filled' bgColor='white' onChange={handleSoilType}>
+  <Select pb='10pt' placeholder='Select soil' variant='filled' bgColor='white' onChange={handleSoilType}>
           <option value='null'>I'm not sure</option>
   <option value='sand'>Sandy</option>
   <option value='clay'>Clay</option>
@@ -112,19 +107,13 @@ import {
   <option value='chalk'>Chalk</option>
   </Select>
 
-  {/* <Text>Lastly, would you prefer to grow fruit or vegetables?</Text>
-          <Select  variant='filled' bgColor='white' >
-          <option value='Fruit'>Fruit</option>
-  <option value='Vegetables'>Vegetables</option>
-  <option value='Both'>Both</option>
-  </Select> */}
-  <Button color="white" bgColor="#ED965C" borderRadius={20} onClick={handleClick} >
+  <Button  color="white" bgColor="#ED965C" borderRadius={20} onClick={handleClick} >
            Lets Grow!
           </Button>
 
- 
-          </form>
           </Stack>
+          </form>
+
         </Flex>
       </>
     );
