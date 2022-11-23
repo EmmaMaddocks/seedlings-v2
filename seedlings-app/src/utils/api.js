@@ -116,3 +116,15 @@ export const getCropbyDatePlanted = (username, datePlanted) => {
     console.log(error.response)
   })
 };
+
+export const postWaterDatePlanted = (username, datePlanted) => {
+  let path = `users/${username}/allotment/${datePlanted}/water`
+  return api
+  .patch(path)
+  .then(({data}) => {
+    console.log(data)
+  }).catch((error) => {
+    console.log(error)
+  })
+
+}
