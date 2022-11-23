@@ -39,6 +39,7 @@ const newUser = {
 }
 try {
   api.postUser(firstName, userName, parentsEmail, password)
+  navigate('/profile')
 } catch(error) {
   console.log(error)
 }
