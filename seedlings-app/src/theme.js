@@ -69,6 +69,7 @@ const theme = extendTheme({
               textAlign: 'center',
               font: `'Montserrat', sans-serif`,
               fontWeight: 'bold',
+              marginBottom: '0px'
 
             },
             h3: {
@@ -97,6 +98,7 @@ const theme = extendTheme({
               textAlign: 'center',
               font: `'Montserrat', sans-serif`,
               fontWeight: 'bold',
+              
   
 
             },

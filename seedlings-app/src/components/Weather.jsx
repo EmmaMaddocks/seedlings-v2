@@ -1,3 +1,8 @@
+import {
+  Container,
+  Flex,
+  Text
+} from '@chakra-ui/react';
 import React from "react";
 import Axios from "https://cdn.skypack.dev/axios";
 const API_KEY = '56a2c31c64a6247e0e851f88799c0dd5';
@@ -34,14 +39,15 @@ const CityComponent = (props) => {
   const {updateCity, fetchWeather} = props;
   
   return (
-    <div className='cityComponent'>
+    <Flex gap={3} mb={7} direction='column' alignItems='center' justifyContent='center'>
+
       <img src="https://img.icons8.com/fluency/96/000000/smiling-sun.png" className='weatherLogo' width='70px' height='auto'/>
       <span className='chooseCityLabel'>Find Weather of your city</span>
       <form className='searchBox' onSubmit={fetchWeather}>
         <input placeholder='City' onChange={(event) => updateCity(event.target.value)} />
         <button type='submit'>Search</button>
       </form>
-    </div>
+    </Flex>
   );
 }
 
@@ -71,13 +77,17 @@ const WeatherComponent = (props) => {
   
   return (
     <div className='weatherComponent'>
+          <Flex gap={3} mb={7} direction='column' alignItems='center' justifyContent='center'>
+
       <div className='weatherCondition'>
-        <span className='condition'><span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>{` | ${weather?.weather[0].description}`}</span>
+      <Text textStyle='p' className='location'>{`${weather?.name}, ${weather?.sys?.country}`}</Text>
         {WeatherIcons[weather?.weather[0].icon]}
+        <span className='condition'>
+          <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
+          {` | ${weather?.weather[0].description}`}
+          </span>
       </div>
-      <span className='location'>{`${weather?.name}, ${weather?.sys?.country}`}</span>
-      <span className='weatherInfoLabel'>Weather info</span>
-      
+      </Flex>
     </div>
   );
 }
@@ -94,13 +104,13 @@ function Weather() {
   }
   
   return(
-    <div className='container'>
+    <Flex direction='column' alignItems='center' justifyContent='center'>
       {city && weather ? (
         <WeatherComponent weather={weather} city={city} />
       ) : (
         <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
-    </div>
+    </Flex>
   );
 }
 export default Weather
