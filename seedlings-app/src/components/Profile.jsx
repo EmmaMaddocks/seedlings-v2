@@ -23,30 +23,13 @@ import axios from 'axios';
 
 function Profile() {
 
-  const { userName } = useUserContext();
+  const { userName, setData, data } = useUserContext();
 
-  const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null)
 
-useEffect(() => {
-  setIsLoading(true);
-  api
-    .getProfileData(userName)
-    .then(data => {
-      setIsLoading(false);
-      setUser(data)
-      console.log(data)
-  
-    })
-    .catch(error => {
-      setError(error);
-      setIsLoading(false);
-    });
-}, []);
 
-
-// console.log(user[0].name)
+console.log(data)
 
 return (
   <Container
@@ -54,7 +37,7 @@ return (
     paddingTop='50px'
   >
 
-{/* <Heading textStyle='h1' size='2xl'> Welcome, {user[0].name}! </Heading>  */}
+<Heading textStyle='h1' size='2xl'> Welcome, {data[0].name}! </Heading> 
 
 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
