@@ -11,7 +11,7 @@ import Loading from './Loading'
 import * as api from "../utils/api";
 import AllotmentCard from './AllotmentCard';
 import { useUserContext, UserContext } from '../context/UserContext';
-
+import { ReactComponent as Onions } from '../images/onions.svg';
 
 const Allotment = ({setIndividualCrop, individualCrop}) => {
   const { userName } = useUserContext();
@@ -55,6 +55,7 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
         flexDirection="column"
         gap={6}
       >
+        <Onions/>
         <Box size="60vw">
           <Heading textStyle="h1" size="3xl" >
             Your allotment
