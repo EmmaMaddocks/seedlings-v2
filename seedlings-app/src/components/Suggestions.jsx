@@ -19,6 +19,10 @@ import {
 import CropCard from './CropCard';
 import TinderCard from "react-tinder-card"
 import { useUserContext } from '../context/UserContext';
+import SwipeButtons from './SwipeButtons';
+import { IconButton } from "@chakra-ui/react";
+import {MinusIcon,RepeatIcon,AddIcon} from "@chakra-ui/icons";
+
   
   const Suggestions = (props) => {
     const {user, setUser } = useUserContext()
@@ -53,7 +57,10 @@ import { useUserContext } from '../context/UserContext';
  
     };
     
+    const handleButton = () => {
 
+      navigate('/seeds')
+}
 
     return (<>
     
@@ -61,7 +68,16 @@ import { useUserContext } from '../context/UserContext';
       <Text textStyle='h3' paddingBottom='40px'>Based on your answers, we recommend the following seeds.</Text>
       <Text textStyle='h3' paddingBottom='40px'>
       Swipe left to skip, swipe right to add to your collection</Text>
-    
+      <Flex  justifyContent="space-between" paddingBottom='40px' >
+         <IconButton colorScheme='green' className="swipeleft">
+         <MinusIcon fontSize="Large"/>
+        </IconButton> 
+         <IconButton colorScheme='yellow'className="swipereset"><RepeatIcon fontSize="Large"/>
+         </IconButton>
+         <IconButton colorScheme='green'className="swiperight"> 
+         <AddIcon fontSize="Large"/>
+         </IconButton>
+     </Flex>
       <Flex maxW='100vw' justifyContent='center' pos='relative'>
 
           {crops.map((crop) => (
@@ -90,13 +106,16 @@ import { useUserContext } from '../context/UserContext';
         <Text>
   {crop.description}
         </Text>
+        
       </Stack>
     </CardBody>
   </Card>
             </TinderCard>
        
           ))}
+        <Button  bgColor='green' textColor="white" onClick={handleButton}>Let's go plant our seeds</Button>
       </Flex>
+
       </>
     );
   }
