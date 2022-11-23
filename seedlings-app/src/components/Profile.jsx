@@ -29,22 +29,20 @@ function Profile() {
   const [error, setError] = useState(null)
 
 
-
-
-useEffect(() => {
-  setIsLoading(true);
-  api
-    .getProfileData(userName)
-    .then(data => {
-      setIsLoading(false);
-      setData(data[0])
-    })
-    .catch(error => {
-      setError(error);
-      setIsLoading(false);
-    });
-}, [userName]);
-
+  useEffect(() => {
+    setIsLoading(true);
+    api
+      .getProfileData(userName)
+      .then(response => {
+        setIsLoading(false);
+        setData(response[0])
+        console.log(response[0])
+      })
+      .catch(error => {
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
 
 console.log(data)
 

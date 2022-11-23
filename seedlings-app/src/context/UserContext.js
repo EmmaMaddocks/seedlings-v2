@@ -36,7 +36,7 @@ export function UserProvider({ children }) {
       api
         .getProfileData(userName)
         .then(data => {
-          setData(data)
+          setData(data[0])
           console.log(data)
       
         })

@@ -48,8 +48,7 @@ const LogIn = () => {
         setUserName(userName)
         api.getProfileData(userName)
       .then(data => {
-        setData(data)
-        console.log(data)
+        setData(data[0])
         navigate('/profile')
       })
       .catch(error => {
