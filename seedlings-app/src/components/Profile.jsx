@@ -9,6 +9,7 @@ import {
   CircularProgressLabel,
   CardHeader,
   Container,
+  Button,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import Trophy from './trophy';
@@ -20,6 +21,7 @@ import { useUserContext, UserContext } from '../context/UserContext';
 import Weather from './Weather';
 import getIpAddress from '../utils/IpAddress';
 import axios from 'axios';
+import {postWaterDatePlanted} from '../utils/api'
 
 function Profile() {
 
@@ -27,30 +29,35 @@ function Profile() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null)
+  const [watered, setWatered] = useState(false)
 
 
   useEffect(() => {
+    
     setIsLoading(true);
     api
       .getProfileData(userName)
       .then(response => {
         setIsLoading(false);
         setData(response[0])
+        setWatered(false)
         console.log(response[0])
       })
       .catch(error => {
         setError(error);
         setIsLoading(false);
       });
-  }, []);
+  }, [watered]);
 
-
+let toBeWatered = []
 data.allotment.forEach(veg => {
   veg.HarvestDay = Date(veg.datePlanted + (veg.minHarvest * 86400000))
-  console.log(veg.HarvestDay)
   veg.PercentageComplete = Math.round (100 - ((veg.datePlanted + (veg.minHarvest * 86400000)) - Date.now()) / (veg.minHarvest * 864000))
-  console.log(veg.name, veg.PercentageComplete)
+  if ((Date.now() - veg.lastWatered) > (veg.numberOfDaysBetweenWatering * 86400000)) {
+    toBeWatered.push({name: veg.name, datePlanted: veg.datePlanted})
+  }
 });
+
 
 data.allotment.sort(function(a, b) {
   let keyA = new Date(a.HarvestDay),
@@ -62,6 +69,15 @@ data.allotment.sort(function(a, b) {
 });
 
 const nextToHarvest = data.allotment[0]
+
+function handleWatering(id) {
+  try {
+    postWaterDatePlanted( userName, id)
+    setWatered(true)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 return (
   <Container
@@ -133,10 +149,14 @@ return (
 
 <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
-    <Text textStyle='cardHeader'>To do today:</Text>
+    <Text textStyle='cardHeader'>To water today:</Text>
     </CardHeader>
     <CardBody padding='0px'>
-      <Text  textStyle='h5'>Water Carrots</Text>
+      {toBeWatered.map((veg) => {
+        return <><Text  key={veg.datePlanted} textStyle='h5'>{veg.name}</Text>
+        <Button onClick={() => {handleWatering(veg.datePlanted)}}>   Water!</Button>
+        </>
+      })}      
     </CardBody>
   </Card>
 </SimpleGrid>
