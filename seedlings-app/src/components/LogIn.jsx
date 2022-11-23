@@ -57,15 +57,6 @@ const LogIn = () => {
 }
 
 
-
-
-
-
-
-
-
-  
-
   return (
     <>
       <Flex

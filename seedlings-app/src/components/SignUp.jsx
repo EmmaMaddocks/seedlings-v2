@@ -5,7 +5,7 @@ import {
   Text,
   FormLabel,
   Switch,
-  Stack,
+  VStack,
   Input,
   Flex,
   InputGroup,
@@ -61,6 +61,8 @@ try {
         </Box>
 
         <form onSubmit={handleSubmit(onSubmit)}>
+        <VStack spacing={4} align="center" width='300px'>
+
           <Input
             placeholder="First Name"
             size="lg"
@@ -168,6 +170,8 @@ try {
           <Button color="white" bgColor="#ED965C" borderRadius={20} isLoading={isSubmitting} type='submit'>
             Sign Up
           </Button>
+          </VStack >
+
 </form>
           <Flex
             direction="row"

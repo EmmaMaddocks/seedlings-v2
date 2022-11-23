@@ -41,7 +41,7 @@ const CityComponent = (props) => {
   return (
     <Flex gap={3} mb={7} direction='column' alignItems='center' justifyContent='center'>
 
-      <img src="https://img.icons8.com/fluency/96/000000/smiling-sun.png" className='weatherLogo' width='70px' height='auto'/>
+      <img src="https://img.icons8.com/fluency/96/000000/smiling-sun.png" className='weatherLogo' width='70px' height='auto' margin='0px'/>
       <span className='chooseCityLabel'>Find Weather of your city</span>
       <form className='searchBox' onSubmit={fetchWeather}>
         <input placeholder='City' onChange={(event) => updateCity(event.target.value)} />
@@ -99,7 +99,7 @@ function Weather() {
   
   const fetchWeather = async (event) => {
     event.preventDefault();
-    const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+    const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=northwich&appid=${API_KEY}`);
     updateWeather(response.data);
   }
   
