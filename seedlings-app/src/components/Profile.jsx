@@ -44,13 +44,17 @@ function Profile() {
       });
   }, []);
 
-
+let toBeWatered = []
 data.allotment.forEach(veg => {
   veg.HarvestDay = Date(veg.datePlanted + (veg.minHarvest * 86400000))
-  console.log(veg.HarvestDay)
   veg.PercentageComplete = Math.round (100 - ((veg.datePlanted + (veg.minHarvest * 86400000)) - Date.now()) / (veg.minHarvest * 864000))
-  console.log(veg.name, veg.PercentageComplete)
+  console.log(veg.lastWatered)
+  if ((Date.now() - veg.lastWatered) > (veg.numberOfDaysBetweenWatering * 86400000)) {
+    toBeWatered.push({name: veg.name, id: veg.datePlanted})
+  }
 });
+
+console.log(toBeWatered)
 
 data.allotment.sort(function(a, b) {
   let keyA = new Date(a.HarvestDay),
