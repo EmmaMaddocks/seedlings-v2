@@ -10,19 +10,15 @@ import {
   CardHeader,
   Container,
   Button,
-  Stack
+  Stack,
 } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
-import Trophy from './trophy';
-import React, { Suspense, useContext } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React from 'react';
 import * as api from '../utils/api';
 import { useState, useEffect } from 'react';
 import { useUserContext, UserContext } from '../context/UserContext';
 import Weather from './Weather';
-import getIpAddress from '../utils/IpAddress';
-import axios from 'axios';
 import { postWaterDatePlanted } from '../utils/api';
+import { ReactComponent as VegBox } from '../images/vegbox.svg';
 
 function Profile() {
   const { userName, setData, data } = useUserContext();
@@ -88,29 +84,27 @@ function Profile() {
   }
 
   return (
-    <Container centerContent paddingTop="50px">
+    <Container centerContent pl="0px" pr="0px" pb='20px'>
+      <VegBox w="50px" h="50px" />
       <Heading textStyle="h1" size="2xl" pb={7}>
         {' '}
         Welcome, {data.name}!{' '}
       </Heading>
 
-      <Weather />
-
-      <Stack gap={3} mb='20px'>
-        <Text textStyle="h2" textAlign='left'>To water today:</Text>
+      <Stack gap={2} mb="15px">
+        <Text textStyle="h2" textAlign="left">
+          To water today:
+        </Text>
 
         {toBeWatered.map(veg => {
           return (
             <>
-              <Card
-                        bgColor="brand.lightbrown"
-                        width='93vw'
-                >
+              <Card bgColor="brand.paleorange" width="93vw">
                 <CardBody
-                display="flex"
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
+                  display="flex"
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="space-between"
                 >
                   <Text key={veg.datePlanted} textStyle="h5">
                     {veg.name}
@@ -128,8 +122,19 @@ function Profile() {
             </>
           );
         })}
-      </Stack>
+  
 
+      <Card bgColor="brand.lightbrown" width="93vw">
+        <CardBody
+          display="flex"
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Weather />
+        </CardBody>
+      </Card>
+      </Stack>
       <Flex
         borderRadius="25pt"
         width="100vw"
@@ -145,13 +150,16 @@ function Profile() {
             width="45vw"
             height="45vw"
             maxH="200px"
-
           >
-    
-            <CardBody padding="0px"             flexDirection='column'
-            alignContent='center'
-            justifyContent='center'>
-              <Text textStyle="h4" position='relative'>{data.allotment.length}</Text>
+            <CardBody
+              padding="0px"
+              flexDirection="column"
+              alignContent="center"
+              justifyContent="center"
+            >
+              <Text textStyle="h4" position="relative">
+                {data.allotment.length}
+              </Text>
               <Text textStyle="h5">crops planted</Text>
             </CardBody>
           </Card>
@@ -174,10 +182,11 @@ function Profile() {
             height="45vw"
             maxH="200px"
           >
-
             <CardBody padding="0px">
               <Text textStyle="h4">{data.seeds.length}</Text>
-              <Text textStyle="h5" pl='5px' pr='5px'>successful harvests</Text>
+              <Text textStyle="h5" pl="5px" pr="5px">
+                successful harvests
+              </Text>
             </CardBody>
           </Card>
 
@@ -218,8 +227,6 @@ function Profile() {
           </Card>
         </SimpleGrid>
       </Flex>
-
-
     </Container>
   );
 }
