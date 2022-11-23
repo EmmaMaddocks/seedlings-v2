@@ -4,7 +4,7 @@ import {
   Text
 } from '@chakra-ui/react';
 import React from "react";
-import Axios from "https://cdn.skypack.dev/axios";
+import Axios from "axios";
 const API_KEY = '56a2c31c64a6247e0e851f88799c0dd5';
 
 

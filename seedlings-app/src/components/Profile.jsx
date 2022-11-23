@@ -10,6 +10,7 @@ import {
   CardHeader,
   Container,
   Button,
+  Icon,
   Stack,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -19,6 +20,8 @@ import { useUserContext, UserContext } from '../context/UserContext';
 import Weather from './Weather';
 import { postWaterDatePlanted } from '../utils/api';
 import { ReactComponent as VegBox } from '../images/vegbox.svg';
+import { FaTint } from 'react-icons/fa';
+
 
 function Profile() {
   const { userName, setData, data } = useUserContext();
@@ -99,23 +102,26 @@ function Profile() {
         {toBeWatered.map(veg => {
           return (
             <>
-              <Card bgColor="brand.paleorange" width="93vw">
+              <Card bgColor="brand.lightbrown" width="90vw" height='50px'>
                 <CardBody
                   display="flex"
                   direction="row"
                   alignItems="center"
                   justifyContent="space-between"
+                  height='50px'
                 >
                   <Text key={veg.datePlanted} textStyle="h5">
                     {veg.name}
                   </Text>
-                  <Button
+            
+                  <Button color='lightblue' bg='none'
                     onClick={() => {
                       handleWatering(veg.datePlanted);
                     }}
                   >
                     {' '}
-                    Water!
+                    <Icon as={FaTint} w={8} h={8}
+                    />
                   </Button>
                 </CardBody>
               </Card>
@@ -124,7 +130,7 @@ function Profile() {
         })}
   
 
-      <Card bgColor="brand.lightbrown" width="93vw">
+      <Card bgColor="brand.paleorange" width="90vw" borderRadius={10}>
         <CardBody
           display="flex"
           direction="column"
@@ -136,7 +142,6 @@ function Profile() {
       </Card>
       </Stack>
       <Flex
-        borderRadius="25pt"
         width="100vw"
         // height="65vh"
         maxH="800px"
@@ -147,8 +152,8 @@ function Profile() {
           <Card
             size="lg"
             bgColor="brand.lightgreen"
-            width="45vw"
-            height="45vw"
+            width="44vw"
+            height="44vw"
             maxH="200px"
           >
             <CardBody
@@ -165,9 +170,9 @@ function Profile() {
           </Card>
           <Card
             size="lg"
-            bgColor="brand.paleorange"
-            width="45vw"
-            height="45vw"
+            bgColor="brand.orange"
+            width="44vw"
+            height="44vw"
             maxH="200px"
           >
             <CardBody padding="0px">
@@ -178,8 +183,8 @@ function Profile() {
           <Card
             size="lg"
             bgColor="brand.orange"
-            width="45vw"
-            height="45vw"
+            width="44vw"
+            height="44vw"
             maxH="200px"
           >
             <CardBody padding="0px">
@@ -193,8 +198,8 @@ function Profile() {
           <Card
             size="lg"
             bgColor="brand.lightbrown"
-            width="45vw"
-            height="45vw"
+            width="44vw"
+            height="44vw"
             maxH="200px"
           >
             <CardHeader padding="0px">
