@@ -68,7 +68,7 @@ import {MinusIcon,RepeatIcon,AddIcon} from "@chakra-ui/icons";
       <Text textStyle='h3' paddingBottom='40px'>Based on your answers, we recommend the following seeds.</Text>
       <Text textStyle='h3' paddingBottom='40px'>
       Swipe left to skip, swipe right to add to your collection</Text>
-      <Flex  justifyContent="space-between" paddingBottom='40px' >
+      <Flex  width='200px' justifyContent="space-around" alignContent='center' paddingBottom='40px' >
          <IconButton colorScheme='green' className="swipeleft">
          <MinusIcon fontSize="Large"/>
         </IconButton> 
@@ -83,7 +83,7 @@ import {MinusIcon,RepeatIcon,AddIcon} from "@chakra-ui/icons";
           {crops.map((crop) => (
            console.log("test"),
             <TinderCard
-            pos='absolute'
+            pos='absolute' zIndex={99}
               className="swipe"
               key={crop.name}
               preventSwipe={["up", "down"]}
@@ -110,10 +110,11 @@ import {MinusIcon,RepeatIcon,AddIcon} from "@chakra-ui/icons";
       </Stack>
     </CardBody>
   </Card>
+
             </TinderCard>
        
           ))}
-        <Button  bgColor='green' textColor="white" onClick={handleButton}>Let's go plant our seeds</Button>
+        <Button zIndex={1} position='absolute' top='300px' bgColor='green' textColor="white" onClick={handleButton}>Let's go plant our seeds</Button>
       </Flex>
 
       </>
