@@ -11,6 +11,7 @@ import {
  import * as api from "../utils/api";
 import SeedCard from './SeedCard';
 import { useUserContext } from '../context/UserContext';
+import ScrollToTop from './ScrollToTop'
   
   const Seeds = () => {
     const {user, setUser } = useUserContext()
@@ -67,7 +68,8 @@ import { useUserContext } from '../context/UserContext';
         {seeds.map((seed) => {
           return <SeedCard key={seed.seed_id} seed={seed} user={user} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
         })}
-      </Stack>         
+      </Stack> 
+      <ScrollToTop/>        
         </Flex>
       </>
     );

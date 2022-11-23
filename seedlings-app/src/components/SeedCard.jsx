@@ -12,6 +12,7 @@ import {
     Container
   } from '@chakra-ui/react';
   import * as api from '../utils/api'
+  import ConfettiButton from "./ConfettiButton"
 
 
 
@@ -68,15 +69,14 @@ const handleDelete = (event) => {
     </CardBody>
     <CardFooter>
       <ButtonGroup spacing='2'>
-        <Button variant='solid' bgColor='white' onClick={handlePlant}>
-          Plant Seeds
-        </Button>
+        <ConfettiButton/>
         <Button variant='solid' bgColor='white' onClick={handleDelete}>
           Delete Seeds 
         </Button>
   
       </ButtonGroup>
     </CardFooter>
+    
   </Card>
 )  
 }
