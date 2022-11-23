@@ -43,7 +43,7 @@ export function UserProvider({ children }) {
         .catch(error => {
    
         });
-    }, []);
+    }, [userName]);
   
     return (
       <UserContext.Provider

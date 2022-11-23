@@ -26,7 +26,7 @@ import { useUserContext, UserContext } from '../context/UserContext';
 
 function Nav() {
 
-  const { userName, setUserName } = useUserContext();
+  const { userName, setUserName, data, setData } = useUserContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -35,6 +35,7 @@ function Nav() {
   const handleLogOut = (event) => {
         localStorage.clear()
         setUserName(null)
+        setData(null)
         navigate('/login')
  }
 

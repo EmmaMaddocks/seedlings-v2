@@ -29,7 +29,27 @@ function Profile() {
   const [error, setError] = useState(null)
 
 
+
+
+useEffect(() => {
+  setIsLoading(true);
+  api
+    .getProfileData(userName)
+    .then(data => {
+      setIsLoading(false);
+      setData(data[0])
+    })
+    .catch(error => {
+      setError(error);
+      setIsLoading(false);
+    });
+}, [userName]);
+
+
 console.log(data)
+
+
+
 
 return (
   <Container
@@ -37,37 +57,37 @@ return (
     paddingTop='50px'
   >
 
-<Heading textStyle='h1' size='2xl'> Welcome, {data[0].name}! </Heading> 
+<Heading textStyle='h1' size='2xl'> Welcome, {data.name}! </Heading> 
 
 
 <Text textStyle='h2' size='2xl'> Here's the latest: </Text> 
 
-{/* <Flex borderRadius='25pt' width='100vw' height='65vh' maxH='800px' alignItems='center' justifyContent='center'> 
+<Flex borderRadius='25pt' width='100vw' height='65vh' maxH='800px' alignItems='center' justifyContent='center'> 
       <SimpleGrid spacing={4}  columns={2}>
   <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader paddingBottom='0px'>
       <Text textStyle='cardHeader'>Allotment</Text>
     </CardHeader>
     <CardBody padding='0px'>
-      <Text textStyle='h4'>{user.user.allotment.length}</Text>
+      <Text textStyle='h4'>{data.allotment.length}</Text>
       <Text textStyle='h5'>crops planted</Text>
     </CardBody>
   </Card>
   <Card size='lg' bgColor='brand.paleorange'width='40vw' height='40vw' maxH='200px'>
-    <CardHeader paddingBottom='0px'> */}
-    {/* <Text textStyle='cardHeader'>Seeds</Text>
+    <CardHeader paddingBottom='0px'>
+    <Text textStyle='cardHeader'>Seeds</Text>
     </CardHeader>
     <CardBody padding='0px'>
-      <Text textStyle='h4'>{user.user.seeds.length}</Text>
+      <Text textStyle='h4'>{data.seeds.length}</Text>
       <Text textStyle='h5'>varieties to plant</Text>
-    </CardBody> */}
-  {/* </Card>
+    </CardBody>
+  </Card>
   <Card size='lg' bgColor='brand.orange' width='40vw' height='40vw' maxH='200px'>
     <CardHeader paddingBottom='0px'>
     <Text textStyle='cardHeader'>Harvests</Text>
     </CardHeader>
     <CardBody padding='0px'>
-    <Text textStyle='h4'>{user.user.seeds.length}</Text>
+    <Text textStyle='h4'>{data.seeds.length}</Text>
       <Text textStyle='h5'>successful harvests</Text>
     </CardBody>
   </Card>
@@ -78,26 +98,26 @@ return (
     </CardHeader>
     <CardBody padding='0px'>
     </CardBody>
-  </Card> */}
+  </Card>
 
 
 
-  {/* <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
-    {/* <CardHeader>
+<Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
+     <CardHeader>
     <Text textStyle='cardHeader'>Coming up</Text>
-    </CardHeader> */}
-    {/* <CardBody paddingTop={0} display='flex'  direction='column' alignItems='center' justifyContent='center'>
-    {/* <Flex direction='column' alignItems='center' justifyContent='center'> */}
-      {/* <Text  textStyle='h5'>Tomatoes</Text>
+    </CardHeader> 
+  <CardBody paddingTop={0} display='flex'  direction='column' alignItems='center' justifyContent='center'>
+   <Flex direction='column' alignItems='center' justifyContent='center'>
+      <Text  textStyle='h5'>Tomatoes</Text>
       <CircularProgress value={40} color='brand.orange'>
   <CircularProgressLabel>40%</CircularProgressLabel>
-</CircularProgress> */}
-{/* </Flex> */}
-    {/* </CardBody> */}
-  {/* </Card>  */} 
+</CircularProgress> 
+ </Flex> 
+  </CardBody> 
+ </Card> 
 
 
-  {/* <Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
+<Card size='lg' bgColor='brand.lightgreen' width='40vw' height='40vw' maxH='200px'>
     <CardHeader>
     <Text textStyle='cardHeader'>To do today:</Text>
     </CardHeader>
@@ -105,8 +125,8 @@ return (
       <Text  textStyle='h5'>Water Carrots</Text>
     </CardBody>
   </Card>
-</SimpleGrid> */}
-{/* </Flex>  */}
+</SimpleGrid>
+</Flex> 
 
 
 

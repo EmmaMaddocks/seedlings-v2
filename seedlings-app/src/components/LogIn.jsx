@@ -24,7 +24,7 @@ const LogIn = () => {
   const [error, setError] = useState(null); 
 
 
-  const { userName, setUserName } = useUserContext();
+  const { userName, setUserName, data, setData } = useUserContext();
   
   const changeHandler = event => setUserName(event.target.value);
 
@@ -37,7 +37,6 @@ const LogIn = () => {
 
   function onSubmit(data) {
     const { userName, password } = data;
-
     api.validateLogIn(userName, password)
     .then((response) => {
       if (response === 'Invalid password') {
@@ -47,13 +46,25 @@ const LogIn = () => {
       } else {
         localStorage.setItem('user', JSON.stringify((userName)))
         setUserName(userName)
+        api.getProfileData(userName)
+      .then(data => {
+        setData(data)
+        console.log(data)
         navigate('/profile')
-      }
+      })
+      .catch(error => {
+      });
+  }}, [userName])
+}
 
-}).catch((error) =>{
-  console.log(error)
-})
-  }
+
+
+
+
+
+
+
+
   
 
   return (
