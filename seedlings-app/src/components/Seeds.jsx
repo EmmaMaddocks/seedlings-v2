@@ -11,7 +11,9 @@ import {
  import * as api from "../utils/api";
 import SeedCard from './SeedCard';
 import { useUserContext, UserContext } from '../context/UserContext';
-  
+import { ReactComponent as SeedPacket } from '../images/seedpacket.svg';  
+
+
   const Seeds = () => {
     const { userName } = useUserContext();
     const navigate = useNavigate();
@@ -56,6 +58,7 @@ import { useUserContext, UserContext } from '../context/UserContext';
           gap={6}
           
         >
+          <SeedPacket/>
           <Box size="60vw">
             <Heading textStyle="h1" size="3xl" >
               Your saved seeds
