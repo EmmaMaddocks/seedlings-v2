@@ -46,15 +46,16 @@ function Profile() {
 
 
 data.allotment.forEach(veg => {
-  veg.HarvestDay =  new Date(veg.datePlanted + (veg.minHarvest * 86400000))
-  veg.PercentageComplete = Math.round (100 - ((Date.parse(veg.HarvestDay) - Date.now()) / (veg.minHarvest * 864000)))
+  veg.HarvestDay = Date(veg.datePlanted + (veg.minHarvest * 86400000))
+  console.log(veg.HarvestDay)
+  veg.PercentageComplete = Math.round (100 - ((veg.datePlanted + (veg.minHarvest * 86400000)) - Date.now()) / (veg.minHarvest * 864000))
   console.log(veg.name, veg.PercentageComplete)
 });
 
 data.allotment.sort(function(a, b) {
   let keyA = new Date(a.HarvestDay),
     keyB = new Date(b.HarvestDay);
-  // Compare the 2 dates
+  
   if (keyA < keyB) return -1;
   if (keyA > keyB) return 1;
   return 0;
@@ -116,10 +117,12 @@ return (
 <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
      <CardHeader>
     <Text textStyle='cardHeader'>Next to Harvest:</Text>
+       
     </CardHeader> 
   <CardBody paddingTop={0} display='flex'  direction='column' alignItems='center' justifyContent='center'>
    <Flex direction='column' alignItems='center' justifyContent='center'>
-      <Text  textStyle='h5'>{nextToHarvest.name}</Text>
+   <Text  textStyle='h5'>{nextToHarvest.name}</Text> 
+      <Text  textStyle='h5'>{nextToHarvest.HarvestDay.split("12:")[0]}</Text>    
       <CircularProgress value={nextToHarvest.PercentageComplete} color='brand.orange'>
   <CircularProgressLabel>{nextToHarvest.PercentageComplete}%</CircularProgressLabel>
 </CircularProgress> 
