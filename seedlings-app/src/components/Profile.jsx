@@ -44,10 +44,24 @@ function Profile() {
       });
   }, []);
 
-console.log(data)
 
+data.allotment.forEach(veg => {
+  veg.HarvestDay = Date(veg.datePlanted + (veg.minHarvest * 86400000))
+  console.log(veg.HarvestDay)
+  veg.PercentageComplete = Math.round (100 - ((veg.datePlanted + (veg.minHarvest * 86400000)) - Date.now()) / (veg.minHarvest * 864000))
+  console.log(veg.name, veg.PercentageComplete)
+});
 
+data.allotment.sort(function(a, b) {
+  let keyA = new Date(a.HarvestDay),
+    keyB = new Date(b.HarvestDay);
+  
+  if (keyA < keyB) return -1;
+  if (keyA > keyB) return 1;
+  return 0;
+});
 
+const nextToHarvest = data.allotment[0]
 
 return (
   <Container
@@ -102,13 +116,15 @@ return (
 
 <Card size='lg' bgColor='brand.lightbrown' width='40vw' height='40vw' maxH='200px'>
      <CardHeader>
-    <Text textStyle='cardHeader'>Coming up</Text>
+    <Text textStyle='cardHeader'>Next to Harvest:</Text>
+       
     </CardHeader> 
   <CardBody paddingTop={0} display='flex'  direction='column' alignItems='center' justifyContent='center'>
    <Flex direction='column' alignItems='center' justifyContent='center'>
-      <Text  textStyle='h5'>Tomatoes</Text>
-      <CircularProgress value={40} color='brand.orange'>
-  <CircularProgressLabel>40%</CircularProgressLabel>
+   <Text  textStyle='h5'>{nextToHarvest.name}</Text> 
+      <Text  textStyle='h5'>{nextToHarvest.HarvestDay.split("12:")[0]}</Text>    
+      <CircularProgress value={nextToHarvest.PercentageComplete} color='brand.orange'>
+  <CircularProgressLabel>{nextToHarvest.PercentageComplete}%</CircularProgressLabel>
 </CircularProgress> 
  </Flex> 
   </CardBody> 

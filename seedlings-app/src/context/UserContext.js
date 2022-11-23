@@ -57,7 +57,7 @@ export function UserProvider({ children }) {
   }
 
   export function useUserContext() {
-    console.log(useContext(UserContext))
+    
     return useContext(UserContext);
 
  }
