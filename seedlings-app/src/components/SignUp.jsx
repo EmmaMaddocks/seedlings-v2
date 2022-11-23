@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as api from '../utils/api'
-
+import { ReactComponent as Tools } from '../images/tools.svg';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -48,13 +48,14 @@ try {
   return (
     <>
       <Flex
-        height="100vh"
+        minheight="100vh"
         direction="column"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
         gap={6}
       >
+        <Tools />
         <Box size="60vw">
           <Heading textStyle="h1" size="3xl">
             Sign Up
@@ -142,7 +143,8 @@ try {
               <Button
                 color="white"
                 bgColor="#ED965C"
-                h="2.5rem"
+                mt='10px'
+                h="2rem"
                 size="sm"
                 onClick={handleClick}
                 borderRadius="10"
@@ -160,12 +162,13 @@ try {
           >
             <FormLabel
               htmlFor="isRequired"
-              fontSize="xs"
+              fontSize="sm"
               color="brand.darkgreen"
+              textAlign='center'
             >
-              I have my parents permission to use this app
-            </FormLabel>
+              I have my parents permission to sign up  
             <Switch colorScheme="orange" id="isRequired" isRequired />
+            </FormLabel>
           </Flex>
 
           <Button color="white" bgColor="#ED965C" borderRadius={20} isLoading={isSubmitting} type='submit'>
