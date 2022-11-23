@@ -9,7 +9,6 @@ import {
   DrawerHeader,
   DrawerBody,
   Input,
-  Text,
   Stack,
   DrawerFooter,
   Icon,
@@ -64,7 +63,7 @@ function Nav() {
         <DrawerOverlay />
         <DrawerContent >
           <DrawerCloseButton />
-          <DrawerHeader>Menu</DrawerHeader>
+          <Heading as='h1' p='20px' color='brand.darkgreen'>Menu</Heading>
 
           <DrawerBody>
             <Stack gap={3}>
