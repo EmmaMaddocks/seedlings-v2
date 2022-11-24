@@ -84,9 +84,11 @@ function Profile() {
     try {
       postWaterDatePlanted(userName, id);
       setWatered(true);
+      setIsVisible(true)
     } catch (error) {
       console.log(error);
     }
+    setIsVisible(false)
   }
 
   return (
@@ -116,14 +118,14 @@ function Profile() {
                   <Text key={veg.datePlanted} textStyle="h5">
                     {veg.name}
                   </Text>
-         
-                    {/* <IconButton color='lightblue' bgcolor='none' icon={FaTint} w={8} h={8}
+{/*          
+                    <IconButton color='lightblue' bgcolor='none' icon={FaTint} w={8} h={8}
                     onClick={() => {
                       handleWatering(veg.datePlanted);
                     }}
                   /> */}
 
-      <>  <Button variant='solid' bgColor='white' onClick={() => {setIsVisible(true); handleWatering(veg.datePlanted)}}>
+      <>  <Button variant='solid' bgColor='white' onClick={() => {handleWatering(veg.datePlanted)}}>
           Water 
       </Button>
      {isVisible &&<WaterButton/>}</>
