@@ -59,7 +59,7 @@ const { userName, data, setData, crop, setCrop } = useUserContext();
 
     console.log(veggie)
 
-  let datePlantedTimeStamp = veggie.dayAdded;
+  let datePlantedTimeStamp = veggie.datePlanted;
 
 
   const newDatePlanted = new Date(datePlantedTimeStamp);
@@ -74,7 +74,8 @@ const todaysDate2 = todaysDate - datePlantedTimeStamp
 const daysOld = todaysDate2 / 86400000
 const daysOldRounded = daysOld.toFixed()
 
-const weeksOld = daysOld / 7
+const weeksOld = (daysOld / 7).toFixed()
+
 
 const daysTillHarvest = veggie.minHarvest - daysOld 
 const daysTillHarvestRounded = daysTillHarvest.toFixed()
@@ -104,26 +105,23 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
         { daysOld < 7 ? 
           <Text>Your {veggie.name} are {daysOldRounded} days old! </Text> :
           <Text>Your {veggie.name} are {weeksOld} weeks old! </Text> }
-
-
-          <Text>There are {daysTillHarvestRounded} days until they're ready to harvest</Text>
-
           <Text>Last Watered {newDateWateredDate} </Text>
-    
 
-          <Button>Upload Picture</Button>
-          <Button bgColor='brand.paleorange' onClick={() => navigate('/allotment')}>Return to Allotment</Button>
+{ daysTillHarvestRounded >= 0 ? <Text>Your {veggie.name} are ready to harvest! </Text>: <Text >There are {daysTillHarvestRounded} days until they're ready to harvest</Text> }
 
-
+  
           { daysTillHarvestRounded <= 0 ? <Button bgColor='brand.paleorange' onClick={() => navigate('/harvestsuccess')}>Harvest</Button>  : <Button bgColor='brand.paleorange' onClick={onOpen}>Harvest</Button>  }
-
+          <Button bgColor='brand.lightgreen'>Upload Picture</Button>
+         
+         
+          <Button size='sm' bgColor='brand.paleorange' onClick={() => navigate('/allotment')}>Return to Allotment</Button>
           <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Oops!</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text>Your {veggie.name} isn't quite ready to harvest yet! </Text>
+            <Text>Your {veggie.name} aren't quite ready to harvest yet! </Text>
           </ModalBody>
 
           <ModalFooter>

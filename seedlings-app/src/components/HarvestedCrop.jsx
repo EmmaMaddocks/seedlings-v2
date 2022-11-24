@@ -53,7 +53,7 @@ import {
 
 
           <Box size="60vw">
-            <Heading textStyle="h1" size="3xl" >
+            <Heading textStyle="h1" size="2xl" >
               Congratulations!
             </Heading>
           </Box>
@@ -61,6 +61,8 @@ import {
           <Stack gap={3}>
 
 <GifCreator/>
+<Button size='sm' bgColor='brand.paleorange' onClick={() => navigate('/allotment')}>Return to Allotment</Button>
+
       </Stack>
 
         

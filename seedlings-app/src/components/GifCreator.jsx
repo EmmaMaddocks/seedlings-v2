@@ -52,7 +52,7 @@ function GifCreator() {
 
     return (
       <Container>
-        <Button onClick={handleClick}>Click to create a GIF</Button>
+        <Button onClick={handleClick}  bgColor='brand.lightgreen' >Click to create a GIF</Button>
         {progress !== 0 && <Text>Creating GIF... {progress}%</Text>}
         <Box>
 <Image src={src}/>

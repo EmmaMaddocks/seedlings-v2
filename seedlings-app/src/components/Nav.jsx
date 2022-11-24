@@ -39,11 +39,6 @@ function Nav() {
  }
 
 
-
-
-
-
-
   return (
     <>
     <Flex padding={10}>
@@ -93,8 +88,8 @@ function Nav() {
                         <Button  as={NavLink} to="/login"  mr={3} onClick={onClose} bgColor='brand.paleorange'>
                         Log In
                       </Button>}
-
-            <Button as={NavLink} to="/signup" onClick={onClose} bgColor='brand.paleorange'>Sign up</Button>
+                      { userName ? null :
+            <Button as={NavLink} to="/signup" onClick={onClose} bgColor='brand.paleorange'>Sign up</Button> }
           
           </DrawerFooter>
         </DrawerContent>

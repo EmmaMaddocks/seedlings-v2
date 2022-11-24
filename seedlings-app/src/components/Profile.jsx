@@ -10,7 +10,7 @@ import {
   CardHeader,
   Container,
   Button,
-  Icon,
+  IconButton,
   Stack,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -113,16 +113,14 @@ function Profile() {
                   <Text key={veg.datePlanted} textStyle="h5">
                     {veg.name}
                   </Text>
-            
-                  <Button color='lightblue' bg='none'
+         
+                    <IconButton color='lightblue' bgcolor='none' icon={FaTint} w={8} h={8}
                     onClick={() => {
                       handleWatering(veg.datePlanted);
                     }}
-                  >
-                    {' '}
-                    <Icon as={FaTint} w={8} h={8}
-                    />
-                  </Button>
+              
+                  />
+              
                 </CardBody>
               </Card>
             </>
@@ -188,7 +186,7 @@ function Profile() {
             maxH="200px"
           >
             <CardBody padding="0px">
-              <Text textStyle="h4">{data.seeds.length}</Text>
+              <Text textStyle="h4">{data.number_harvested}</Text>
               <Text textStyle="h5" pl="5px" pr="5px">
                 successful harvests
               </Text>

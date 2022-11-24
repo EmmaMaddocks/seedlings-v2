@@ -99,7 +99,7 @@ function Weather() {
   
   const fetchWeather = async (event) => {
     event.preventDefault();
-    const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=northwich&appid=${API_KEY}`);
+    const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
     updateWeather(response.data);
   }
   
