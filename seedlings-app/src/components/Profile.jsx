@@ -89,6 +89,7 @@ function Profile() {
       console.log(error);
     }
     setIsVisible(false)
+  
   }
 
   return (
