@@ -69,7 +69,7 @@ const { userName, data, setData, crop, setCrop } = useUserContext();
 
     function handleImageUpload(userName, imgURL) {
       try {
-        addImageDatePlanted(userName, dat)
+        addImageDatePlanted(userName, data)
       } 
       catch (error) {
         console.log(error);
