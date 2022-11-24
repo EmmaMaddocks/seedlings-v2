@@ -21,6 +21,7 @@ import Weather from './Weather';
 import { postWaterDatePlanted } from '../utils/api';
 import { ReactComponent as VegBox } from '../images/vegbox.svg';
 import { FaTint } from 'react-icons/fa';
+import WaterButton from './WaterButton'
 
 
 function Profile() {
@@ -29,6 +30,8 @@ function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [watered, setWatered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -114,12 +117,16 @@ function Profile() {
                     {veg.name}
                   </Text>
          
-                    <IconButton color='lightblue' bgcolor='none' icon={FaTint} w={8} h={8}
+                    {/* <IconButton color='lightblue' bgcolor='none' icon={FaTint} w={8} h={8}
                     onClick={() => {
                       handleWatering(veg.datePlanted);
                     }}
-              
-                  />
+                  /> */}
+
+      <>  <Button variant='solid' bgColor='white' onClick={() => {setIsVisible(true); handleWatering(veg.datePlanted)}}>
+          Water 
+      </Button>
+     {isVisible &&<WaterButton/>}</>
               
                 </CardBody>
               </Card>
