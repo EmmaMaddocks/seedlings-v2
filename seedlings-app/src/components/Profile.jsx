@@ -21,6 +21,7 @@ import Weather from './Weather';
 import { postWaterDatePlanted } from '../utils/api';
 import { ReactComponent as VegBox } from '../images/vegbox.svg';
 import { FaTint } from 'react-icons/fa';
+import WaterButton from './WaterButton'
 
 
 function Profile({numberHarvested}) {
@@ -30,7 +31,10 @@ function Profile({numberHarvested}) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [watered, setWatered] = useState(false);
-  
+
+  const [isVisible, setIsVisible] = useState(false);
+
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -83,9 +87,12 @@ function Profile({numberHarvested}) {
     try {
       postWaterDatePlanted(userName, id);
       setWatered(true);
+      setIsVisible(true)
     } catch (error) {
       console.log(error);
     }
+    setIsVisible(false)
+  
   }
 
   return (
@@ -97,9 +104,9 @@ function Profile({numberHarvested}) {
       </Heading>
 
       <Stack gap={2} mb="15px">
-        <Text textStyle="h2" textAlign="left">
+       { toBeWatered.length > 0 && <Text textStyle="h2" textAlign="left">
           To water today:
-        </Text>
+        </Text> }
 
         {toBeWatered.map(veg => {
           return (
@@ -115,13 +122,17 @@ function Profile({numberHarvested}) {
                   <Text key={veg.datePlanted} textStyle="h5">
                     {veg.name}
                   </Text>
-         
+{/*          
                     <IconButton color='lightblue' bgcolor='none' icon={FaTint} w={8} h={8}
                     onClick={() => {
                       handleWatering(veg.datePlanted);
                     }}
-              
-                  />
+                  /> */}
+
+      <>  <Button variant='solid' bgColor='white' onClick={() => {handleWatering(veg.datePlanted)}}>
+          Water 
+      </Button>
+     {isVisible &&<WaterButton/>}</>
               
                 </CardBody>
               </Card>

@@ -128,10 +128,14 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
           <Text>Your {veggie.name} are {weeksOld} weeks old! </Text> }
           <Text>Last Watered {newDateWateredDate} </Text>
 
-{ daysTillHarvestRounded >= 0 ? <Text>Your {veggie.name} are ready to harvest! </Text>: <Text >There are {daysTillHarvestRounded} days until they're ready to harvest</Text> }
+{ daysOldRounded >= veggie.minHarvest ? <Text>Your {veggie.name} are ready to harvest! </Text>: <Text >There are {daysTillHarvestRounded} days until they're ready to harvest</Text> }
 
   
+
           { daysTillHarvestRounded <= 0 ? <Button bgColor='brand.paleorange' onClick={() => {handleHarvestng(veggie.datePlanted)}}>Harvest</Button>  : <Button bgColor='brand.paleorange' onClick={onOpen}>Harvest</Button>  }
+
+          <Button bgColor='brand.paleorange' onClick={() => navigate('/harvestsuccess')}>Harvest</Button>
+
           <Button bgColor='brand.lightgreen'>Upload Picture</Button>
          
          

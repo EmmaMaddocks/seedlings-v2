@@ -42,10 +42,10 @@ const CityComponent = (props) => {
     <Flex gap={3} mb={7} direction='column' alignItems='center' justifyContent='center'>
 
       <img src="https://img.icons8.com/fluency/96/000000/smiling-sun.png" className='weatherLogo' width='70px' height='auto' margin='0px'/>
-      <span className='chooseCityLabel'>Find Weather of your city</span>
+      <span className='chooseCityLabel'>Get todays weather</span>
       <form className='searchBox' onSubmit={fetchWeather}>
         <input placeholder='City' onChange={(event) => updateCity(event.target.value)} />
-        <button type='submit'>Search</button>
+        <button type='submit' color='#F36F09'>Search</button>
       </form>
     </Flex>
   );

@@ -1,16 +1,18 @@
-import { Container, Text, Button, Box, Image } from '@chakra-ui/react';
+import { Container, Text, Button, Box, Image, Stack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { createGIF } from 'gifshot';
  
 function GifCreator() {
     const [progress, setProgress] = useState(0);
     
-    let src
+    const [gif, setGif ] = useState()
+    const [button, showButton ] = useState()
 
   const handleClick = () => {
+
+ 
  
     const images = [
-        'https://thelandroverownerswife.files.wordpress.com/2013/05/cabbage-greyhound-second-sowing-20130427.jpg',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSst9enOUzXzJVPSK8RSi1cF3R8BlZmnOEWngWgNkFrNZIO4eOdllRCmVym3eGqyGjUozc&usqp=CAU',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ylh6HGyD0xXWjUR7zItqIdlDeaa6HTdB-gEvoe61i1NYMSkWas4BuryfE8ttpQBOkJc&usqp=CAU',
         'https://cdn.shopify.com/s/files/1/0603/4892/4151/files/cabbage-transplant-lo.jpg',
@@ -33,7 +35,7 @@ function GifCreator() {
         gifWidth: 500,
         gifHeight: 300,
         numWorkers: 5,
-        frameDuration: 0.01,
+        frameDuration: 0.20,
         sampleInterval: 10,
         progressCallback: e => setProgress(parseInt(e * 100))
       };
@@ -41,23 +43,30 @@ function GifCreator() {
       createGIF(options, obj => {
         if (!obj.error) {
           const link = document.createElement('a');
-          link.download = 'sample.gif';
+          // link.download = 'sample.gif';
           link.href = obj.image;
+          setGif(link.href)
           link.click();
           setProgress(0);
         }
       });
-    }
-   
+
+  }
+
 
     return (
-      <Container>
-        <Button onClick={handleClick}  bgColor='brand.lightgreen' >Click to create a GIF</Button>
-        {progress !== 0 && <Text>Creating GIF... {progress}%</Text>}
-        <Box>
-<Image src={src}/>
+<Container centerContent>
+{ gif ? null : <Text textStyle='p' fontSize='lg' paddingLeft='20px' paddingRight='20px' paddingBottom='30px'>
+            Well done on looking after your crops!
+            Click the button below to watch your crop grow over time!
+          </Text> }
+        { gif ? null : <Button size='sm' onClick={handleClick}  bgColor='brand.lightgreen' >Watch my crop grow</Button> }
+        {progress !== 0 && <Text>Creating GIF... {progress}%
+        </Text>}
+        <Box width='100vw' >
+        { gif ? <Image src={gif}/> : null }
         </Box>
-      </Container>
+        </Container>
     );
   }
  

@@ -1,75 +1,56 @@
 import {
-    Box,
-    Heading,
-    Flex,
-    Container,
-    Stack,
-    Text,
-    Button
-  } from '@chakra-ui/react';
-  import { useNavigate } from 'react-router-dom';
-  import { useState, useEffect } from 'react';
- import Loading from './Loading'
- import * as api from "../utils/api";
- import GifCreator from './GifCreator';
+  Box,
+  Heading,
+  Flex,
+  Container,
+  Stack,
+  Text,
+  Button,
+} from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Loading from './Loading';
+import * as api from '../utils/api';
+import GifCreator from './GifCreator';
+import { ReactComponent as Wheelbarrow } from '../images/wheelbarrow.svg';
 
-  
-  const Seeds = () => {
-    const navigate = useNavigate();
-    const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
-
-    // const [crops, setCrops] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
-    // const [error, setError] = useState(null)
-  
-  
-    // useEffect(() => {
-    //   setIsLoading(true);
-    //   api
-    //     .getPlantedCrop()
-    //     .then((data) => {
-    //       setCrops(data);
-    //       setIsLoading(false);
-    //     })
-    //     .catch((error) => {
-    //       setError(error);
-    //       setIsLoading(false);
-    //     });
-    // }, []);
-  
-    // if (isLoading) return <Loading />;
-  
-    return (
-      <>
-        <Flex
-          minHeight="100vh"
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          gap={6}
-        >
+const Seeds = () => {
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
 
 
-          <Box size="60vw">
-            <Heading textStyle="h1" size="2xl" >
-              Congratulations!
-            </Heading>
-          </Box>
+  return (
+    <>
+      <Flex
+        minHeight="100vh"
+        marginTop='-50px'
+        pb='50px'
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        gap={5}
+      >
+        <Wheelbarrow w="250px" h="250px"/>
+        <Stack gap={7} >
+          <Heading textStyle="h1" size="2xl">
+            Congratulations!
+          </Heading>
 
-          <Stack gap={3}>
+          <GifCreator />
+        </Stack>
+   
+          <Button
+            size="sm"
+            bgColor="brand.paleorange"
+            onClick={() => navigate('/allotment')}
+          >
+            Return to Allotment
+          </Button>
+      </Flex>
+    </>
+  );
+};
 
-<GifCreator/>
-<Button size='sm' bgColor='brand.paleorange' onClick={() => navigate('/allotment')}>Return to Allotment</Button>
-
-      </Stack>
-
-        
-        </Flex>
-      </>
-    );
-  };
-  
-  export default Seeds;
-  
+export default Seeds;
