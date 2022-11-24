@@ -21,7 +21,7 @@ import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
 import { useUserContext, UserContext } from '../context/UserContext';
-import {deleteFromAllotment, patchHarvested} from '../utils/api'
+import {deleteFromAllotment, patchHarvested, addImageDatePlanted} from '../utils/api'
 
 
 const CropInfo = ({individualCrop, setNumberHarvested}) => {
@@ -68,7 +68,12 @@ const { userName, data, setData, crop, setCrop } = useUserContext();
     }
 
     function handleImageUpload(userName, imgURL) {
-      
+      try {
+        addImageDatePlanted(userName, dat)
+      } 
+      catch (error) {
+        console.log(error);
+      }
     }
   
     // if (isLoading) return <Loading />;

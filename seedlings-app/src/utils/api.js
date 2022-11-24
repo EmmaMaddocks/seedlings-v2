@@ -138,3 +138,14 @@ export const postWaterDatePlanted = (username, datePlanted) => {
       console.log(error)
     })
   }
+
+  export const addImageDatePlanted = (username, datePlanted, imageURL) => {
+    return api
+    .post(`users/${username}/images/${datePlanted}`,
+    { "imgURL" : imageURL})
+    .then(({data}) => {
+      console.log(data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
