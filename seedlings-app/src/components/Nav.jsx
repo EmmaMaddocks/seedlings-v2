@@ -36,6 +36,7 @@ function Nav() {
         setUserName(null)
         setData(null)
         navigate('/login')
+        onClose()
  }
 
 
