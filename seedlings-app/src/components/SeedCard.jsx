@@ -13,12 +13,12 @@ import {
   } from '@chakra-ui/react';
   import * as api from '../utils/api'
   import ConfettiButton from "./ConfettiButton"
-
+  import { useState } from 'react';
 
 
 
 const SeedCard = ({ seed, user, setDeleteSeed, deleteSeed}) => {
-
+  const [isVisible, setIsVisible] = useState(false);
 const {
     description,
     name,
@@ -69,11 +69,13 @@ const handleDelete = (event) => {
     </CardBody>
     <CardFooter>
       <ButtonGroup spacing='2'>
-        <ConfettiButton/>
-        <Button variant='solid' bgColor='white' onClick={handleDelete}>
+      <>  <Button variant='solid' bgColor='white' onClick={() => {setIsVisible(true); handlePlant()}}>
+          plant Seeds 
+      </Button></>
+     {isVisible &&<ConfettiButton/>}
+           <Button variant='solid' bgColor='white' onClick={handleDelete}>
           Delete Seeds 
         </Button>
-  
       </ButtonGroup>
     </CardFooter>
     
