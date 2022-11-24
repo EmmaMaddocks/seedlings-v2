@@ -13,7 +13,7 @@ import SeedCard from './SeedCard';
 import { useUserContext, UserContext } from '../context/UserContext';
 import { ReactComponent as SeedPacket } from '../images/seedpacket.svg';  
 import ConfettiButton from "./ConfettiButton"
-
+import ScrollToTop from "./ScrollToTop"
 
   const Seeds = () => {
     const { userName } = useUserContext();
@@ -72,7 +72,8 @@ import ConfettiButton from "./ConfettiButton"
         {seeds.map((seed) => {
           return <SeedCard key={seed.seed_id} seed={seed} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
         })}
-      </Stack>         
+      </Stack>  
+      <ScrollToTop/>       
         </Flex>
       </>
     );
