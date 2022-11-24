@@ -24,6 +24,7 @@ import { FaTint } from 'react-icons/fa';
 
 
 function Profile({numberHarvested}) {
+  console.log(numberHarvested)
   const { userName, setData, data } = useUserContext();
 
   const [isLoading, setIsLoading] = useState(true);

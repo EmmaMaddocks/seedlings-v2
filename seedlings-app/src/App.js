@@ -69,7 +69,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile numberHarvested={numberHarvested}/> } />
           <Route path="/growingconditions" element={<DataInput crops={crops} setCrops={setCrops} sunlight={sunlight} setSunlight={setSunlight} soiltype={soiltype} setSoiltype={setSoiltype} outdoors={outdoors} setLocation={setLocation} />} />
           <Route path="/suggestions" element={<Suggestions crops={crops}/>} />
           <Route path="/allotment" element={<Allotment setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop}   />} />
