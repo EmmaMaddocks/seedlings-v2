@@ -12,6 +12,7 @@ import {
 import SeedCard from './SeedCard';
 import { useUserContext, UserContext } from '../context/UserContext';
 import { ReactComponent as SeedPacket } from '../images/seedpacket.svg';  
+import ConfettiButton from "./ConfettiButton"
 
 
   const Seeds = () => {
@@ -25,6 +26,7 @@ import { ReactComponent as SeedPacket } from '../images/seedpacket.svg';
     const [error, setError] = useState(null)
     const [seeds, setSeeds] = useState([]);
     const [deleteSeed, setDeleteSeed] = useState(false)
+    const [isVisible, setIsVisible] = useState(false);
   
 
   
