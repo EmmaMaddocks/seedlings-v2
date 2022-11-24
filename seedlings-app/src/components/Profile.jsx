@@ -23,12 +23,13 @@ import { ReactComponent as VegBox } from '../images/vegbox.svg';
 import { FaTint } from 'react-icons/fa';
 
 
-function Profile() {
+function Profile({numberHarvested}) {
   const { userName, setData, data } = useUserContext();
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [watered, setWatered] = useState(false);
+  
 
   useEffect(() => {
     setIsLoading(true);
@@ -186,7 +187,7 @@ function Profile() {
             maxH="200px"
           >
             <CardBody padding="0px">
-              <Text textStyle="h4">{data.number_harvested}</Text>
+              <Text textStyle="h4">{numberHarvested}</Text>
               <Text textStyle="h5" pl="5px" pr="5px">
                 successful harvests
               </Text>

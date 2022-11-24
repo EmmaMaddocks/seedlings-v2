@@ -126,5 +126,15 @@ export const postWaterDatePlanted = (username, datePlanted) => {
   }).catch((error) => {
     console.log(error)
   })
-
 }
+
+  export const patchHarvested = (username) => {
+    let path = `users/${username}/harvest`
+    return api
+    .patch(path)
+    .then(({data}) => {
+      console.log(data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }

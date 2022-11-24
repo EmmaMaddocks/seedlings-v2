@@ -30,6 +30,7 @@ function App() {
   const [sunlight, setSunlight] = useState(null);
   const [soiltype, setSoiltype] = useState(null);
   const [outdoors, setLocation] = useState(false);
+  const [numberHarvested, setNumberHarvested] = useState(2)
 
   const [individualCrop, setIndividualCrop] = useState('');
 
@@ -73,7 +74,7 @@ function App() {
           <Route path="/suggestions" element={<Suggestions crops={crops}/>} />
           <Route path="/allotment" element={<Allotment setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop}   />} />
           <Route path="/seeds" element={<Seeds/>} />
-          <Route path="/crop" element={<CropInfo individualCrop={individualCrop}  />} />
+          <Route path="/crop" element={<CropInfo individualCrop={individualCrop} setNumberHarvested={setNumberHarvested} />} />
           <Route path="/harvestsuccess" element={<HarvestedCrop />} />
           <Route path="/soiltesting" element={<SoilTesting/>}/>
         </Routes>

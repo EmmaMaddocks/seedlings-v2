@@ -21,10 +21,10 @@ import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading';
 import * as api from '../utils/api';
 import { useUserContext, UserContext } from '../context/UserContext';
-;
+import {deleteFromAllotment, patchHarvested} from '../utils/api'
 
 
-const CropInfo = ({individualCrop}) => {
+const CropInfo = ({individualCrop, setNumberHarvested}) => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [show, setShow] = useState(false);
@@ -34,6 +34,7 @@ const CropInfo = ({individualCrop}) => {
 
   const [isLoading, setIsLoading] = useState(true);
 const [veggie, setVeggie ] = useState('')
+
 
 const { userName, data, setData, crop, setCrop } = useUserContext();
 
@@ -54,6 +55,21 @@ const { userName, data, setData, crop, setCrop } = useUserContext();
           setIsLoading(false);
         });
     }, []);
+
+    function handleHarvestng(datePlanted) {
+      try {
+        deleteFromAllotment(userName, datePlanted);
+        setNumberHarvested(3)
+        navigate('/harvestsuccess')
+      } 
+      catch (error) {
+        console.log(error);
+      }
+    }
+
+    function handleImageUpload(userName, imgURL) {
+      
+    }
   
     // if (isLoading) return <Loading />;
 
@@ -110,7 +126,7 @@ const daysTillHarvestRounded = daysTillHarvest.toFixed()
 { daysTillHarvestRounded >= 0 ? <Text>Your {veggie.name} are ready to harvest! </Text>: <Text >There are {daysTillHarvestRounded} days until they're ready to harvest</Text> }
 
   
-          { daysTillHarvestRounded <= 0 ? <Button bgColor='brand.paleorange' onClick={() => navigate('/harvestsuccess')}>Harvest</Button>  : <Button bgColor='brand.paleorange' onClick={onOpen}>Harvest</Button>  }
+          { daysTillHarvestRounded <= 0 ? <Button bgColor='brand.paleorange' onClick={() => {handleHarvestng(veggie.datePlanted)}}>Harvest</Button>  : <Button bgColor='brand.paleorange' onClick={onOpen}>Harvest</Button>  }
           <Button bgColor='brand.lightgreen'>Upload Picture</Button>
          
          
