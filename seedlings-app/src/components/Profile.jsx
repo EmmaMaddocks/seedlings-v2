@@ -101,9 +101,9 @@ function Profile() {
       </Heading>
 
       <Stack gap={2} mb="15px">
-        <Text textStyle="h2" textAlign="left">
+       { toBeWatered.length > 0 && <Text textStyle="h2" textAlign="left">
           To water today:
-        </Text>
+        </Text> }
 
         {toBeWatered.map(veg => {
           return (
