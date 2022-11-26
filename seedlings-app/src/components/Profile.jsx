@@ -49,7 +49,113 @@ function Profile() {
       });
   }, [watered]);
 
+  if(data.allotment.length === 0){
+return (
+  <Container centerContent pl="0px" pr="0px" pb='20px'>
+    <VegBox w="50px" h="50px" />
+    <Heading textStyle="h1" size="2xl" pb={7}>
+      {' '}
+      Welcome, {data.name}!{' '}
+    </Heading>
+
+    <Stack gap={2} mb="15px">
+    <Card bgColor="brand.paleorange" width="90vw" borderRadius={10}>
+      <CardBody
+        display="flex"
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Weather />
+      </CardBody>
+    </Card>
+    </Stack>
+    <Flex
+      width="100vw"
+      // height="65vh"
+      maxH="800px"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <SimpleGrid spacing={3} columns={2}>
+        <Card
+          size="lg"
+          bgColor="brand.lightgreen"
+          width="44vw"
+          height="44vw"
+          maxH="200px"
+        >
+          <CardBody
+            padding="0px"
+            flexDirection="column"
+            alignContent="center"
+            justifyContent="center"
+          >
+            <Text textStyle="h4" position="relative">
+              0
+            </Text>
+            <Text textStyle="h5">crops planted</Text>
+          </CardBody>
+        </Card>
+        <Card
+          size="lg"
+          bgColor="brand.orange"
+          width="44vw"
+          height="44vw"
+          maxH="200px"
+        >
+          <CardBody padding="0px">
+            <Text textStyle="h4">0</Text>
+            <Text textStyle="h5">seeds to plant</Text>
+          </CardBody>
+        </Card>
+        <Card
+          size="lg"
+          bgColor="brand.orange"
+          width="44vw"
+          height="44vw"
+          maxH="200px"
+        >
+          <CardBody padding="0px">
+            <Text textStyle="h4">0</Text>
+            <Text textStyle="h5" pl="5px" pr="5px">
+              successful harvests
+            </Text>
+          </CardBody>
+        </Card>
+
+        <Card
+          size="lg"
+          bgColor="brand.lightbrown"
+          width="44vw"
+          height="44vw"
+          maxH="200px"
+        >
+          <CardHeader padding="0px">
+            <Text textStyle="cardHeader">Nothing to harvest</Text>
+          </CardHeader>
+          <CardBody
+            padding={0}
+            display="flex"
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Flex
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+            </Flex>
+          </CardBody>
+        </Card>
+      </SimpleGrid>
+    </Flex>
+  </Container>
+);
+  }
   let toBeWatered = [];
+
   data.allotment.forEach(veg => {
     veg.HarvestDay = new Date(veg.datePlanted + veg.minHarvest * 86400000);
 
@@ -65,6 +171,7 @@ function Profile() {
       toBeWatered.push({ name: veg.name, datePlanted: veg.datePlanted });
     }
   });
+
 
   data.allotment.sort(function (a, b) {
     let keyA = new Date(a.HarvestDay),
@@ -104,7 +211,6 @@ function Profile() {
        { toBeWatered.length > 0 && <Text textStyle="h2" textAlign="left">
           To water today:
         </Text> }
-
         {toBeWatered.map(veg => {
           return (
             <>

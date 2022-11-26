@@ -60,7 +60,6 @@ export const postUser = (firstName, userName, parentsEmail, password) => {
     parentsEmail: parentsEmail,
     password: password,
   }).then(({ data }) => {
-    console.log(data)
     return data
 
   })
