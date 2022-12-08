@@ -10,7 +10,9 @@ import {
   CardHeader,
   Container,
   Button,
+  GridItem,
   IconButton,
+  Box,
   Stack,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -246,93 +248,39 @@ return (
         })}
   
 
-      <Card bgColor="brand.paleorange" width="90vw" borderRadius={10}>
-        <CardBody
-          display="flex"
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Weather />
-        </CardBody>
-      </Card>
       </Stack>
-      <Flex
-        width="100vw"
-        // height="65vh"
-        maxH="800px"
-        alignItems="center"
-        justifyContent="center"
-      >
+
         <SimpleGrid spacing={3} columns={2}>
-          <Card
-            size="lg"
-            bgColor="brand.lightgreen"
-            width="44vw"
-            height="44vw"
-            maxH="200px"
-          >
-            <CardBody
-              padding="0px"
-              flexDirection="column"
-              alignContent="center"
-              justifyContent="center"
-            >
+        <GridItem bgColor="brand.lightbrown"
+ p={5} boxShadow="md" rounded="md" borderWidth={1} colSpan={2}>
+          <Weather />
+</GridItem>
+          <Box             bgColor="brand.lightgreen"
+ p={5} boxShadow="md" rounded="md" borderWidth={1}>
               <Text textStyle="h4" position="relative">
                 {data.allotment.length}
               </Text>
               <Text textStyle="h5">crops planted</Text>
-            </CardBody>
-          </Card>
-          <Card
-            size="lg"
-            bgColor="brand.orange"
-            width="44vw"
-            height="44vw"
-            maxH="200px"
-          >
-            <CardBody padding="0px">
+              </Box>
+              <Box bgColor="brand.orange"
+ p={5} boxShadow="md" rounded="md" borderWidth={1}>
+
               <Text textStyle="h4">{data.seeds.length}</Text>
               <Text textStyle="h5">seeds to plant</Text>
-            </CardBody>
-          </Card>
-          <Card
-            size="lg"
-            bgColor="brand.orange"
-            width="44vw"
-            height="44vw"
-            maxH="200px"
-          >
-            <CardBody padding="0px">
+          </Box>
+
+          <Box             bgColor="brand.orange"
+ p={5} boxShadow="md" rounded="md" borderWidth={1}>
+
               <Text textStyle="h4">{data.number_harvested}</Text>
               <Text textStyle="h5" pl="5px" pr="5px">
                 successful harvests
               </Text>
-            </CardBody>
-          </Card>
-
-          <Card
-            size="lg"
-            bgColor="brand.lightbrown"
-            width="44vw"
-            height="44vw"
-            maxH="200px"
-          >
-            <CardHeader padding="0px">
+   </Box>
+   <Box display='flex' flexDirection='column' alignItems='center' justifyContent='space-around' bgColor="brand.lightbrown"
+ p={5} boxShadow="md" rounded="md" borderWidth={1}>
               <Text textStyle="cardHeader">Next to Harvest:</Text>
-            </CardHeader>
-            <CardBody
-              padding={0}
-              display="flex"
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Flex
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-              >
+
                 <CircularProgress
                   value={nextToHarvest.PercentageComplete}
                   color="brand.orange"
@@ -342,12 +290,9 @@ return (
                   </CircularProgressLabel>
                 </CircularProgress>
                 <Text textStyle="h5">{nextToHarvest.name}</Text>
-                <Text textStyle="h5">{newHarvestDate}</Text>
-              </Flex>
-            </CardBody>
-          </Card>
+                </Box>
+
         </SimpleGrid>
-      </Flex>
     </Container>
   );
 }

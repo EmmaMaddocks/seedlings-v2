@@ -80,15 +80,15 @@ const WeatherComponent = (props) => {
   
   return (
     <div className='weatherComponent'>
-          <Flex gap={3} mb={7} direction='column' alignItems='center' justifyContent='center'>
+          <Flex gap={1} mb={0} direction='column' alignItems='center' justifyContent='center'>
 
      
-      <Text textStyle='p' className='location'>{`${weather?.name}, ${weather?.sys?.country}`}</Text>
+      <Text textStyle='h5' className='location'>{`${weather?.name}, ${weather?.sys?.country}`}</Text>
        <div> {WeatherIcons[weather?.weather[0].icon]}</div>
-        <span className='condition'>
-          <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
+    
+        <Text textStyle='h5' >{`${Math.floor(weather?.main?.temp - 273)}°C`}
           {` | ${weather?.weather[0].description}`}
-          </span>
+          </Text>
  
       </Flex>
     </div>
