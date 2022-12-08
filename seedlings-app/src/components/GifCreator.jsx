@@ -63,8 +63,8 @@ function GifCreator() {
         { gif ? null : <Button size='sm' onClick={handleClick}  bgColor='brand.lightgreen' >Watch my crop grow</Button> }
         {progress !== 0 && <Text>Creating GIF... {progress}%
         </Text>}
-        <Box width='100vw' >
-        { gif ? <Image src={gif}/> : null }
+        <Box>
+        { gif ? <Image src={gif} /> : null }
         </Box>
         </Container>
     );
