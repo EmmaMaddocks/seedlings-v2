@@ -49,7 +49,6 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
   return (
     <>
       <Flex
-        minHeight="100vh"
         direction="column"
         alignItems="center"
         justifyContent="center"

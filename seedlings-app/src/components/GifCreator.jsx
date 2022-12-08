@@ -13,30 +13,36 @@ function GifCreator() {
  
  
     const images = [
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSst9enOUzXzJVPSK8RSi1cF3R8BlZmnOEWngWgNkFrNZIO4eOdllRCmVym3eGqyGjUozc&usqp=CAU',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ylh6HGyD0xXWjUR7zItqIdlDeaa6HTdB-gEvoe61i1NYMSkWas4BuryfE8ttpQBOkJc&usqp=CAU',
-        'https://cdn.shopify.com/s/files/1/0603/4892/4151/files/cabbage-transplant-lo.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDsMYo5v8UFR3Rx1NeIteREPpwDCQLP6qmIA&usqp=CAU',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSygEEZhNPvLGUj0KPoqD5wlPxUDKy69X84g&usqp=CAU',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-daz9yk9ZlLj6xEaVV07fNafkm4ff59Am-rPaYn8Marrvbh0djXq9-DLVsMhOR8vJtfQ&usqp=CAU',
-        'https://cdn.pixabay.com/photo/2021/08/13/21/14/kiteboarding-6543982__340.jpg',
-        'https://cdn.pixabay.com/photo/2022/05/07/20/22/flowers-7180947__340.jpg',
-        'https://cdn.pixabay.com/photo/2021/11/19/11/55/field-6809045__340.jpg',
-        'https://cdn.pixabay.com/photo/2022/05/08/20/21/flowers-7182930__340.jpg',
-        'https://cdn.pixabay.com/photo/2021/08/13/21/14/kiteboarding-6543982__340.jpg',
-        'https://cdn.pixabay.com/photo/2022/05/07/20/22/flowers-7180947__340.jpg',
-        'https://cdn.pixabay.com/photo/2021/11/19/11/55/field-6809045__340.jpg',
-        'https://cdn.pixabay.com/photo/2022/05/08/20/21/flowers-7182930__340.jpg',
-        'https://cdn.pixabay.com/photo/2021/08/13/21/14/kiteboarding-6543982__340.jpg'
-      ];
+    //   'https://foodtank.com/wp-content/uploads/2017/07/Seed-saving-initiatives.jpg',
+    //   'https://images.ctfassets.net/3s5io6mnxfqz/63lqT68x0lXIt2nFUoCdyG/aa28f55e238c3e86ad0a8b3b9a99aae5/AdobeStock_298494604.jpeg',
+    //   'https://media.istockphoto.com/id/1164177646/video/seed-germination-and-time-lapse-with-lens-flare-macro.jpg?s=640x640&k=20&c=1-ihJDIZEwxBZm6zpd5Qfv_UXjdj5O8tYYtM60eEGeM=',
+    //   'https://cdn.shopify.com/s/files/1/1766/2959/articles/Successful_Seed_Germination_1100x.jpg?v=1521176881',
+    //  'https://growingfamily.co.uk/wp-content/uploads/2016/05/Baby-Bio-Outdoor-Fruit-Veg-1-sweetcorn.jpg',
+    //   'https://images.immdiate.co.uk/production/volatile/sites/10/2018/02/54eb2762-2131-4dc3-9d01-54019647b2fa-5f159be.jpg',
+    //     'https://cdn.shopify.com/s/files/1//4892/4151/files/cabbage-transplant-lo.jpg',
+
+    //     // 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDsMYo5v8UFR3Rx1NeIteREPpwDCQLP6qmIA&usqp=CAU',
+    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSygEEZhNPvLGUj0KPoqD5wlPxUDKy69X84g&usqp=CAU',
+    //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-daz9yk9ZlLj6xEaVV07fNafkm4ff59Am-rPaYn8Marrvbh0djXq9-DLVsMhOR8vJtfQ&usqp=CAU',
+
+
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSst9enOUzXzJVPSK8RSi1cF3R8BlZmnOEWngWgNkFrNZIO4eOdllRCmVym3eGqyGjUozc&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ylh6HGyD0xXWjUR7zItqIdlDeaa6HTdB-gEvoe61i1NYMSkWas4BuryfE8ttpQBOkJc&usqp=CAU',
+    'https://cdn.shopify.com/s/files/1/0603/4892/4151/files/cabbage-transplant-lo.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDsMYo5v8UFR3Rx1NeIteREPpwDCQLP6qmIA&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSygEEZhNPvLGUj0KPoqD5wlPxUDKy69X84g&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-daz9yk9ZlLj6xEaVV07fNafkm4ff59Am-rPaYn8Marrvbh0djXq9-DLVsMhOR8vJtfQ&usqp=CAU',
+
+
+  ];
    
       const options = {
         images: images,
         gifWidth: 500,
         gifHeight: 300,
         numWorkers: 5,
-        frameDuration: 0.20,
-        sampleInterval: 10,
+        frameDuration: 1,
+        sampleInterval: 30,
         progressCallback: e => setProgress(parseInt(e * 100))
       };
    
