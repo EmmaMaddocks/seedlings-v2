@@ -3,7 +3,9 @@ import {
     Heading,
     Flex,
     Container,
-    Stack
+    Stack,
+    SimpleGrid,
+    Text
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
   import { useState, useEffect, useContext } from 'react';
@@ -65,14 +67,17 @@ import ScrollToTop from "./ScrollToTop"
             <Heading textStyle="h1" size="3xl" >
               Your saved seeds
             </Heading>
+            <Text textStyle="p" mt={4}>
+              Here's all the seeds you would like to plant. Once you've sowed your seeds, click 'plant' to add them to your allotment where you can be reminded when to water them!
+            </Text>
           </Box>
 
-          <Stack gap={3}>
+          <SimpleGrid minChildWidth='200px' spacing='30px' margin={5}>
 
         {seeds.map((seed) => {
           return <SeedCard key={seed.seed_id} seed={seed} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
         })}
-      </Stack>  
+      </SimpleGrid>  
       <ScrollToTop/>       
         </Flex>
       </>

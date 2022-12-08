@@ -3,7 +3,8 @@ import {
   Heading,
   Flex,
   Container,
-  Stack
+  Stack,
+  SimpleGrid
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
@@ -62,12 +63,12 @@ const Allotment = ({setIndividualCrop, individualCrop}) => {
           </Heading>
         </Box>
 
-        <Stack gap={3}>
+        <SimpleGrid minChildWidth='200px' spacing='30px' margin={5}>
 
       {allotment.map((crop) => {
         return <AllotmentCard crop={crop} setIndividualCrop={setIndividualCrop}  individualCrop={individualCrop} setDeleteCard={setDeleteCard} deleteCard={deleteCard} />;
       })}
-    </Stack>         
+    </SimpleGrid>         
       </Flex>
     </>
   );

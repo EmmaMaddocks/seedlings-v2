@@ -42,17 +42,17 @@ const AllotmentCard = ({ crop, setIndividualCrop, individualCrop, setDeleteCard,
   };
 
   return (
-    <Card bgColor="brand.paleorange" width='300px' align="center" key={datePlanted}>
+    <Card bgColor="brand.paleorange" align="center" key={datePlanted}>
       <CardBody>
         <Image src={picture} alt={name} borderRadius="lg" />
-        <Stack mt="6" spacing="3">
+        <Stack mt="6" spacing="2">
           <Heading textStyle="h2" color='white'>{name}</Heading>
         </Stack>
       </CardBody>
       <CardFooter>
         <ButtonGroup spacing="2">
         <Button variant="solid" bgColor="white" onClick={handleViewProduct}>
-            View Info
+            View
           </Button>
           <Button variant="solid" bgColor="white" onClick={handleClick}>
             Remove

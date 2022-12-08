@@ -58,7 +58,7 @@ const handleDelete = (event) => {
 
 
     return (
-    <Card  width='300px' bgColor='brand.paleorange'>
+    <Card  bgColor='brand.paleorange' align="center">
     <CardBody  >
       <Image
         src={picture}
@@ -75,11 +75,11 @@ const handleDelete = (event) => {
     <CardFooter>
       <ButtonGroup spacing='2'>
       <>  <Button variant='solid' bgColor='white' onClick={(event) => {setIsVisible(true); handlePlant(event)}}>
-          plant Seeds 
+          Plant Seeds 
       </Button>
      {isVisible &&<ConfettiButton/>}</>
         <Button variant='solid' bgColor='white' onClick={handleDelete}>
-          Delete Seeds 
+           Remove 
         </Button>
   
       </ButtonGroup>
