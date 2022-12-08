@@ -232,11 +232,13 @@ return (
                     }}
                   /> */}
 
-      <>  <Button variant='solid' bgColor='white' onClick={() => {handleWatering(veg.datePlanted)}}>
+      <>  <Button variant='solid' bgColor='white' onClick={() => {setIsVisible(true); handleWatering(veg.datePlanted)}}>
           Water 
       </Button>
      {isVisible &&<WaterButton/>}</>
               
+  
+
                 </CardBody>
               </Card>
             </>
