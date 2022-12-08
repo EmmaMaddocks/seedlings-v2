@@ -72,7 +72,7 @@ import ScrollToTop from "./ScrollToTop"
             </Text>
           </Box>
 
-          <SimpleGrid minChildWidth='200px' spacing='30px' margin={5}>
+          <SimpleGrid minChildWidth='250px' spacing='30px' margin={5}>
 
         {seeds.map((seed) => {
           return <SeedCard key={seed.seed_id} seed={seed} setDeleteSeed ={setDeleteSeed} deleteSeed ={deleteSeed}/>;
