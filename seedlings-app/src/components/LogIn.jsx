@@ -16,6 +16,7 @@ import { useForm } from 'react-hook-form';
 import * as api from '../utils/api';
 import { setQuaternionFromProperEuler } from 'three/src/math/MathUtils';
 import { useUserContext, UserContext } from '../context/UserContext';
+import { ReactComponent as Tools } from '../images/tools.svg';
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -67,6 +68,8 @@ const LogIn = () => {
         flexDirection="column"
         gap={6}
       >
+                <Tools />
+
         <Box size="50%">
           <Heading textStyle="h1" size="3xl" mx="100px">
             Welcome Back!
